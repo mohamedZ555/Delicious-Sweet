@@ -1,3 +1,7 @@
+@import url('./pagesStyle/footer.css');
+@import url('./pagesStyle/login.css');
+@import url('./pagesStyle/register.css');
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

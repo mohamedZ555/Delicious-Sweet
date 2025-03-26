@@ -30,8 +30,11 @@ function NaviBar() {
             <Link href="/#" className="nav-link shagr">
               About
             </Link>
-            <Link href="/#" className="nav-link shagr">
-              Sign up
+            <Link href="/login" className="nav-link shagr">
+              Sign In
+            </Link>
+            <Link href="/register" className="nav-link shagr">
+               Register
             </Link>
           </Nav>
           <div className="contcallus d-lg-flex align-items-center justify-content-center">
