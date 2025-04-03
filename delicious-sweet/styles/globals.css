@@ -44,3 +44,11 @@ a {
     color-scheme: dark;
   }
 }
+
+.pointer{
+  cursor: pointer;
+}
+
+.homeFirstBorder{
+  border-right: 0.5px solid black;
+}
