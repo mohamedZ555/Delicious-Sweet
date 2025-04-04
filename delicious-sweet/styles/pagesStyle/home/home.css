@@ -1,0 +1,21 @@
+.catTXT {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  font-size: 16px;
+}
+.homeFirstBorder::after {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 0.5px;
+  background-color: black;
+  top: 0;
+  right: 40px;
+}
+
+@media screen and (max-width: 767px) {
+  .homeFirstBorder::after {
+    display: none;
+  }
+}

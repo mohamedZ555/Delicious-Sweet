@@ -14,10 +14,10 @@ function NaviBar() {
     <Navbar
       collapseOnSelect
       expand="lg"
-      className={`${styles.contNav} col-12 m-auto pt-4 pb-3`}
+      className={`${styles.contNav} col-12 pt-4 pb-3`}
     >
       <div className="bgs container-lg d-flex align-items-center w-100 col-lg-10">
-        <div className="contLogo d-flex d-lg-block justify-content-between align-items-center col-12 col-lg-4">
+        <div className="contLogo d-flex d-lg-block justify-content-between align-items-center col-12 col-lg-3">
           <Link
             href="/"
             className={`navbar-brand fw-bold ${styles.iconLogo} text-black`}
@@ -45,9 +45,9 @@ function NaviBar() {
             </Link>
           </Nav>
           <div className="contcallus d-lg-flex align-items-center justify-content gap-3">
-            <div className="col-12 position-relative">
+            <div className=" position-relative">
               <input
-                className={`col-12 ${styles.iner} px-3 py-2 rounded`}
+                className={`${styles.iner} px-3 py-2 rounded`}
                 placeholder="What are you looking for?"
                 type="text"
               />
