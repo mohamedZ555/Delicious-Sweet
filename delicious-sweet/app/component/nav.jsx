@@ -34,7 +34,7 @@ function NaviBar() {
             <Link href="/" className="nav-link shagr">
               Home
             </Link>
-            <Link href="/#" className="nav-link shagr">
+            <Link href="/about" className="nav-link shagr">
               About
             </Link>
             <Link href="/login" className="nav-link shagr">

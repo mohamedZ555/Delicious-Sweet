@@ -1,4 +1,13 @@
+ /* درجة غمقة */
+ /* color: #9E7A4E; */
 
+ /* درجة فاتحة
+ color:#D68F3C
+ */
+
+@import url(pagesStyle/footer.css);
+@import url(pagesStyle/login.css);
+@import url(pagesStyle/register.css);
 html,
 body {
   max-width: 100vw;
@@ -22,3 +31,68 @@ a {
   cursor: pointer;
 }
 
+.text{
+  color:#D68F3C
+}
+
+/* Animations to Lines */
+.animated-underline-load {
+  position: relative;
+  display: inline-block;
+}
+
+.animated-underline-load::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #616060;
+  animation: underline-load 3s ease forwards;
+}
+
+@keyframes underline-load {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Animation To Btns */
+.btn-animated {
+  position: relative;
+  display: inline-block;
+  padding: 10px 25px;
+  background: #d68e3cb7;
+  border: 1px solid #000 !important;
+  color:white;
+  font-weight: bold;
+  overflow: hidden;
+  transition: color 0.6s linear;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.btn-animated::before {
+  content: "";
+  position: absolute;
+  background: white;
+  color:#D68F3C !important;
+  height: 100%;
+  width: 0;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: width 0.6s ease-in-out;
+}
+
+.btn-animated:hover {
+  color: white;
+}
+
+.btn-animated:hover::before {
+  width: 100%;
+}

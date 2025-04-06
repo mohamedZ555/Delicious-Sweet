@@ -1,0 +1,29 @@
+footer{
+    background-color: rgb(201, 167, 77);
+}
+
+footer h2{
+        font-family: "Imperial Script", cursive;
+        font-weight: 400;
+        font-style: normal;
+      
+}
+
+footer Link{
+    all:unset
+}
+
+footer .icons{
+    display: flex ;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+footer .icons .icon{
+    border-radius: 50%;
+    border:1px solid  #9E7A4E;
+    color:white !important;
+    padding: 5px;
+    font-size: 2rem;
+}

@@ -1,0 +1,32 @@
+ .btn{
+    background-color:#D68F3C;
+}
+ .btn-social{
+    all:unset;
+    border:1px solid #D68F3C;
+    margin:10px;
+    padding:1rem;
+    cursor: pointer;   
+    border-radius: 5px;
+    gap:10px;
+
+}
+ .btn-social:hover{
+    /* درجة غمقة */
+    color: #9E7A4E;
+    border:black;
+    transition: 1s linear;
+}
+ /* .btn-submit{
+    color:white;
+    background-color: #D68F3C;
+}
+ .btn-submit:hover{
+    color:#D68F3C;
+    background-color: white;
+    transition: 1s linear;
+    font-weight: bold;
+
+} */
+
+

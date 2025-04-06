@@ -5,6 +5,7 @@ import BootstrapClient from "./component/BootstrapClient";
 import NaviBar from "./component/nav";
 import Footer from "./component/footer";
 
+
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
