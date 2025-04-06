@@ -96,3 +96,28 @@ a {
 .btn-animated:hover::before {
   width: 100%;
 }
+
+.redText{
+  color: #DB4444;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+}
+.redBox{
+  background-color: #DB4444;
+  width: 20px;
+  height: 40px;
+  border-radius: 4px;
+}
+
+.stars svg path{
+  color: #FFAD33 !important;
+  font-size: 16px !important;
+}
+
+hr{
+  background-color: rgb(214, 214, 214) !important;
+  color:rgb(214, 214, 214) !important ;
+  padding: 1px !important;
+  border-radius: 50px !important;
+}
