@@ -1,6 +1,25 @@
  .btn{
     background-color:#D68F3C;
 }
+
+.btn-submit{
+    color:white !important;
+    background-color: #D68F3C !important;
+    border:1px solid transparent !important;
+    font-weight: bold;
+    
+
+    
+}
+ .btn-submit:hover{
+    color:#D68F3C !important;
+    border:1px solid #D68F3C !important;
+    background-color: white !important;
+    transition: .4s linear !important;
+    font-weight: bold;
+
+
+}
  .btn-social{
     all:unset;
     border:1px solid #D68F3C;
@@ -13,20 +32,14 @@
 }
  .btn-social:hover{
     /* درجة غمقة */
-    color: #9E7A4E;
-    border:black;
-    transition: 1s linear;
+    color: White;
+    background-color: #c87c2b;
+    border:1px solid black;
+    transition: .4s ease;
 }
- /* .btn-submit{
-    color:white;
-    background-color: #D68F3C;
-}
- .btn-submit:hover{
-    color:#D68F3C;
-    background-color: white;
-    transition: 1s linear;
-    font-weight: bold;
 
-} */
 
+ .edit-img Image{
+    border-radius: 12px;
+ }
 

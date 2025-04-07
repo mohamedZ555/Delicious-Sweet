@@ -1,0 +1,11 @@
+.register .btn-submit{
+    border:1px solid rgb(216, 216, 216) !important;
+}
+.register .btn-submit:hover{
+    border:1px solid #D68F3C;
+}
+
+.register .btn-icon:hover{
+    border:1px solid rgb(216, 216, 216) !important;
+
+}

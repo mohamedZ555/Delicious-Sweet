@@ -35,6 +35,10 @@ a {
   color:#D68F3C
 }
 
+.textDark{
+  color: #9E7A4E;
+
+}
 /* Animations to Lines */
 .animated-underline-load {
   position: relative;

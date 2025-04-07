@@ -5,7 +5,7 @@ import { FaGoogle, FaFacebookF } from "react-icons/fa";
 export default function Register() {
     return (
       <>
-         <div className="container  my-4">
+         <div className="container  my-4 register">
           <h2 className="text my-5 text-center ">
              <span className="d-inline-block text  border-1 border-dark pb-1 animated-underline-load">
              Sign Up
@@ -49,7 +49,7 @@ export default function Register() {
             </div>
           </div>
           <div className="col-12">
-            <button type="submit" className="btn btn-submit btn-animated">Sign Up</button>
+            <button type="submit" className=" btn btn-submit btn-animated">Sign Up</button>
           </div>
            <div className="row my-4 text-center m-auto">
               <a href="#" className=" col-md btn-social"><FaGoogle className="btn-icon" /> sigin in by Google Email</a>
