@@ -5,7 +5,7 @@
 
 .subText {
   font-size: 20px;
-  color: #434d60;
+  color: black;
   font-family: "Roboto", serif !important;
 }
 
@@ -14,83 +14,58 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
-}
-
-.cardCont {
-  border: 3px solid #dcedd8;
-}
+} 
 
 .cardPrice {
   font-size: 16px;
-  color: #DB4444;
+  color: #db4444;
 }
-.addToCardBtn {
-  font-size: 12px;
-  cursor: pointer;
-  background-image: linear-gradient(to right, #006600, #6dc81b);
-}
-
-
-.cardHover {
-  background-color: #03262c;
-  opacity: 0;
-  transition: 0.3s;
-}
-
-.firIcon {
-  color: #107404;
-  top: 30%;
-  left: 55%;
-  cursor: pointer;
-  width: 51px;
-  height: 51px;
-  transition: 0.5s;
-}
-.secIcon {
-  cursor: pointer;
-  color: #107404;
-  top: 30%;
-  right: 55%;
-  width: 51px;
-  height: 51px;
-  transition: 0.5s;
-}
-.firIcon:hover,
 
 .cardImg {
   height: 250px !important;
   width: 100% !important;
 }
-.cardCont:hover {
-  border: none;
-  .cardHover {
-    opacity: 1;
-  }
-  .cardTitle {
-    color: white !important;
-  }
+.likes{
+  transition: 0.3s;
 }
-.likes:hover{
-  background-color: #DB4444 !important;
+.likes:hover {
+  background-color: #db4444 !important;
+}
+.likes:hover svg path {
   color: white !important;
 }
-
+.category {
+  width: 170px;
+  height: 145px;
+  border: 2px solid rgb(214, 214, 214);
+  transition: 0.3s ;
+}
+.category:hover {
+  border-color: #db4444;
+  background-color: #db4444;
+  .cardTitle {
+    color: white;
+  }
+  .categoryIcons svg path {
+    color: white;
+  }
+}
 .redDott {
   color: #e07575;
   font-size: 30px;
 }
-.discountPrice{
-  background-color: #DB4444;
+.discountPrice {
+  background-color: #db4444;
   height: fit-content;
   color: white;
   font-size: 12px;
   font-weight: 400;
   line-height: 18px;
 }
-.viewProducts{
+.viewProducts {
   font-size: 16px;
   font-weight: 500;
-  background-color: #DB4444;
+  background-color: #db4444;
   color: white;
   text-decoration: none;
 }
@@ -104,6 +79,68 @@
   font-size: 12px;
   font-weight: 500;
   line-height: 18px;
+}
+.cartImageCont {
+  height: 250px;
+  overflow: hidden;
+}
+
+.addToCart {
+  font-size: 16px;
+  font-weight: 500;
+  background-color: black;
+  display: none;
+  color: white;
+  transition: 0.3s !important;
+}
+.productCard:hover {
+  .addToCart {
+    display: flex;
+  }
+}
+
+.flashText {
+  font-size: 36px !important;
+  color: black;
+  font-weight: 600;
+  line-height: 48px;
+}
+
+.productCarrd {
+  border: 3px solid #dcedd8;
+}
+
+.flashArrow {
+  background-color: #f5f5f5;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 300 !important;
+  color: black !important;
+  transition: .3s !important;
+}
+
+.flashArrow:hover{
+  background-color: #db4444;
+}
+.flashArrow:hover svg path {
+  color: white !important;
+}
+
+@media screen and (max-width: 770px) {
+  .flashText {
+    font-size: 30px;
+  }
+  .relatedArrow {
+    font-size: 25px;
+  }
+}
+@media screen and (max-width: 464px) {
+  .flashText {
+    font-size: 25px;
+  }
+  .relatedArrow {
+    font-size: 22px;
+  }
 }
 @media screen and (max-width: 575px) {
   .firIcon {
@@ -140,44 +177,5 @@
   }
   .addToCardBtn {
     font-size: 12px;
-  }
-}
-
-.flashText {
-  font-size: 36px !important;
-  color: black;
-  font-weight: 600;
-  line-height: 48px;
-}
-
-.productCarrd {
-  border: 3px solid #dcedd8;
-}
-
-.flashArrow {
-  background-color: #f5f5f5;
-  cursor: pointer;
-  font-size: 18px;
-  font-weight: 300 !important;
-}
-
-.flashArrow:hover{
-  background-color: #DB4444;
-}
-
-@media screen and (max-width: 770px) {
-  .flashText {
-    font-size: 30px;
-  }
-  .relatedArrow {
-    font-size: 25px;
-  }
-}
-@media screen and (max-width: 464px) {
-  .flashText {
-    font-size: 25px;
-  }
-  .relatedArrow {
-    font-size: 22px;
   }
 }

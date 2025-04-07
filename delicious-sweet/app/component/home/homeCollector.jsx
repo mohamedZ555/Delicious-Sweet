@@ -1,7 +1,8 @@
 import HomeSideBare from "./homeFirstPart/homeSideBare";
 import HomeSlider from "./homeFirstPart/homeSlider";
 import FlashSales from "./homeSecondPart/flashSales";
-
+import BrowseCategory from "./homeThirdPart/browseCategory";
+import BestSelling from "./homeFourthPart/bestSelling";
 export default function HomeCollector() {
     return (
       <div className="container">
@@ -13,7 +14,11 @@ export default function HomeCollector() {
       <HomeSlider />
       </div>
       </div>
-      <div><FlashSales /></div>
+      <FlashSales />
+      <hr />
+      <BrowseCategory />
+      <hr />
+      <BestSelling />
     </div>
     );
   }

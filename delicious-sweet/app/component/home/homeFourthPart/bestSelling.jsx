@@ -1,8 +1,6 @@
 "use client";
 
 import { useRef } from "react";
-import { FaArrowLeftLong } from "react-icons/fa6";
-import { FaArrowRightLong } from "react-icons/fa6";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
@@ -16,13 +14,6 @@ const rating = 4.5;
 export default function FlashSales() {
   const swiperRef = useRef(null);
 
-  const handlePrev = () => {
-    if (swiperRef.current) swiperRef.current.slidePrev();
-  };
-
-  const handleNext = () => {
-    if (swiperRef.current) swiperRef.current.slideNext();
-  };
   const relatedProducts = [
     {
       id: 1,
@@ -95,49 +86,22 @@ export default function FlashSales() {
       <section>
         <div className="d-flex align-items-center gap-3 pb-3">
           <div className="redBox"></div>
-          <div className="redText">Today’s</div>
+          <div className="redText">This Month</div>
         </div>
         <div className="d-flex align-items-center justify-content-between pb-lg-5 pb-4">
           <div className="d-flex gap-5">
-            <div className={`${styles.flashText} fw-semibold pe-5 pt-2 `}>
-              Flash Sales
-            </div>
-            <div className="d-flex align-items-center gap-3">
-              <div className="d-flex flex-column align-items-center">
-                <div className={styles.date}>days</div>
-                <div className={styles.time}>03</div>
-              </div>
-              <div className={styles.redDott}>:</div>
-              <div className="d-flex flex-column align-items-center">
-                <div className={styles.date}>Hours</div>
-                <div className={styles.time}>23</div>
-              </div>
-              <div className={styles.redDott}>:</div>
-              <div className="d-flex flex-column align-items-center">
-                <div className={styles.date}>Minutes</div>
-                <div className={styles.time}>19</div>
-              </div>
-              <div className={styles.redDott}>:</div>
-              <div className="d-flex flex-column align-items-center">
-                <div className={styles.date}>Seconds</div>
-                <div className={styles.time}>56</div>
-              </div>
+            <div className={`${styles.flashText} fw-semibold `}>
+            Best Selling Products
             </div>
           </div>
-          <div className="d-flex align-items-center gap-2">
-            <div
-              className={`${styles.flashArrow} p-lg-3 rounded-circle p-1 d-flex justify-content-center align-items-center`}
-              onClick={handlePrev}
-            >
-              <FaArrowLeftLong />
-            </div>
-            <div
-              className={`${styles.flashArrow} p-lg-3 rounded-circle p-1 d-flex justify-content-center align-items-center`}
-              onClick={handleNext}
-            >
-              <FaArrowRightLong />
-            </div>
-          </div>
+          <div className="pt-2 d-flex justify-content-center">
+          <Link
+            href="/"
+            className={`${styles.viewProducts} px-5 py-3 rounded`}
+          >
+            View All
+          </Link>
+        </div>
         </div>
 
         <Swiper
@@ -179,15 +143,6 @@ export default function FlashSales() {
                   </div>
                 </div>
                 <div className="d-flex justify-content-between position-absolute top-0 start-0 p-2 w-100">
-                  {product.discount > 0 && (
-                    <div
-                      className={`${styles.discountPrice} px-3 py-1 rounded`}
-                    >
-                      -{product.discount}
-                      {product.discount_type === "percent" ? "%" : "$"}
-                    </div>
-                  )}
-
                   <div className="d-flex align-items-center gap-2 flex-column ms-auto">
                     <div
                       className={`${styles.likes} p-1 fs-5 d-flex bg-white rounded-circle pointer`}
@@ -237,14 +192,7 @@ export default function FlashSales() {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="pt-2 d-flex justify-content-center">
-          <Link
-            href="/"
-            className={`${styles.viewProducts} px-5 py-3 mt-5 rounded`}
-          >
-            View All Products
-          </Link>
-        </div>
+
       </section>
     </main>
   );
