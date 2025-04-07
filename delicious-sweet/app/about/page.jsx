@@ -40,7 +40,7 @@ export default function About() {
               <h2 className='text text-center mt-5 mb-4'> Our Store Location</h2>
               <div className="w-full h-[400px] rounded-xl overflow-hidden shadow-md">
                 <iframe
-                    src="https://www.google.com/maps/search/%D9%83%D8%B1%D9%8A%D8%AA%D9%8A%D9%81+%D9%85%D9%88%D9%84+%D8%A7%D9%84%D8%AD%D9%8A+%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB+%D8%A7%D9%84%D8%B9%D8%A8%D9%88%D8%B1"
+                    src="https://maps.app.goo.gl/kzfyGfTxwPm5m4p56"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
