@@ -1,5 +1,6 @@
 import HomeSideBare from "./homeFirstPart/homeSideBare";
 import HomeSlider from "./homeFirstPart/homeSlider";
+import FlashSales from "./homeSecondPart/flashSales";
 
 export default function HomeCollector() {
     return (
@@ -12,6 +13,7 @@ export default function HomeCollector() {
       <HomeSlider />
       </div>
       </div>
+      <div><FlashSales /></div>
     </div>
     );
   }

@@ -1,0 +1,183 @@
+.headerText {
+  font-size: 58px;
+  color: #061738;
+}
+
+.subText {
+  font-size: 20px;
+  color: #434d60;
+  font-family: "Roboto", serif !important;
+}
+
+.cardTitle {
+  color: black;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.cardCont {
+  border: 3px solid #dcedd8;
+}
+
+.cardPrice {
+  font-size: 16px;
+  color: #DB4444;
+}
+.addToCardBtn {
+  font-size: 12px;
+  cursor: pointer;
+  background-image: linear-gradient(to right, #006600, #6dc81b);
+}
+
+
+.cardHover {
+  background-color: #03262c;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.firIcon {
+  color: #107404;
+  top: 30%;
+  left: 55%;
+  cursor: pointer;
+  width: 51px;
+  height: 51px;
+  transition: 0.5s;
+}
+.secIcon {
+  cursor: pointer;
+  color: #107404;
+  top: 30%;
+  right: 55%;
+  width: 51px;
+  height: 51px;
+  transition: 0.5s;
+}
+.firIcon:hover,
+
+.cardImg {
+  height: 250px !important;
+  width: 100% !important;
+}
+.cardCont:hover {
+  border: none;
+  .cardHover {
+    opacity: 1;
+  }
+  .cardTitle {
+    color: white !important;
+  }
+}
+.likes:hover{
+  background-color: #DB4444 !important;
+  color: white !important;
+}
+
+.redDott {
+  color: #e07575;
+  font-size: 30px;
+}
+.discountPrice{
+  background-color: #DB4444;
+  height: fit-content;
+  color: white;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+}
+.viewProducts{
+  font-size: 16px;
+  font-weight: 500;
+  background-color: #DB4444;
+  color: white;
+  text-decoration: none;
+}
+.time {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 4%;
+  line-height: 30px;
+}
+.date {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+@media screen and (max-width: 575px) {
+  .firIcon {
+    width: 80px;
+    height: 80px;
+    font-size: 28px;
+  }
+  .secIcon {
+    width: 80px;
+    height: 80px;
+    font-size: 28px;
+  }
+  .addToCardBtn {
+    font-size: 17px;
+  }
+  .cardPrice {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .firIcon {
+    width: 60px;
+    height: 60px;
+    font-size: 20px;
+  }
+  .secIcon {
+    font-size: 20px;
+    width: 60px;
+    height: 60px;
+  }
+  .cardPrice {
+    font-size: 16px;
+  }
+  .addToCardBtn {
+    font-size: 12px;
+  }
+}
+
+.flashText {
+  font-size: 36px !important;
+  color: black;
+  font-weight: 600;
+  line-height: 48px;
+}
+
+.productCarrd {
+  border: 3px solid #dcedd8;
+}
+
+.flashArrow {
+  background-color: #f5f5f5;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 300 !important;
+}
+
+.flashArrow:hover{
+  background-color: #DB4444;
+}
+
+@media screen and (max-width: 770px) {
+  .flashText {
+    font-size: 30px;
+  }
+  .relatedArrow {
+    font-size: 25px;
+  }
+}
+@media screen and (max-width: 464px) {
+  .flashText {
+    font-size: 25px;
+  }
+  .relatedArrow {
+    font-size: 22px;
+  }
+}

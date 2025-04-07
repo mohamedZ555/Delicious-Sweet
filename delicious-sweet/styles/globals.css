@@ -22,3 +22,20 @@ a {
   cursor: pointer;
 }
 
+.redText{
+  color: #DB4444;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+}
+.redBox{
+  background-color: #DB4444;
+  width: 20px;
+  height: 40px;
+  border-radius: 4px;
+}
+
+.stars svg path{
+  color: #FFAD33 !important;
+  font-size: 16px !important;
+}
