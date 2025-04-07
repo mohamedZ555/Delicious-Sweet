@@ -1,7 +1,9 @@
 footer{
     background-color: rgb(201, 167, 77);
 }
-
+footer .container{
+    background-color: transparent;
+}
 footer h2{
         font-family: "Imperial Script", cursive;
         font-weight: 400;
