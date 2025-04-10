@@ -12,6 +12,7 @@ export default function Footer() {
         <div className="row">
           <div className="col-12 my-3">
           <Image src="/images/logo.jpg"
+          alt="logo"
             width={100}
             height={100}
             style={{borderRadius:"50%"}}/>

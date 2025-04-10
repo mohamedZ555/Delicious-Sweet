@@ -15,9 +15,9 @@ body {
   overflow-x: hidden;
   background-color: wheat;
 }
-.container{
+/* .container{
   background-color: #faf6f3;
-}
+} */
 
 * {
   box-sizing: border-box;
@@ -107,13 +107,13 @@ a {
 }
 
 .redText{
-  color: #DB4444;
+  color: #D68F3C;
   font-size: 16px;
   font-weight: 600;
   line-height: 20px;
 }
 .redBox{
-  background-color: #DB4444;
+  background-color: #D68F3C;
   width: 20px;
   height: 40px;
   border-radius: 4px;
