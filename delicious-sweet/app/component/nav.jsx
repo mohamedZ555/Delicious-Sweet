@@ -5,6 +5,7 @@ import { Navbar, Nav } from "react-bootstrap";
 import { BsCart3 } from "react-icons/bs";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { FaRegHeart } from "react-icons/fa";
+import { CgProfile } from "react-icons/cg";
 import styles from "@/styles/pagesStyle/nav.module.css";
 
 function NaviBar() {
@@ -30,18 +31,18 @@ function NaviBar() {
           />
         </div>
         <Navbar.Collapse id="responsive-navbar-nav" className="collapsBG">
-          <Nav className="me-auto d-flex align-items-center ps-lg-1">
-            <Link href="/" className="nav-link shagr">
+          <Nav className="me-auto gap-4 d-flex align-items-center ps-lg-1">
+            <Link href="/" className={styles.navLinks}>
               Home
             </Link>
-            <Link href="/about" className="nav-link shagr">
+            <Link href="/contact" className={styles.navLinks}>
+              Contact
+            </Link>
+            <Link href="/about" className={styles.navLinks}>
               About
             </Link>
-            <Link href="/login" className="nav-link shagr">
-              Sign In
-            </Link>
-            <Link href="/register" className="nav-link shagr">
-               Register
+            <Link href="/login" className={styles.navLinks}>
+              Sign Up
             </Link>
           </Nav>
           <div className="contcallus d-lg-flex align-items-center justify-content gap-3">
@@ -60,16 +61,21 @@ function NaviBar() {
             </div>
             <div className="d-flex flex-column flex-lg-row justify-content-center align-items-center py-lg-0 py-1 gap-2 pb-4 pb-lg-0">
               <Link href="/cart" className="underLine text-black fs-5">
-                <div className="shoppingCart position-relative ms-lg-2 fw-bold text-center d-none align-items-center justify-content-center d-lg-flex">
+                <div className="shoppingCart position-relative fw-bold text-center d-none align-items-center justify-content-center d-lg-flex">
                   <div>
                     <span className="d-flex">
                       <BsCart3 />
                     </span>
                   </div>
                 </div>
-                <div className="d-lg-none CartText"></div>
               </Link>
             </div>
+            <Link
+              href="/profile"
+              className="text-black fs-4 d-flex align-items-center justify-content-center"
+            >
+              <CgProfile />
+            </Link>
           </div>
         </Navbar.Collapse>
       </div>
