@@ -1,0 +1,135 @@
+
+.checkoutTitle {
+  font-size: 30px;
+  color: black;
+}
+
+.checkoutDisc {
+  font-size: 17px;
+  color: #555555;
+}
+.CARTCalc{
+  background-color: black;
+}
+.checkoutCheck {
+  border: 2px solid black !important;
+  cursor: pointer;
+}
+.checkoutCheck[type="radio"]:checked {
+  border: 5px solid #D68F3C !important;
+  box-shadow: none;
+  background-color: transparent !important;
+}
+.checkoutCheck[type="radio"]:focus {
+  box-shadow: none;
+}
+.checkOut{
+  background-color: #D68F3C;
+  width: fit-content;
+}
+.paymentText {
+  background-color: black ;
+  font-size: 17px;
+  color: white;
+}
+.cartTotBorder{
+  border: 2px solid black;
+}
+.creditText {
+  color: black;
+  font-size: 16px;
+}
+.totalCost{
+  border: 2px solid black;
+  border-top: none;
+}
+.checkoutForm {
+  border: 2px solid black ;
+  color: black;
+  width: 48%;
+  outline: none;
+  font-size: 14px;
+}
+.checkoutCheck:focus,
+.noteOF:focus {
+  outline: none;
+}
+
+.checkoutForm::placeholder {
+  font-size: 14px;
+  color: #555555;
+}
+
+.noteOF {
+  border: 2px solid black ;
+  color: black;
+  outline: none;
+  font-size: 14px;
+  height: 328px;
+}
+.numbersColorgold{
+color: #D68F3C;;
+}
+.checkOut{
+    cursor: pointer;
+}
+
+
+
+@media screen and (max-width: 991px) {
+    .checkoutTitle {
+        font-size: 25px;
+      }
+      .checkoutDisc{
+        font-size: 15px;
+      }
+      .creditText{
+        font-size: 14px;
+      }
+      .checkOutIMG{
+        width: 100px;
+      }
+      .checkoutForm{
+        font-size: 13px;
+      }
+      .checkoutForm::placeholder {
+        font-size: 13px;
+      }
+      
+}
+
+@media screen and (max-width: 770px) {
+    .checkoutTitle {
+        font-size: 30px;
+      }
+      .checkoutDisc{
+        font-size: 17px;
+      }
+      .creditText{
+        font-size: 16px;
+      }
+      .checkOutIMG{
+        width: 80px;
+      }
+      .checkoutForm{
+        font-size: 14px;
+      }
+      .checkoutForm::placeholder {
+        font-size: 14px;
+      }
+      .noteOF{
+        height: 200px;
+      }
+  }
+  
+  @media screen and (max-width: 575px) {
+    .checkoutDisc{
+        font-size: 14px;
+      }
+      .noteOF{
+        height: 150px;
+      }
+      .checkoutForm{
+        width: 100%;
+      }
+    }

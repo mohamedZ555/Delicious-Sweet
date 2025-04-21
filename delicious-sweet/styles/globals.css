@@ -105,7 +105,9 @@ a {
 .btn-animated:hover::before {
   width: 100%;
 }
-
+img {
+ object-fit: cover !important; 
+}
 .redText{
   color: #D68F3C;
   font-size: 16px;

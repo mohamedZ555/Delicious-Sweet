@@ -1,0 +1,125 @@
+
+.TabBGHeader {
+  background-color: #d68e3cb7 !important;
+  font-size: 17px !important;
+}
+
+.cartIMGS {
+  height: 113px;
+}
+
+.tableSpaces {
+  color: #232323;
+}
+
+.tableSpaces tbody tr {
+  border-bottom-color: transparent !important; /* Removes the bottom border of each row */
+}
+
+.tableSpaces thead th {
+  border-bottom-color: #d68e3cb7 !important; /* Optional: Keeps the header bottom border */
+}
+
+td {
+  padding: 0 !important;
+  padding-bottom: 15px !important;
+  width: 234px !important ;
+}
+
+.tableBoxs {
+  height: 160px !important;
+  border: 2px solid #d68e3cb7;
+  border-collapse: collapse;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantity-controls {
+  width: fit-content;
+  border: 2px solid #d68e3cb7;
+  font-size: 20px;
+  margin: auto;
+}
+
+.tableTitle {
+  font-size: 23px;
+}
+.tablePrice,
+.tableTotal {
+  font-size: 20px;
+}
+
+.plusColor {
+  color: #f44d4d;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.plusSize {
+  font-size: 30px;
+}
+.borr {
+  border-left: 0 !important;
+  border-right: 0 !important;
+}
+
+@media screen and (max-width: 770px) {
+  .quantity-controls {
+    font-size: 16px;
+  }
+  .tableTitle {
+    font-size: 18px;
+  }
+  .tablePrice,
+  .tableTotal {
+    font-size: 16px;
+
+  }
+  .TabBGHeader {
+    font-size: 16px !important;
+  }
+  .plusColor {
+    font-size: 17px;
+  }
+
+  .plusSize {
+    font-size: 17px;
+  }
+  .tableBoxs {
+    height: 110px !important;
+  }
+  .cartIMGS {
+    height: 90px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .quantity-controls {
+    font-size: 14px;
+  }
+  .tableTitle {
+    font-size: 16px;
+  }
+  .tablePrice,
+  .tableTotal {
+    font-size: 14px;
+
+  }
+  .TabBGHeader {
+    font-size: 14px !important;
+  }
+  .plusColor {
+    font-size: 15px;
+  }
+
+  .plusSize {
+    font-size: 15px;
+  }
+  .tableBoxs {
+    height: 70px !important;
+  }
+  .cartIMGS {
+    height: 66px;
+  }
+}

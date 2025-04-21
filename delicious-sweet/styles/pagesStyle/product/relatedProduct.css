@@ -1,0 +1,32 @@
+.relatedText {
+  font-size: 58px;
+  color: #061738;
+}
+
+.productCarrd{
+  border: 3px solid #DCEDD8;
+}
+
+.relatedArrow{
+    color: #061738;
+    border: 2px solid #BCBCBC;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+@media screen and (max-width: 770px) {
+  .relatedText{
+    font-size: 50px;
+  }
+  .relatedArrow{
+    font-size: 25px;
+  }
+}
+@media screen and (max-width: 464px) {
+  .relatedText{
+    font-size: 40px;
+  }
+  .relatedArrow{
+    font-size: 22px;
+  }
+}

@@ -1,0 +1,94 @@
+
+.couponButtun {
+  background-color: #d68f3c;
+  width: fit-content;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.couponCont {
+  height: 58px;
+}
+
+.couponInput {
+  border: 2px solid #e2f6de;
+  border-right: none;
+  width: 247px;
+  font-size: 16px;
+  color: black;
+}
+
+.couponInput::placeholder {
+  color: #555555;
+}
+
+.CARTCalc {
+  background-color: black;
+  font-size: 18px;
+}
+
+.subTot {
+  color: black;
+  font-size: 17px;
+}
+
+.disCount {
+  color: black;
+  font-size: 17px;
+}
+
+.totalCost {
+  color: black;
+  font-size: 20px;
+  border: 2px solid #e2f6de;
+  border-top: none;
+}
+
+.calcTotalCont {
+  width: 273px;
+}
+.cartTotBorder {
+  border: 2px solid #e2f6de;
+  border-top: none;
+}
+
+.numbersColorGreen {
+  color: #d68f3c;
+}
+
+.numbersColorGray {
+  color: #767676;
+}
+
+.checkOut {
+  background-color: #d68f3c;
+  font-size: 16px;
+  width: fit-content;
+  text-decoration: none !important;
+}
+
+@media screen and (max-width: 575px) {
+  .couponButtun {
+    font-size: 14px;
+  }
+  .checkOut {
+    font-size: 14px;
+  }
+  .couponInput {
+    font-size: 14px;
+    width: 60%;
+  }
+  .couponCont {
+    height: 50px;
+  }
+
+  .totalCost {
+    font-size: 17px;
+  }
+  .disCount {
+    font-size: 15px;
+  }
+  .subTot {
+    font-size: 15px;
+  }
+}

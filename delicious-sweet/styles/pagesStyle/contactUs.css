@@ -1,0 +1,88 @@
+.mainText {
+  line-height: 1.4;
+  font-weight: 600;
+  font-family: "poppins";
+  font-size: 45px;
+  color: #4d4d4d;
+}
+
+.subText {
+  line-height: 1.4;
+  font-weight: 400;
+  font-family: "poppins";
+  font-size: 18px;
+  color: #6f6f6f;
+}
+
+.ContactTxtArea {
+  height: 140px;
+}
+
+.sendBTN {
+  font-weight: 500;
+  font-size: 18px;
+  color: #fefefe;
+  background-color: #466ba4;
+  font-family: "poppins";
+  border: none;
+}
+
+.contactIput {
+  border: 1px solid #4D4D4D66 !important;
+  background-color: transparent !important;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  color: #6f6f6f;
+}
+.mapBG {
+  background-color: #fbfbfb !important;
+}
+
+.contactIput::placeholder {
+  color: #6f6f6f !important;
+}
+@media screen and (max-width: 1200px) {
+  .mainText {
+    font-size: 40px;
+  }
+}
+@media screen and (max-width: 991px) {
+  .mainText {
+    font-size: 26px;
+  }
+  .subText {
+    font-size: 14px;
+  }
+  .contactIput {
+    font-size: 14px;
+  }
+  .sendBTN {
+    font-size: 14px;
+  }
+  .mapp {
+    height: 350px;
+  }
+}
+@media screen and (max-width: 770px) {
+  .mapp {
+    height: 300px;
+  }
+}
+@media screen and (max-width: 575px) {
+  .mainText {
+    font-size: 24px;
+  }
+  .subText {
+    font-size: 12px;
+  }
+  .contactIput {
+    font-size: 12px;
+  }
+  .sendBTN {
+    font-size: 12px;
+  }
+  .mapp {
+    height: 250px;
+  }
+}

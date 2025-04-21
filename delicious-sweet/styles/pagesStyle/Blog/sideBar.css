@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  font-family: "Barlow Condensed", serif !important;
+}
+.sideBarSearch {
+  font-size: 16px;
+  color: #03262c;
+  border: 2px solid #e9f8e6;
+  font-family: "Roboto", serif !important;
+  border-right: none;
+  outline: none;
+}
+
+.sideBarSearch::placeholder {
+  font-size: 15px;
+  color: #03262c;
+  font-family: "Roboto", serif !important;
+}
+
+.serrch {
+  font-size: 28px;
+  background-image: linear-gradient(to left, #6dc81b, #006600);
+  color: white;
+  cursor: pointer;
+}
+
+.sideBarTitle {
+  color: #03262c;
+  font-size: 25px;
+}
+
+.postLinkss {
+  color: #03262c;
+  font-family: "Roboto", serif !important;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.postLinkss:hover {
+  background-image: linear-gradient(to left, #6dc81b, #006600);
+  color: white;
+}
+.sideBarArrow {
+  font-size: 11px;
+}
+.monsterBorder {
+  border: 2px solid #e9f8e6;
+}
+
+.dateColGreen {
+  color: #57b416;
+  font-size: 16px;
+}
+.strawbSideFont {
+  font-size: 21px;
+  color: #03262c;
+}
+
+.popularTags {
+  border: 1px solid #e9f8e6;
+  font-size: 15px;
+  color: #03262c;
+  font-family: "Roboto", serif !important;
+  cursor: pointer;
+}
+
+.popularTags:hover {
+  border-color: #57b416;
+}
+
+hr {
+  color: #e2f6de !important;
+  opacity: 1 !important;
+}
+
+@media screen and (max-width: 991px) {
+  .sideBarSearch {
+    font-size: 14px;
+  }
+
+  .sideBarSearch::placeholder {
+    font-size: 13px;
+  }
+
+  .serrch {
+    font-size: 25px;
+  }
+
+  .sideBarTitle {
+    font-size: 22px;
+  }
+
+  .postLinkss {
+    font-size: 14px;
+  }
+
+  .sideBarArrow {
+    font-size: 11px;
+  }
+
+  .dateColGreen {
+    font-size: 14px;
+  }
+  .strawbSideFont {
+    font-size: 18px;
+  }
+
+  .popularTags {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .sideBarSearch {
+    font-size: 13px;
+  }
+
+  .sideBarSearch::placeholder {
+    font-size: 12px;
+  }
+
+  .serrch {
+    font-size: 23px;
+  }
+
+  .sideBarTitle {
+    font-size: 19px;
+  }
+
+  .postLinkss {
+    font-size: 12px;
+  }
+
+  .sideBarArrow {
+    font-size: 11px;
+  }
+
+  .dateColGreen {
+    font-size: 13px;
+  }
+  .strawbSideFont {
+    font-size: 16px;
+  }
+
+  .popularTags {
+    font-size: 12px;
+  }
+}

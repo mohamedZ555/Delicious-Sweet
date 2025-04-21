@@ -1,0 +1,95 @@
+.BlogNoti {
+  font-size: 16px;
+  color: #03262c;
+}
+
+.BlogGreen {
+  color: #52af15;
+  font-size: 20px;
+}
+
+.BlogTittle {
+  color: #03262c;
+  font-size: 28px;
+  line-height: 1.3;
+}
+
+.reeeedMore:hover{
+  cursor: pointer;
+  color: #52af15;
+}
+
+.ReadMore {
+  color: #293f73;
+  font-size: 16px;
+  font-family: "Roboto", serif !important;
+  cursor: pointer;
+  width: fit-content !important;
+}
+.BlogIMG {
+  height: 373px;
+}
+
+@media screen and (max-width: 991px) {
+  .BlogNoti {
+    font-size: 12px;
+  }
+
+  .BlogGreen {
+    font-size: 12px;
+  }
+
+  .BlogTittle {
+    font-size: 18px;
+  }
+
+  .ReadMore {
+    font-size: 11px;
+  }
+  .BlogIMG {
+    height: 250px;
+  }
+}
+
+@media screen and (max-width: 770px) {
+    .BlogNoti {
+        font-size: 11px;
+      }
+    
+      .BlogGreen {
+        font-size: 11px;
+      }
+    
+      .BlogTittle {
+        font-size: 16px;
+      }
+    
+      .ReadMore {
+        font-size: 10px;
+      }
+      .BlogIMG {
+        height: 150px;
+      }
+}
+
+@media screen and (max-width: 575px) {
+
+    .BlogNoti {
+        font-size: 11px;
+      }
+    
+      .BlogGreen {
+        font-size: 11px;
+      }
+    
+      .BlogTittle {
+        font-size: 22px;
+      }
+    
+      .ReadMore {
+        font-size: 10px;
+      }
+      .BlogIMG {
+        height: 150px;
+      }
+}
