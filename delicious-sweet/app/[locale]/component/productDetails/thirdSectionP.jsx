@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import "../../../styles/pagesStyle/product/thirdSectionP.css";
+import "../../../../styles/pagesStyle/product/thirdSectionP.css";
 
 const ThirdSectionP = () => {
   const [selectedTab, setSelectedTab] = useState("DESCRIPTION");

@@ -16,7 +16,6 @@ export default function Profile() {
     phone: "",
     country: "",
     city: "",
-    image: "/image/profilePerson1.png",
   });
 
   useEffect(() => {
@@ -45,7 +44,6 @@ export default function Profile() {
           phone: data.phone || "",
           country: data.country || "",
           city: data.city || "",
-          image: data.image_full_url?.path || "/image/profilePerson1.png",
         });
       } catch (error) {
         console.error("Error fetching user data:", error);
@@ -107,20 +105,11 @@ export default function Profile() {
   return (
     <div className="py-5 my-5 container">
       <div className="pt-5 d-flex align-items-center justify-content-between">
-        <div className="d-flex align-items-center gap-4">
-          <img
-            width={100}
-            height={100}
-            src={userData.image}
-            alt={t("profileImageAlt")}
-            className="rounded-circle"
-          />
-          <div className="d-flex flex-column align-items-start">
-            <div className="profileName fw-bold text-capitalize">
-              {userData.f_name} {userData.l_name}
-            </div>
-            <div className="profileEmail fw-semibold">{userData.email}</div>
+        <div className="d-flex flex-column align-items-start">
+          <div className="profileName fw-bold text-capitalize">
+            {userData.f_name} {userData.l_name}
           </div>
+          <div className="profileEmail fw-semibold">{userData.email}</div>
         </div>
         {!isEditing ? (
           <button

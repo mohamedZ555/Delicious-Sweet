@@ -21,7 +21,6 @@ function ProductContainer({ products, categoryData }) {
     <main className="container py-sm-5 pt-5 pb-3 my-sm-5">
       <section className="row">
         <SideBar
-          noneactive={"d-none"}
           setSearchTerm={setSearchTerm}
           setSelectedCategory={handleCategoryFilter}
           categoryData={categoryData}

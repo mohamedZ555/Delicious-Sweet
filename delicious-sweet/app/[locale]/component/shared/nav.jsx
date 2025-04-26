@@ -1,11 +1,11 @@
 "use client";
-import {Link} from "@/i18n/routing";
+import { Link } from "@/i18n/routing";
 import { usePathname } from "next/navigation";
 import { Navbar, Nav } from "react-bootstrap";
 import { BsCart3 } from "react-icons/bs";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { FaRegHeart } from "react-icons/fa";
-import { CgProfile } from "react-icons/cg";
+import LogButton from "./logButton";
 import styles from "@/styles/pagesStyle/nav.module.css";
 
 function NaviBar() {
@@ -70,12 +70,7 @@ function NaviBar() {
                 </div>
               </Link>
             </div>
-            <Link
-              href="/profile"
-              className="text-black fs-4 d-flex align-items-center justify-content-center"
-            >
-              <CgProfile />
-            </Link>
+            <LogButton />
           </div>
         </Navbar.Collapse>
       </div>

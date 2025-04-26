@@ -6,14 +6,15 @@ export const metadata = {
 
 async function getProducts() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/Products/GetAllProductsForUser?pageNumber=1&pageSize=100000`, { cache: "no-store" });
-  if (!res.ok) throw new Error(`API Error: ${res.status}`);
+  if (!res.ok) throw new Error(`API Error`);
   const result = await res.json();
-  return result.products || [];
+  return result.data || [];
 }
 async function getCategories() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/Categories/GetAllCategoriesWithoutpagination`, { cache: "no-store" });
-  if (!res.ok) throw new Error(`API Error: ${res.status}`);
-  return await res.json();
+  if (!res.ok) throw new Error(`API Error`);
+  const results = await res.json();
+  return results.data || [];
 }
 
 export default async function Product() {

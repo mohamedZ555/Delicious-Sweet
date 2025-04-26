@@ -1,45 +1,292 @@
- .btn{
-    background-color:#D68F3C;
+  
+  .res-headline {
+    display: none;
+  }
+  .main-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+   .logo {
+    position: relative;
+    width: fit-content;
+  } 
+  form
+  .harm::before{
+    content: url("/images/logo");
+    position: absolute;
+    top:-40px;
+    left: 40px;
+    filter: drop-shadow(0px 0px 1px rgba(255, 255, 255));
 }
-
-.btn-submit{
-    color:white !important;
-    background-color: #D68F3C !important;
-    border:1px solid transparent !important;
+   .logo::after {
+    content: "";
+    position: absolute;
+    transform: translate(0, -50%);
+    bottom: 44.5px;
+    right: -645px;
+    width: 650px;
+    background-color: white;
+    box-shadow:0px 0px 3px rgba(255, 255, 255);
+    height: 8px;
+  } 
+  .logo-text {
+    font-size: 70px;
     font-weight: bold;
+    color: white;
+    text-shadow:0px 0px 3px rgba(255, 255, 255);
+  }
+  .bottom-text {
+    & p {
+      color: white;
+      text-transform: capitalize;
+      font-size: 21px;
+      font-weight: 300;
+    }
+  }
+
+  .sign-up-btn {
+    text-decoration: none;
+    font-size: 14px;
+    color: #D68F3C;
+  }
+  
+  .side-panel-design {
+    width: 30% !important;
+    height: 100vh;
+    padding-left: 20px;
+    padding-block: 50px;
+    background-color: #D68F3C;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    justify-content: space-between;
+  }  
+  .animated-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #D68F3C;
+    z-index: 0;
+    transition: left 0.3s ease, right 0.3s ease;
+  }
+  
+  .animated-button:hover::before {
+    left: 0;
+    right: 0;
+  }
+  
+  .animated-button:hover {
+    & * {
+      color: #fff !important;
+      isolation: isolate;
+    }
+  }
+  
+  .animated-button span {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .bottom-para {
+    font-size: 18px !important;
+  }
+  .form-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70% !important;
+  }
+  .sign-in-btn {
+    transition: 0.3s ease-in-out;
+    color: white;
+    border: none;
+    padding-inline: 25px;
+    padding-block: 8px;
+    border-radius: 100px;
+    cursor: pointer;
+    background-color: #D68F3C;
+  }
+  .sign-in-btn:hover {
+    background-color: #D68F3C;
+  }
+  .logLabel{
+    font-size: 16px;
+    color: gray;
+  }
+  .form {
+    width: 50%;
+    padding: 16px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.165);
+    animation: form-animate 1s ease-in-out forwards;
+    filter: blur(10px);
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  .customLogoLog{
+    border-radius: 50%;
+    background-color: #D68F3C;
+    border: 5px solid white;
+    box-shadow: 0 0px 6px rgba(0, 0, 0, 0.288);;
+    z-index: 10;
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: -50px;
+    left: 42%;
+    font-size: 35px;
+    text-shadow: 0 0 2px black;
+  }
+  .logoTextlog{
+    z-index: 12;
+    position: relative;
+  }
+  .logoImageLog{
+    position: absolute;
+    top: 20px;
+    width: 30px;
+    filter: drop-shadow(0 0 1px black);
+    left: 23px;
+    z-index: 11;
+  }
+  @keyframes form-animate {
+    to {
+      filter: blur(0px);
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+  .form-header h2 {
+    color: #D68F3C;
+  }
+  .form-container {
+    /* width: 50%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    padding-inline: 10px;
+  }
+  .input-container {
+    width: 100%;
+    & input {
+      width: 100%;
+      font-size: 12px;
+      color: black;
+      padding-inline: 17px;
+      padding-block: 15px;
+      border-radius: 25px;
+      border: none !important;
+      background-color: rgb(231, 231, 231);
+      font-weight: bold;
+      font-size: 14px;
+    }
+    & input::placeholder{
+        color: black;
+        font-weight: bold;
+        font-size: 14px;
+    }
+  }
+  .bottom-headline {
+    font-weight: 700;
+    margin-left: 15px;
+    position: relative;
+  }
+  .bottom-headline::before {
+    content: "";
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    bottom: 50%;
+    left: -10px;
+    height: 10px;
+    width: 10px;
+    border-radius: 20px;
+    background-color: white;
+  }
+  
+  input::placeholder {
+    font-size: 12px;
+  }
+  input:focus {
+    outline-color:#D68F3C ;
+    border: none;
+  }
+  .sign-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* padding-inline: 8px; */
+  }
+  @media screen and (max-width: 1400px) {
+    .customLogoLog{
+      left: 39%;
+    }
+  }  
+  @media screen and (max-width: 1200px) {
+    /* .logo-text {
+      font-size: 32px;
+    } */
+    .logo::after {
+      height: 8px;
+    }
+    .bottom-headline {
+      font-size: 16px;
+    }
+    .bottom-para {
+      font-size: 14px !important;
+    }
+    .customLogoLog{
+      left: 38%;
+    }
+  }
+  
+  @media screen and (max-width: 991px) {
+    .side-panel-design {
+      display: none;
+    }
+    .customLogoLog{
+      left: 39%;
+    }
     
+    .res-headline {
+      display: block;
+      width: 100%;
+      padding: 35px;
+      & p {
+        color: #D68F3C;
+      }
+    }
+    .main-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .form-wrapper {
+      width: 100% !important;
+    }
+  }
+  
+  @media screen and (max-width: 680px) {
+    .form {
+      width: 75% !important;
+    }
+    .customLogoLog{
+      left: 39%;
+    }
+  }
 
-    
-}
- .btn-submit:hover{
-    color:#D68F3C !important;
-    border:1px solid #D68F3C !important;
-    background-color: white !important;
-    transition: .4s linear !important;
-    font-weight: bold;
-
-
-}
- .btn-social{
-    all:unset;
-    border:1px solid #D68F3C;
-    margin:10px;
-    padding:1rem;
-    cursor: pointer;   
-    border-radius: 5px;
-    gap:10px;
-
-}
- .btn-social:hover{
-    /* درجة غمقة */
-    color: White;
-    background-color: #c87c2b;
-    border:1px solid black;
-    transition: .4s ease;
-}
-
-
- .edit-img Image{
-    border-radius: 12px;
- }
-
+  @media screen and (max-width:500px) {
+    .customLogoLog{
+      left: 35%;
+    }
+  }

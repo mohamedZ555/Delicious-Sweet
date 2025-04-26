@@ -1,34 +1,25 @@
-@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    font-family: "Barlow Condensed", serif !important;
-  }
 
-  .profileName{
-    font-size: 28px;
-    color: #03262C;
-  }
+.profileName {
+  font-size: 28px;
+  color: black;
+}
 
-  .profileEmail{
-    font-size: 20px;
-    color: #b1b1b1;
-  }
+.profileEmail {
+  font-size: 20px;
+  color: #b1b1b1;
+}
 
-  .editProfile{
-    font-size: 20px;
-    background-image: linear-gradient(to right, #006600, #6dc81b);
-    cursor: pointer;
-  }
+.editProfile {
+  font-size: 20px;
+  background-color: #d68f3c;
+  cursor: pointer;
+}
 
-  .profileLabel{
-    color: #03262C;
-    font-family: "Roboto", serif !important;
-    font-size: 20px;
-  }
-  .profileData{
-    background-color: #f9f9f9;
-    font-family: "Roboto", serif !important;
-    outline-color:#6dc81b ;
-  }
+.profileLabel {
+  color: black;
+  font-size: 20px;
+}
+.profileData {
+  background-color: #f9f9f9;
+  outline-color: #D68F3C;
+}

@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import "../../../styles/pagesStyle/product/relatedProduct.css";
+import "../../../../styles/pagesStyle/product/relatedProduct.css";
 export default function RelatedProductClient({ relatedProducts }) {
   const t = useTranslations("productDetails");
   const swiperRef = useRef(null);

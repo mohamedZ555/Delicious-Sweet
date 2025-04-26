@@ -256,20 +256,23 @@
     "profileImageAlt": "Profile Image"
   },
   "register": {
-    "title": "Registration",
+    "title": "Create Account",
     "firstName": "First Name",
     "lastName": "Last Name",
-    "phone": "Phone Number",
+    "phone": "Phone",
     "email": "Email",
+    "address": "Address",
+    "city": "City",
     "password": "Password",
     "confirmPassword": "Confirm Password",
     "register": "Register",
-    "alreadyHaveAccount": "Already have an account? Sign in",
-    "passwordMismatch": "Passwords do not match!",
-    "registrationFailed": "Registration failed",
-    "registrationSuccess": "Registration successful! Redirecting to login...",
+    "alreadyHaveAccount": "Already have an account? Login",
+    "passwordMismatch": "Passwords do not match",
+    "registrationFailed": "Registration failed. Please try again.",
+    "registrationSuccess": "Registration successful! Redirecting...",
     "errorMessage": "Something went wrong. Please try again."
-  },
+  }
+  ,
   "login": {
     "title": "Login Now",
     "email": "Email",

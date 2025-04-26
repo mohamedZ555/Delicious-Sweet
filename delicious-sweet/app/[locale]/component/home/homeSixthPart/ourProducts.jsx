@@ -10,7 +10,7 @@ import styles from "../../../../../styles/pagesStyle/home/homeOurProducts.module
 import { CiHeart } from "react-icons/ci";
 import { SlEye } from "react-icons/sl";
 import {Link} from "@/i18n/routing";
-import Stars from "../../stars";
+import Stars from "../../shared/stars";
 
 const rating = 4.5;
 

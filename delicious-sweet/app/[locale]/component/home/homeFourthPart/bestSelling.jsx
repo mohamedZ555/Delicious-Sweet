@@ -9,7 +9,7 @@ import styles from "../../../../../styles/pagesStyle/home/flashSales.module.css"
 import { CiHeart } from "react-icons/ci";
 import { SlEye } from "react-icons/sl";
 import {Link} from "@/i18n/routing";
-import Stars from "../../stars";
+import Stars from "../../shared/stars";
 const rating = 4.5;
 export default function FlashSales() {
   const swiperRef = useRef(null);

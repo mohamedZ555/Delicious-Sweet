@@ -1,52 +1,52 @@
 .navLinks {
-    font-size: 16px;
-    line-height: 24px;
-    font-weight: 400;
-    color: black !important;
-    position: relative;
-    text-decoration: none; 
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: black !important;
+  position: relative;
+  text-decoration: none;
 }
 
 .navLinks::after {
-    content: "";
-    width: 100%;
-    height: 1px; 
-    background-color: black;
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    transform: scaleX(0); 
-    transform-origin: left;
-    transition: transform 0.3s ease-in-out;
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: black;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-in-out;
 }
 
 .navLinks:hover::after {
-    transform: scaleX(1);
+  transform: scaleX(1);
 }
 
 /* Active Page Styling */
 
 .active::after {
-    transform: scaleX(1);
+  transform: scaleX(1);
 }
 
-.contNav{
-    border-bottom: 0.5px solid black;
+.contNav {
+  border-bottom: 0.5px solid black;
 }
 
-.iconLogo{
-    color: black;
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: 3%;
+.iconLogo {
+  color: black;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 3%;
 }
 
-.iner{
-    border:none;
-    background-color: #F5F5F5;
-    color: #000000;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 18px;
-    width: 243px;
+.iner {
+  border: none;
+  background-color: #f5f5f5;
+  color: #000000;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  width: 243px;
 }

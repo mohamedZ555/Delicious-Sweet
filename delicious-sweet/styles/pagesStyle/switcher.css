@@ -1,0 +1,66 @@
+.lang-dropdown,
+.profileBTN {
+  font-weight: 500;
+  color: black !important;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: 0.3s;
+  border: 1px solid black;
+  outline: none !important;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  border-color: black !important;
+  position: absolute;
+  min-width: 180px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.2s ease-in-out;
+  left: -100px !important;
+  top: 35px !important;
+}
+.lang-dropdown:hover,
+.profileBTN:hover {
+  background-color: #d68f3c;
+  color: white !important;
+}
+
+.dropdown-toggle::after {
+  display: none !important;
+}
+.logOutBTN {
+  border: 1px solid black;
+  transition: 0.3s;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  background-color: #d68f3c;
+  color: white !important;
+}
+
+@media screen and (max-width: 991px) {
+  .dropdown-menu {
+    position: relative !important;
+    width: 100%;
+    text-align: center;
+  }
+
+  .loginBTN {
+    width: 100%;
+    font-size: 18px;
+    display: block;
+    text-align: center;
+    border-radius: 8px;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

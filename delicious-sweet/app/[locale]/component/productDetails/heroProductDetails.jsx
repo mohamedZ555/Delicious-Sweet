@@ -1,7 +1,7 @@
 import {Link} from "@/i18n/routing";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import "../../../styles/pagesStyle/product/heroSectionP.css";
+import "../../../../styles/pagesStyle/product/heroSectionP.css";
 
 function HeroProductDetails() {
   const t = useTranslations("productDetails");

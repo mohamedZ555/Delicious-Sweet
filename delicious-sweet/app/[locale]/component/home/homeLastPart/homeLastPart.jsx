@@ -1,6 +1,6 @@
 import styles from "../../../../../styles/pagesStyle/home/flashSales.module.css";
 
-export default function HomeLastPart() {
+export default function HomeLastPart({arivalData}) {
   return (
     <main className="pb-lg-5 my-lg-5 pb-4 my-4">
       <section>
@@ -15,12 +15,12 @@ export default function HomeLastPart() {
             </div>
           </div>
         </div>
-        <div className="">
+        <div>
           <div className="row gap-3 gap-md-4 gap-lg-0">
             {/* Image on large screens */}
             <div className="col-12 col-lg-6">
               <img
-                src="/images/slider.jpg"
+                src={arivalData[0]?.mainImageUrl || "/images/imagePlaceHolder.jpg"}
                 className="w-100 rounded"
                 height={600}
                 alt="Slider"
@@ -30,7 +30,7 @@ export default function HomeLastPart() {
               {/* Top image */}
               <div>
                 <img
-                  src="/images/slider.jpg"
+                src={arivalData[1]?.mainImageUrl || "/images/imagePlaceHolder.jpg"}
                   className="w-100 rounded"
                   height={285}
                   alt="Slider"
@@ -40,7 +40,7 @@ export default function HomeLastPart() {
                 {/* Bottom images - responsive layout */}
                 <div className="col-12 col-sm-6">
                   <img
-                    src="/images/slider.jpg"
+                  src={arivalData[2]?.mainImageUrl || "/images/imagePlaceHolder.jpg"}
                     className="w-100 rounded"
                     height={285}
                     alt="Slider"
@@ -48,7 +48,7 @@ export default function HomeLastPart() {
                 </div>
                 <div className="col-12 col-sm-6">
                   <img
-                    src="/images/slider.jpg"
+                  src={arivalData[3]?.mainImageUrl || "/images/imagePlaceHolder.jpg"}
                     className="w-100 rounded"
                     height={285}
                     alt="Slider"

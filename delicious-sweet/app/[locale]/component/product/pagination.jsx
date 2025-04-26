@@ -1,5 +1,5 @@
 import { Pagination } from "react-bootstrap";
-import "../../../../styles/pagesStyle/Blog/paginations.css"; // Import global CSS
+import "../../../../styles/pagesStyle/Blog/paginations.css"; 
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 
 const DisplayPagination = ({ totalPages, currentPage, onPageChange }) => {

@@ -5,17 +5,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import styles from "../../../../../styles/pagesStyle/home/homeFirstSlider.module.css"; // Import CSS module
+import styles from "../../../../../styles/pagesStyle/home/homeFirstSlider.module.css"; 
 
-const slides = [
-  { id: 1, image: "/images/slider.jpg" }, // Corrected image path
-  { id: 2, image: "/images/slider.jpg" }, // Corrected image path
-  { id: 3, image: "/images/slider.jpg" }, // Corrected image path
-  { id: 4, image: "/images/slider.jpg" }, // Corrected image path
-  { id: 5, image: "/images/slider.jpg" }, // Corrected image path
-];
 
-const HomeSlider = () => {
+const HomeSlider = ({homeSectionOneData}) => {
   const swiperRef = useRef(null);
 
   return (
@@ -34,11 +27,11 @@ const HomeSlider = () => {
         loop={true}
         className={styles.slider} // Using CSS module
       >
-        {slides.map((slide) => (
+        {homeSectionOneData.map((slide) => (
           <SwiperSlide key={slide.id} className={styles.slide}>
             <img
               className={`${styles.slideImg} w-100`}
-              src={slide.image}
+              src={slide.imageUrl || "/images/slider.jpg"}
               alt="slide"
               height={344}
             />

@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
-import "@/styles/login.css";
+import "../../../../styles/pagesStyle/login.css";
 import { Link, usePathname } from "@/i18n/routing";
 import { routing } from "@/i18n/routing";
 
@@ -12,6 +12,8 @@ export default function Registration() {
   const [lName, setLName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState(null);
@@ -28,33 +30,33 @@ export default function Registration() {
 
     try {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/auth/register`,
+        `${process.env.NEXT_PUBLIC_API_URL}/Auth/registerUser`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            f_name: fName,
-            l_name: lName,
-            phone: phone,
+            firstName: fName,
+            lastName: lName,
+            phoneNumber: phone,
             email: email,
+            address: address,
+            city: city,
             password: password,
           }),
         }
       );
 
       const data = await res.json();
-
       if (!res.ok) {
         return setError(
           data.errors
-            ? data.errors.map((err) => err.message).join(", ")
+            ? data.errors.map((err) => err.messageEn).join(", ")
             : t("registrationFailed")
         );
       }
 
       setSuccess(t("registrationSuccess"));
 
-      // Get the current locale from the pathname
       const currentLocale =
         routing.locales.find((locale) => pathname.startsWith(`/${locale}`)) ||
         routing.defaultLocale;
@@ -64,19 +66,15 @@ export default function Registration() {
       setError(t("errorMessage"));
     }
   };
+
   return (
-    <main className="pt-5">
+    <main>
       <section className="main-container my-5 py-5">
-        <div className="form-wrapper pt-5 mt-5">
+        <div className="form-wrapper mt-5">
           <div className="form p-5 position-relative">
             <div className="form-header text-center">
-              <div className="customLogoLog d-flex align-items-center justify-content-center fw-bold text-white">
-                <div className="logoTextlog">TazZA</div>
-                <img
-                  src="/image/iconLogo.png"
-                  alt=""
-                  className="logoImageLog"
-                />
+              <div className="customLogoLog overflow-hidden d-flex align-items-center justify-content-center fw-bold text-white">
+              <img src="/images/logo.jpg" alt="" className="h-100 w-100 z-3 position-relative" />
               </div>
               <h2 className="pb-3 pt-4 fw-bold">{t("title")}</h2>
             </div>
@@ -87,21 +85,21 @@ export default function Registration() {
                   state: fName,
                   setState: setFName,
                   type: "text",
-                  name: "f_name",
+                  name: "firstName",
                 },
                 {
                   label: t("lastName"),
                   state: lName,
                   setState: setLName,
                   type: "text",
-                  name: "l_name",
+                  name: "lastName",
                 },
                 {
                   label: t("phone"),
                   state: phone,
                   setState: setPhone,
                   type: "tel",
-                  name: "phone",
+                  name: "phoneNumber",
                 },
                 {
                   label: t("email"),
@@ -109,6 +107,20 @@ export default function Registration() {
                   setState: setEmail,
                   type: "email",
                   name: "email",
+                },
+                {
+                  label: t("address"),
+                  state: address,
+                  setState: setAddress,
+                  type: "text",
+                  name: "address",
+                },
+                {
+                  label: t("city"),
+                  state: city,
+                  setState: setCity,
+                  type: "text",
+                  name: "city",
                 },
                 {
                   label: t("password"),

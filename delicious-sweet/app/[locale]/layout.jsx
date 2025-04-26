@@ -1,9 +1,9 @@
 import { Poppins } from "next/font/google";
 import "../../styles/globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Footer from "./component/footer";
+import Footer from "./component/shared/footer";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Nav from "./component/nav";
+import Nav from "./component/shared/nav";
 import { getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";

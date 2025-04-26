@@ -1,11 +1,9 @@
 import { useTranslations } from "next-intl";
 import "../../../../styles/pagesStyle/Blog/sideBar.css";
 import { FaArrowRight } from "react-icons/fa";
-import RecentPosts from "./recentPosts";
-import PopularTags from "./popularTags";
-import Search from "../search";
+import Search from "../shared/search";
 
-const SideBar = ({ noneactive, setSearchTerm, setSelectedCategory, categoryData }) => {
+const SideBar = ({ setSearchTerm, setSelectedCategory, categoryData }) => {
   const t = useTranslations("product");
 
   const resetFilters = () => {
@@ -44,18 +42,12 @@ const SideBar = ({ noneactive, setSearchTerm, setSelectedCategory, categoryData 
                   <div className="d-flex align-items-center">
                     <FaArrowRight className="sideBarArrow" />
                   </div>
-                  {category.name}
+                  {category.nameEn}
                 </div>
               ))
             ) : (
               <h3 className="w-100 text-center fw-bold">{t("noCategories")}</h3>
             )}
-          </div>
-        </div>
-        <div className={noneactive}>
-          <div className="d-none d-sm-flex flex-column gap-4 align-items-center">
-            <RecentPosts />
-            <PopularTags />
           </div>
         </div>
       </div>

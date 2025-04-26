@@ -253,19 +253,21 @@
     "profileImageAlt": "صورة الملف الشخصي"
   },
   "register": {
-    "title": "التسجيل",
+    "title": "إنشاء حساب",
     "firstName": "الاسم الأول",
-    "lastName": "الاسم الأخير",
+    "lastName": "اسم العائلة",
     "phone": "رقم الهاتف",
     "email": "البريد الإلكتروني",
+    "address": "العنوان",
+    "city": "المدينة",
     "password": "كلمة المرور",
     "confirmPassword": "تأكيد كلمة المرور",
     "register": "تسجيل",
     "alreadyHaveAccount": "لديك حساب بالفعل؟ تسجيل الدخول",
-    "passwordMismatch": "كلمات المرور غير متطابقة!",
-    "registrationFailed": "فشل التسجيل",
-    "registrationSuccess": "تم التسجيل بنجاح! جارٍ التوجيه إلى تسجيل الدخول...",
-    "errorMessage": "حدث خطأ. يرجى المحاولة مرة أخرى."
+    "passwordMismatch": "كلمتا المرور غير متطابقتين",
+    "registrationFailed": "فشل التسجيل. الرجاء المحاولة مرة أخرى.",
+    "registrationSuccess": "تم التسجيل بنجاح! سيتم إعادة التوجيه...",
+    "errorMessage": "حدث خطأ ما. الرجاء المحاولة مرة أخرى."
   },
   "login": {
     "title": "تسجيل الدخول الآن",
@@ -296,7 +298,8 @@
       "label": "البريد الإلكتروني",
       "value": "support@gmail.com"
     }
-  },  "ContactPage": {
+  },
+  "ContactPage": {
     "HeroSection": {
       "header": "Contact Us",
       "description": "feel free to reach out. Let us make your experience on the Nile truly exceptional."

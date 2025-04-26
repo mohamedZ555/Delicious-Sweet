@@ -5,7 +5,7 @@
 }
 .sideBarSearch {
   font-size: 16px;
-  color: #03262c;
+  color: black;
   border: 2px solid #e9f8e6;
   font-family: "Roboto", serif !important;
   border-right: none;
@@ -14,19 +14,19 @@
 
 .sideBarSearch::placeholder {
   font-size: 15px;
-  color: #03262c;
+  color: black;
   font-family: "Roboto", serif !important;
 }
 
 .serrch {
   font-size: 28px;
-  background-image: linear-gradient(to left, #6dc81b, #006600);
+  background-color: #D68F3C;
   color: white;
   cursor: pointer;
 }
 
 .sideBarTitle {
-  color: #03262c;
+  color: black;
   font-size: 25px;
 }
 
@@ -38,7 +38,7 @@
 }
 
 .postLinkss:hover {
-  background-image: linear-gradient(to left, #6dc81b, #006600);
+  background-color: #D68F3C;
   color: white;
 }
 .sideBarArrow {
@@ -49,24 +49,24 @@
 }
 
 .dateColGreen {
-  color: #57b416;
+  color: #D68F3C;
   font-size: 16px;
 }
 .strawbSideFont {
   font-size: 21px;
-  color: #03262c;
+  color: black;
 }
 
 .popularTags {
   border: 1px solid #e9f8e6;
   font-size: 15px;
-  color: #03262c;
+  color: black;
   font-family: "Roboto", serif !important;
   cursor: pointer;
 }
 
 .popularTags:hover {
-  border-color: #57b416;
+  border-color: #D68F3C;
 }
 
 hr {
