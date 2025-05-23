@@ -1,7 +1,6 @@
 "use client";
 import { useTranslations } from "next-intl";
 import React, { useState, useEffect } from "react";
-useTranslations
 const ContactPopUpForm = () => {
   const t = useTranslations("ContactPage");
   const [formData, setFormData] = useState({
@@ -85,7 +84,7 @@ const ContactPopUpForm = () => {
     >
       <div className="d-flex flex-column gap-3">
         {/* Name */}
-        <div className="col-md-12">
+        {/* <div className="col-md-12">
           <input
             className={`py-3 rounded-4 px-4 w-100 border text-capitalize ${
               validity.name === false ? "is-invalid  border-danger" : "contactInput"
@@ -102,7 +101,7 @@ const ContactPopUpForm = () => {
               {t("form.nameError")}
             </div>
           )}
-        </div>
+        </div> */}
 
         {/* Email */}
         <div className="col-md-12">
@@ -118,9 +117,7 @@ const ContactPopUpForm = () => {
             required
           />
           {validity.email === false && (
-            <div className="invalid-feedback">
-              {t("form.emailError")}
-            </div>
+            <div className="invalid-feedback">{t("form.emailError")}</div>
           )}
         </div>
 
@@ -137,16 +134,14 @@ const ContactPopUpForm = () => {
             required
           />
           {validity.message === false && (
-            <div className="invalid-feedback">
-              {t("form.messageError")}
-            </div>
+            <div className="invalid-feedback">{t("form.messageError")}</div>
           )}
         </div>
       </div>
 
       {/* Submit */}
       <button className="sendBTN py-3 rounded-5 mt-3 w-100" type="submit">
-      {t("form.submit")}
+        {t("form.submit")}
       </button>
 
       {/* Status */}
