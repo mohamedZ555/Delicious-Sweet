@@ -1,0 +1,327 @@
+{
+  "errorPage": {
+    "headTextError": "عذرًا...... هذه الصفحة غير موجودة.",
+    "subTextError": "من الناحية النباتية، لا يعتبر الفراولة ثمرة حقيقية. يتكون اللحم من المهاد الزهري المتضخم بشدة.",
+    "thirdTextError": "العودة إلى الصفحة الرئيسية",
+    "error404": "خطأ 404",
+    "Home_Pages_Error": "الرئيسية - الصفحات"
+  },
+  "aboutPage": {
+    "title_about": "صفحة حول",
+    "Home_Pages_About": "الصفحة - الرئيسية",
+    "fTxt": "عن",
+    "secTxt": "الغذاء",
+    "thirdTxt": "الصحي",
+    "aboutDesc": "اكتسب هذا المقطع شعبية خلال الستينيات ومرة أخرى خلال التسعينيات مع الناشرين المكتبيين.",
+    "aboutView": "عرض منتجاتنا",
+    "about_sell": "ما نبيعه",
+    "first_about": "تشييد المباني",
+    "second_about": "لوريم إيبسوم دولور سيت أميت، كونسيتيتور أديبيسينج إيليت.",
+    "third_about": "إصلاحات المباني",
+    "fourth_about": "لوريم إيبسوم دولور سيت أميت، كونسيتيتور أديبيسينج إيليت.",
+    "fifth_about": "تصميم مخصص",
+    "six_about": "لوريم إيبسوم دولور سيت أميت، كونسيتيتور أديبيسينج إيليت."
+  },
+  "checkOut": {
+    "title_check": "الدفع",
+    "Home_Pages_Check": "الصفحة - الرئيسية",
+    "your_order": "طلبك",
+    "we_all": "كلنا نعرف مدى صعوبة التأكد من أن الصفحة تبدو مثل النموذج التجريبي.",
+    "cart_total": "إجمالي السلة",
+    "Subtotal": "المجموع الفرعي:",
+    "Discount": "الخصم:",
+    "Total": "الإجمالي:",
+    "checkout": "الدفع",
+    "payment_method": "طريقة الدفع",
+    "credit_card": "بطاقة الائتمان",
+    "PayPal": "باي بال",
+    "billing_details": "تفاصيل الفاتورة",
+    "name": "الاسم*",
+    "nick_name": "اللقب*",
+    "email": "البريد الإلكتروني*",
+    "phone_num": "رقم الهاتف.",
+    "country": "الدولة:",
+    "State_district": "الولاية/المنطقة:",
+    "Address": "العنوان:",
+    "zip": "الرمز البريدي:",
+    "note": "ملاحظة الطلب:"
+  },
+  "blogPage": {
+    "blog_image_alt": "صورة المدونة",
+    "read_more": "اقرأ المزيد",
+    "comments": "التعليقات",
+    "likes": "الإعجابات",
+    "blog_header_alt": "صورة رأس المدونة",
+    "blog_title": "صفحة المدونة",
+    "home_pages": "الصفحة - الرئيسية",
+    "readMore": "اقرأ المزيد",
+    "recentPost": "آخر المنشورات",
+    "postDescription": "الفراولة هي نباتات عشبية منخفضة النمو.",
+    "category": "الفئة",
+    "allCategories": "جميع الفئات",
+    "noCategories": "لا توجد فئات متاحة",
+    "reply": "الرد"
+  },
+  "popularTags": {
+    "title": "علامة الشائعة",
+    "agency": "وكالة",
+    "business": "أعمال",
+    "organicFood": "طعام عضوي",
+    "farmer": "مزارع",
+    "marketing": "تسويق",
+    "company": "شركة",
+    "food": "طعام",
+    "services": "خدمات"
+  },
+  "blogDetails": {
+    "title": "تفاصيل المدونة",
+    "homePages": "الصفحة - الرئيسية",
+    "content1": "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينج إليت...",
+    "content2": "يوتي إنيم أد مينيم فينيام، كويز نوسترود إكسرسيتيشن...",
+    "quote": "إيوتي إيرور دولور إن ريبرهيندريت إن فولبوتات فيليت إيسي...",
+    "content3": "ديوس أوتي إيرور دولور إن ريبرهيندريت إن فولبوتات...",
+    "subtitle": "الفراولة نباتات عشبية منخفضة النمو...",
+    "content4": "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينج...",
+    "content5": "ديوس أوتي إيرور دولور إن ريبرهيندريت إن فولبوتات...",
+    "content6": "إكسبكتور سينت أوكاكات كويبيداتات نون برويدينت...",
+    "content7": "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينج...",
+    "content8": "يوتي إنيم أد مينيم فينيام، كويز نوسترود إكسرسيتيشن...",
+    "tags": "العلامات",
+    "tag1": "عضوي",
+    "tag2": "مزارعون",
+    "tag3": "طعام",
+    "comments": "التعليقات"
+  },
+  "blogComments": {
+    "leaveComment": "اترك تعليقًا هنا",
+    "name": "الاسم*",
+    "nickname": "الاسم المستعار*",
+    "email": "البريد الإلكتروني*",
+    "subject": "الموضوع:",
+    "feedback": "ملاحظات",
+    "question": "سؤال",
+    "other": "أخرى",
+    "message": "رسالة:",
+    "submitComment": "إرسال التعليق"
+  },
+  "cart": {
+    "title": "نظرة عامة على السلة",
+    "homePages": "الصفحة - الرئيسية",
+    "couponPlaceholder": "رمز القسيمة",
+    "applyCoupon": "تطبيق القسيمة",
+    "cartTotal": "إجمالي السلة",
+    "subtotal": "المجموع الفرعي",
+    "discount": "الخصم",
+    "total": "الإجمالي",
+    "checkout": "الدفع"
+  },
+
+  "homePage": {
+    "fifthSection": {
+      "backgroundLeftAlt": "الخلفية اليسرى",
+      "backgroundRightAlt": "الخلفية اليمنى",
+      "dailyEssentials": "الضروريات اليومية",
+      "sale": "خصم 68%",
+      "allFruitProducts": "على جميع المنتجات الفاكهية",
+      "allProducts": "جميع المنتجات",
+      "pineappleAlt": "أناناس"
+    },
+    "fourthSection": {
+      "title": "أفضل المنتجات مبيعًا لدينا",
+      "subtitle": "اكتسب النص شعبية كبيرة خلال الستينيات ثم مرة أخرى خلال التسعينيات عندما استخدمه الناشرون المكتبيون",
+      "noProducts": "لا توجد منتجات متاحة.",
+      "soldOut": "نفذت الكمية",
+      "addToCart": "أضف إلى السلة"
+    },
+    "ifYouNeedSection": {
+      "title": "إذا كنت بحاجة إلى فواكه عضوية طبيعية وطازجة!",
+      "allProducts": "جميع المنتجات",
+      "topLeftLeafAlt": "ورقة الشجرة العلوية اليسرى"
+    },
+    "lastSection": {
+      "title": "آخر الأخبار",
+      "description": "اكتسبت الفقرة شهرة كبيرة خلال الستينيات ومرة أخرى خلال التسعينيات مع الناشرين المكتبيين."
+    },
+    "happyCustomers": {
+      "title": "عملاؤنا السعداء",
+      "description": "اكتسبت الفقرة شهرة كبيرة خلال الستينيات ومرة أخرى خلال التسعينيات مع الناشرين المكتبيين.",
+      "testimonial": "هناك العديد من الاختلافات في الفقرات، ولكن الغالبية قد خضعت للتغيير بطريقة ما، سواء بإضافة الفكاهة أو كلمات عشوائية لا تبدو معقولة على الإطلاق. إذا كنت ستستخدم فقرة نصية، فكل الخسارة.",
+      "customerName": "سالفادور ستانلي",
+      "customerTitle": "عميل سعيد",
+      "customerImageAlt": "عميل سعيد"
+    },
+    "thirdSection": {
+      "title": "نحن نقدم الخدمات",
+      "titleHighlight": "منذ عام 1841 بفخر.",
+      "subtitle": "المحتوى المقروء للصفحة عند النظر إلى تخطيطها باستخدام لوريم إيبسوم هو أنه يحتوي عليه.",
+      "description": "من الحقائق الثابتة منذ زمن طويل أن القارئ سيتشتت انتباهه بسبب المحتوى المقروء للصفحة عند النظر إلى تخطيطها باستخدام لوريم إيبسوم.",
+      "organicHighlight": "مظهر طازج و 100% عضوي",
+      "organicSubtext": "منتجات المزرعة الطازجة مباشرة.",
+      "vectorImageAlt": "خلفية متجهية",
+      "healthyFoodAlt": "طعام صحي",
+      "womanAlt": "امرأة"
+    }
+  },
+  "product": {
+    "productPageTitle": "صفحة المنتج",
+    "homePages": "الصفحة - الرئيسية",
+    "headerImageAlt": "رأس الصفحة للمنتجات",
+    "soldOut": "نفدت الكمية",
+    "addToCart": "أضف إلى السلة",
+    "noProducts": "لم يتم العثور على منتجات",
+    "categoryTitle": "التصنيفات",
+    "allCategories": "جميع التصنيفات",
+    "noCategories": "لا توجد تصنيفات متاحة"
+  },
+  "footer": {
+    "footerBackgroundAlt": "خلفية التذييل",
+    "footerImageAlt": "التذييل",
+    "contactUs": "اتصل بنا!",
+    "phone": "الهاتف",
+    "email": "البريد الإلكتروني",
+    "address": "العنوان",
+    "customerSupport": "دعم العملاء",
+    "aboutUs": "من نحن",
+    "privacyPolicy": "سياسة الخصوصية",
+    "termsConditions": "الشروط والأحكام",
+    "productsReturn": "إرجاع المنتجات",
+    "wholesalePolicy": "سياسة الجملة",
+    "quickLinks": "روابط سريعة",
+    "pagination": "ترقيم الصفحات",
+    "contact": "اتصل بنا",
+    "accessories": "الإكسسوارات",
+    "termOfUse": "شروط الاستخدام",
+    "copyright": "حقوق النشر 2020 TazZa. جميع الحقوق محفوظة"
+  },
+  "logButton": {
+    "profileAlt": "الملف الشخصي",
+    "profile": "الملف الشخصي",
+    "login": "تسجيل الدخول",
+    "logout": "تسجيل الخروج"
+  },
+  "navbar": {
+    "home": "الرئيسية",
+    "about": "من نحن",
+    "product": "المنتجات",
+    "testimonial": "الشهادات",
+    "blog": "المدونة",
+    "contact": "اتصل بنا",
+    "callUs": "اتصل بنا!",
+    "cart": "السلة"
+  },
+  "productDetails": {
+    "productDetails": "تفاصيل المنتج",
+    "homePages": "الصفحة - الرئيسية",
+    "productHeaderImageAlt": "رأس الصفحة للمنتج",
+    "relatedProducts": "منتجات ذات صلة",
+    "soldOut": "نفدت الكمية",
+    "addToCart": "أضف إلى السلة",
+    "loading": "جارٍ تحميل تفاصيل المنتج...",
+    "customerReviews": "مراجعات العملاء",
+    "decreaseQuantity": "تقليل الكمية",
+    "increaseQuantity": "زيادة الكمية"
+  },
+  "search": {
+    "placeholder": "ابحث بالاسم أو الفئة",
+    "searchButton": "بحث"
+  },
+  "contactForm": {
+    "backgroundAlt": "صورة الخلفية",
+    "sendMessage": "إرسال رسالة",
+    "fullNamePlaceholder": "الاسم الكامل*",
+    "emailPlaceholder": "البريد الإلكتروني*",
+    "messagePlaceholder": "اكتب رسالتك...",
+    "sendButton": "إرسال"
+  },
+  "contactHead": {
+    "productHeaderAlt": "رأس المنتج",
+    "contactPage": "صفحة الاتصال",
+    "homePages": "الرئيسية - الصفحات"
+  },
+  "profile": {
+    "edit": "تعديل",
+    "save": "حفظ",
+    "saving": "جاري الحفظ...",
+    "loginFirst": "يرجى تسجيل الدخول أولا",
+    "firstName": "الاسم الأول",
+    "lastName": "اسم العائلة",
+    "email": "البريد الإلكتروني",
+    "phone": "الهاتف",
+    "country": "الدولة",
+    "city": "المدينة",
+    "enter": "أدخل",
+    "profileImageAlt": "صورة الملف الشخصي"
+  },
+  "register": {
+    "title": "إنشاء حساب",
+    "firstName": "الاسم الأول",
+    "lastName": "اسم العائلة",
+    "phone": "رقم الهاتف",
+    "email": "البريد الإلكتروني",
+    "address": "العنوان",
+    "city": "المدينة",
+    "password": "كلمة المرور",
+    "confirmPassword": "تأكيد كلمة المرور",
+    "register": "تسجيل",
+    "alreadyHaveAccount": "لديك حساب بالفعل؟ تسجيل الدخول",
+    "passwordMismatch": "كلمتا المرور غير متطابقتين",
+    "registrationFailed": "فشل التسجيل. الرجاء المحاولة مرة أخرى.",
+    "registrationSuccess": "تم التسجيل بنجاح! سيتم إعادة التوجيه...",
+    "errorMessage": "حدث خطأ ما. الرجاء المحاولة مرة أخرى."
+  },
+  "login": {
+    "title": "تسجيل الدخول الآن",
+    "email": "البريد الإلكتروني",
+    "emailPlaceholder": "أدخل بريدك الإلكتروني",
+    "phonePlaceholder": "أدخل رقم هاتفك",
+    "password": "كلمة المرور",
+    "passwordPlaceholder": "أدخل كلمة المرور",
+    "rememberMe": "تذكرني",
+    "login": "تسجيل الدخول",
+    "createAccount": "إنشاء حساب جديد",
+    "forgotPassword": "هل نسيت كلمة المرور؟",
+    "loginFailed": "فشل تسجيل الدخول",
+    "errorMessage": "حدث خطأ. يرجى المحاولة مرة أخرى."
+  },
+  "contact": {
+    "title": "اتصل بنا",
+    "description": "شهد النص زيادة في شعبيته خلال الستينيات ومرة أخرى خلال التسعينيات مع انتشار النشر المكتبي.",
+    "address": {
+      "label": "العنوان",
+      "value": "شارع الملك، الجادة"
+    },
+    "phone": {
+      "label": "الهاتف",
+      "value": "+000369876468"
+    },
+    "email": {
+      "label": "البريد الإلكتروني",
+      "value": "support@gmail.com"
+    }
+  },
+  "ContactPage": {
+    "HeroSection": {
+      "header": "Contact Us",
+      "description": "feel free to reach out. Let us make your experience on the Nile truly exceptional."
+    },
+    "form": {
+      "name": "Name",
+      "nameError": "Please enter a valid name (at least 2 letters).",
+      "emailError": "Please enter a valid email address.",
+      "messageError": "Message must be at least 10 characters long.",
+      "email": "البريد الإلكتروني",
+      "message": "الرسالة",
+      "submit": "إرسال الرسالة",
+      "submitting": "جارٍ الإرسال...",
+      "success": "تم إرسال رسالتك بنجاح.",
+      "error": "حدث خطأ أثناء إرسال الرسالة. يرجى المحاولة مرة أخرى.",
+      "authError": "يجب تسجيل الدخول لإرسال الرسالة.",
+      "tokenWarning": "أنت غير مسجل الدخول. يرجى تسجيل الدخول لإرسال النموذج.",
+      "tokenAccessError": "تعذر الوصول إلى رمز المصادقة.",
+      "emailRequired": "البريد الإلكتروني مطلوب.",
+      "emailInvalid": "يرجى إدخال بريد إلكتروني صالح.",
+      "messageRequired": "الرسالة مطلوبة.",
+      "messageTooShort": "يجب أن تحتوي الرسالة على 10 أحرف على الأقل."
+    }
+  }
+}
