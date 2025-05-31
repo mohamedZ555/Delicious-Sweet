@@ -1,6 +1,6 @@
 .navLinks {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   font-weight: 400;
   color: black !important;
   position: relative;
@@ -32,6 +32,7 @@
 
 .contNav {
   border-bottom: 0.5px solid black;
+  background-color:beige;
 }
 
 .iconLogo {

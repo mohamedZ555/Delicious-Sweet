@@ -7,8 +7,14 @@ import {
 } from "react-icons/fa";
 import Image from "next/image";
 import { CiInstagram } from "react-icons/ci";
-import "../../../../styles/pagesStyle/footer.css"
+import "../../../../styles/pagesStyle/footer.css";
+import { useTranslations } from "next-intl";
+
+
 export default function Footer() {
+     const t =  useTranslations("footer");
+ 
+
   return (
     <footer className="text-light py-4 mt-auto">
       <div className="container text-center">
@@ -27,8 +33,7 @@ export default function Footer() {
           </div>
           <div className="col-12 mb-4">
             <p className="text-white">
-              Creative Mall 2, Line 10, Third District, Above Amir Beirut,
-              Cairo, Egypt
+              {t("info")}
             </p>
           </div>
         </div>

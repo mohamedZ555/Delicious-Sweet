@@ -7,15 +7,21 @@ import { FaMagnifyingGlass } from "react-icons/fa6";
 import { FaRegHeart } from "react-icons/fa";
 import LogButton from "./logButton";
 import styles from "@/styles/pagesStyle/nav.module.css";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useTranslations } from "next-intl";
+
+
 
 function NaviBar() {
+    const t =  useTranslations("navPart");
+  
   const pathname = usePathname(); // Get the current path
 
   return (
     <Navbar
       collapseOnSelect
       expand="lg"
-      className={`${styles.contNav} col-12 pt-4 pb-3`}
+      className={`${styles.contNav} col-12 pt-4 pb-3   fixed-top  shadow-sm`}
     >
       <div className="bgs container-lg d-flex align-items-center ">
         <div className="contLogo d-flex d-lg-block justify-content-between align-items-center col-12 col-lg-2">
@@ -30,22 +36,28 @@ function NaviBar() {
             className="bg-white"
           />
         </div>
-        <Navbar.Collapse id="responsive-navbar-nav" className="collapsBG">
-          <Nav className="gap-4 justify-content-center w-75 d-flex align-items-center ">
+        <Navbar.Collapse id="responsive-navbar-nav" className="collapsBG ">
+          <Nav className="gap-4 justify-content-center w-100 m-auto mt-3 d-flex align-items-center  ">
             <Link href="/" className={styles.navLinks}>
-              Home
+              {t("home")}
             </Link>
             <Link href="/contact-us" className={styles.navLinks}>
-              Contact
+              
+             {t("contact")}
+
             </Link>
             <Link href="/about-us" className={styles.navLinks}>
-              About
+              
+              {t("about")}
+
             </Link>
             <Link href="/product" className={styles.navLinks}>
-              Product
+              
+             {t("product")}
+
             </Link>
           </Nav>
-          <div className="contcallus ms-auto d-lg-flex align-items-center justify-content gap-3">
+          <div className="contcallus ms-auto d-lg-flex align-items-center justify-content gap-3 text-center my-3">
             {/* <div className=" position-relative">
               <input
                 className={`${styles.iner} px-3 py-2 rounded`}
@@ -56,10 +68,11 @@ function NaviBar() {
                 <FaMagnifyingGlass />
               </span>
             </div> */}
-            <div className="pointer d-flex fs-5">
-              <FaRegHeart />
+            <hr/>
+            <div className="pointer d-flex fs-5 ">
+              <FaRegHeart  className="w-100 m-auto"/>
             </div>
-            <div className="d-flex flex-column flex-lg-row justify-content-center align-items-center py-lg-0 py-1 gap-2 pb-4 pb-lg-0">
+            <div className="d-flex flex-column flex-lg-row justify-content-center align-items-center py-lg-0 py-1 gap-2 pb-1 pb-lg-0">
               <Link href="/cart" className="underLine text-black fs-5">
                 <div className="shoppingCart position-relative fw-bold text-center d-none align-items-center justify-content-center d-lg-flex">
                   <div>
@@ -68,9 +81,12 @@ function NaviBar() {
                     </span>
                   </div>
                 </div>
+         
               </Link>
             </div>
-            <LogButton />
+            <LanguageSwitcher  />
+               <LogButton />
+
           </div>
         </Navbar.Collapse>
       </div>

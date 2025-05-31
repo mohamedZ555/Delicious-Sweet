@@ -5,6 +5,7 @@ import { Link } from "@/i18n/routing";
 import { CiHeart } from "react-icons/ci";
 import { SlEye } from "react-icons/sl";
 import Stars from "../shared/stars";
+
 import styles from "../../../../styles/pagesStyle/home/flashSales.module.css";
 function ProductProduct({ products = [] }) {
   const t = useTranslations("Product");
@@ -29,7 +30,8 @@ function ProductProduct({ products = [] }) {
                 <div
                   className={`${styles.addToCart} pointer align-items-center justify-content-center w-100 py-2 position-absolute bottom-0`}
                 >
-                  Add To Cart
+                  {t("AddCart")}
+                  
                 </div>
               </div>
               <div className="d-flex justify-content-between position-absolute top-0 start-0 p-2 w-100">

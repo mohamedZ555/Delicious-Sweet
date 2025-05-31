@@ -176,7 +176,8 @@
     "noCategories": "No categories available",
     "cat": "category",
     "allCats": "All Category",
-    "search": "Search"
+    "search": "Search",
+    "AddCart": "Add To Cart"
   },
 
   "footer": {
@@ -330,5 +331,23 @@
       "messageRequired": "Message is required.",
       "messageTooShort": "Message must be at least 10 characters long."
     }
+  },
+  "navPart":{
+      "home": "Home",
+      "contact" : "Contact",
+      "about": "About",
+      "product":" Product" 
+
+    },
+    "footer":{
+      "info": "Creative Mall 2, Line 10, Third District, Above Amir Beirut, Cairo, Egypt."
+    },
+    "lastPartCart":{
+      "Apply Coupon" :"APPLY COUPON",
+      "cartTotal": "Cart Total",
+      "checkOut" : "CHECKOUT",
+      "subtotal": "Subtotal",
+      "discount":"Discount",
+      "total" :"Total"
+    }
   }
-}
