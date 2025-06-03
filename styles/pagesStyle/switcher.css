@@ -1,11 +1,12 @@
 .lang-dropdown,
 .profileBTN {
-  font-weight: 500;
+  font-weight: 300;
+  font-size:11px;
   color: black !important;
-  padding: 10px 15px;
+  padding: 3px;
   border-radius: 8px;
   transition: 0.3s;
-  border: 1px solid black;
+  border: 1px solid rgb(224, 224, 224);
   outline: none !important;
   cursor: pointer;
 }
@@ -24,6 +25,7 @@
 .profileBTN:hover {
   background-color: #173fffba;
   color: white !important;
+  border: 1px solid grey;
 }
 
 .dropdown-toggle::after {
@@ -53,6 +55,22 @@
     text-align: center;
     border-radius: 8px;
   }
+}
+@media (max-width: 770px){
+  .btn-group{
+    display:flex;
+    flex-direction:column;
+    text-align:center;
+    justify-content: center;
+  }
+ .contcallus .pointer{
+  text-align:center;
+ }
+ .profileBTN{
+  border:none;
+  outline:none;
+  padding-top:1.5rem;
+ }
 }
 @keyframes fadeIn {
   from {

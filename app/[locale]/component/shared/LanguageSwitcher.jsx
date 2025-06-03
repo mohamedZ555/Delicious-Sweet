@@ -20,7 +20,7 @@ export default function LanguageSwitcher() {
 
   return (
     <select
-      className="lang-dropdown fw-bold w-100 px-2 mt-1"
+      className="lang-dropdown fw-bold  mt-1"
       value={selectedLocale}
       onChange={handleLanguageChange}
     >
@@ -28,7 +28,7 @@ export default function LanguageSwitcher() {
         EN
       </option>
       <option value="ar" className="text-black fw-bold">
-        AR
+        Ar
       </option>
     </select>
   );

@@ -171,7 +171,8 @@
     "noProducts": "لم يتم العثور على منتجات",
     "categoryTitle": "التصنيفات",
     "allCategories": "جميع التصنيفات",
-    "noCategories": "لا توجد تصنيفات متاحة"
+    "noCategories": "لا توجد تصنيفات متاحة",
+    "AddCart" : "أضق للسلة"
   },
   "footer": {
     "footerBackgroundAlt": "خلفية التذييل",
@@ -311,7 +312,7 @@
   "ContactPage": {
     "Loading": "تحميل...",
     "HeroSection": {
-      "header": "Contact Us",
+      "header": "تواصل معنا ",
       "description": "feel free to reach out. Let us make your experience on the Nile truly exceptional."
     },
     "form": {
@@ -333,5 +334,26 @@
       "messageRequired": "الرسالة مطلوبة.",
       "messageTooShort": "يجب أن تحتوي الرسالة على 10 أحرف على الأقل."
     }
-  }
+  },
+   "navPart":{
+      "home": "الرئيسية",
+      "contact" : "اتصل بنا",
+      "about": "من نحن",
+      "product":" المنتجات" 
+    },
+      "footer":{
+      "info": "كرييتف مول 2، شارع 10، الحي الثالث، فوق أمير بيروت، القاهرة، مصر."
+    },
+     
+   
+  "lastPartCart": {
+      "Apply Coupon": "تفعيل الكوبوبن ",
+      "cartTotal": "إجمالي السلة",
+      "checkOut": "إتمام الشراء",
+      "subtotal": "المجموع الفرعي",
+      "discount": "الخصم",
+      "total": "الإجمالي النهائي"
+}
+
+    
 }

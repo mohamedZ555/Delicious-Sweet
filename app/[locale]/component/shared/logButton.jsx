@@ -4,8 +4,8 @@ import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/routing";
 import { routing } from "@/i18n/routing";
-import LanguageSwitcher from "./LanguageSwitcher";
 import { CgProfile } from "react-icons/cg";
+// import LanguageSwitcher from "./LanguageSwitcher";
 import "../../../../styles/pagesStyle/switcher.css"
 export default function LogButton() {
   const router = useRouter();
@@ -91,9 +91,7 @@ export default function LogButton() {
                 </Link>
               </li>
             )}
-            <li>
-              <LanguageSwitcher />
-            </li>
+        
             <li
               className="z-3 px-3 py-2 logOutBTN rounded-3 mt-1"
               onClick={handleClick}
@@ -105,17 +103,20 @@ export default function LogButton() {
       ) : (
         // Mobile view
         <>
-          {isAuthenticated && (
+        <div>
+            {isAuthenticated && (
             <div className="mb-3">
               <Link className="profileBTN" href="/profile">
                 {t("profile")}
               </Link>
             </div>
           )}
-          <LanguageSwitcher />
+        </div>
+        <div>
           <button className="loginBTN px-5" onClick={handleClick}>
             {isAuthenticated ? t("logout") : t("login")}
           </button>
+        </div>
         </>
       )}
     </div>
