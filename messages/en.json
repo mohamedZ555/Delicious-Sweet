@@ -198,6 +198,7 @@
     "contact": "Contact",
     "accessories": "Accessories",
     "termOfUse": "Term of Use",
+    "info": "Creative Mall 2, Line 10, Third District, Above Amir Beirut, Cairo, Egypt.",
     "copyright": "Copyright 2020 TazZa. All Rights Reserved"
   },
   "logButton": {
@@ -266,7 +267,7 @@
     "landMark": "land Mark",
     "cancel": "Cancel",
     "fullName": "full Name",
-    "Notprovided":"Not provided"
+    "Notprovided": "Not provided"
   },
   "register": {
     "title": "Create Account",
@@ -370,22 +371,18 @@
       "messageTooShort": "Message must be at least 10 characters long."
     }
   },
-  "navPart":{
-      "home": "Home",
-      "contact" : "Contact",
-      "about": "About",
-      "product":" Product" 
-
-    },
-    "footer":{
-      "info": "Creative Mall 2, Line 10, Third District, Above Amir Beirut, Cairo, Egypt."
-    },
-    "lastPartCart":{
-      "Apply Coupon" :"APPLY COUPON",
-      "cartTotal": "Cart Total",
-      "checkOut" : "CHECKOUT",
-      "subtotal": "Subtotal",
-      "discount":"Discount",
-      "total" :"Total"
-    }
+  "navPart": {
+    "home": "Home",
+    "contact": "Contact",
+    "about": "About",
+    "product": " Product"
+  },
+  "lastPartCart": {
+    "Apply Coupon": "APPLY COUPON",
+    "cartTotal": "Cart Total",
+    "checkOut": "CHECKOUT",
+    "subtotal": "Subtotal",
+    "discount": "Discount",
+    "total": "Total"
   }
+}

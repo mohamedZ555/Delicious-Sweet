@@ -172,7 +172,7 @@
     "categoryTitle": "التصنيفات",
     "allCategories": "جميع التصنيفات",
     "noCategories": "لا توجد تصنيفات متاحة",
-    "AddCart" : "أضق للسلة"
+    "AddCart": "أضق للسلة"
   },
   "footer": {
     "footerBackgroundAlt": "خلفية التذييل",
@@ -189,6 +189,7 @@
     "wholesalePolicy": "سياسة الجملة",
     "quickLinks": "روابط سريعة",
     "pagination": "ترقيم الصفحات",
+    "info": "كرييتف مول 2، شارع 10، الحي الثالث، فوق أمير بيروت، القاهرة، مصر.",
     "contact": "اتصل بنا",
     "accessories": "الإكسسوارات",
     "termOfUse": "شروط الاستخدام",
@@ -335,25 +336,19 @@
       "messageTooShort": "يجب أن تحتوي الرسالة على 10 أحرف على الأقل."
     }
   },
-   "navPart":{
-      "home": "الرئيسية",
-      "contact" : "اتصل بنا",
-      "about": "من نحن",
-      "product":" المنتجات" 
-    },
-      "footer":{
-      "info": "كرييتف مول 2، شارع 10، الحي الثالث، فوق أمير بيروت، القاهرة، مصر."
-    },
-     
-   
-  "lastPartCart": {
-      "Apply Coupon": "تفعيل الكوبوبن ",
-      "cartTotal": "إجمالي السلة",
-      "checkOut": "إتمام الشراء",
-      "subtotal": "المجموع الفرعي",
-      "discount": "الخصم",
-      "total": "الإجمالي النهائي"
-}
+  "navPart": {
+    "home": "الرئيسية",
+    "contact": "اتصل بنا",
+    "about": "من نحن",
+    "product": " المنتجات"
+  },
 
-    
+  "lastPartCart": {
+    "Apply Coupon": "تفعيل الكوبوبن ",
+    "cartTotal": "إجمالي السلة",
+    "checkOut": "إتمام الشراء",
+    "subtotal": "المجموع الفرعي",
+    "discount": "الخصم",
+    "total": "الإجمالي النهائي"
+  }
 }
