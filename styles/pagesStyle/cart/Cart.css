@@ -1,6 +1,6 @@
 
 .TabBGHeader {
-  background-color: #d68e3cb7 !important;
+  background-color: #173fffba !important;
   font-size: 17px !important;
 }
 
@@ -17,7 +17,7 @@
 }
 
 .tableSpaces thead th {
-  border-bottom-color: #d68e3cb7 !important; /* Optional: Keeps the header bottom border */
+  border-bottom-color: #173fffba !important; /* Optional: Keeps the header bottom border */
 }
 
 td {
@@ -28,7 +28,7 @@ td {
 
 .tableBoxs {
   height: 160px !important;
-  border: 2px solid #d68e3cb7;
+  border: 2px solid #173fffba;
   border-collapse: collapse;
   display: flex;
   align-items: center;
@@ -37,7 +37,7 @@ td {
 
 .quantity-controls {
   width: fit-content;
-  border: 2px solid #d68e3cb7;
+  border: 2px solid #173fffba;
   font-size: 20px;
   margin: auto;
 }

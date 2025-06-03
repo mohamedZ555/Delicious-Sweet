@@ -22,7 +22,7 @@
 }
 .lang-dropdown:hover,
 .profileBTN:hover {
-  background-color: #d68f3c;
+  background-color: #173fffba;
   color: white !important;
 }
 
@@ -35,7 +35,7 @@
   font-weight: bold;
   cursor: pointer;
   text-align: center;
-  background-color: #d68f3c;
+  background-color: #173fffba;
   color: white !important;
 }
 

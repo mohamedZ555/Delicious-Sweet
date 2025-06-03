@@ -1,15 +1,14 @@
  /* درجة غمقة */
- /* color: #9E7A4E; */
+ /* color: #173fffba; */
 
  /* درجة فاتحة
- color:#D68F3C
+ color:#173fffba
  */
 @import url(pagesStyle/about.css);
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  background-color: wheat;
 }
 /* .container{
   background-color: #faf6f3;
@@ -32,11 +31,11 @@ a {
 }
 
 .text{
-  color:#D68F3C;
+  color:#173fffba;
 }
 
 .textDark{
-  color: #9E7A4E;
+  color: #173fffba;
 
 }
 /* Animations to Lines */
@@ -84,7 +83,7 @@ a {
   content: "";
   position: absolute;
   background: white;
-  color:#D68F3C !important;
+  color:#173fffba !important;
   height: 100%;
   width: 0;
   top: 0;
@@ -104,13 +103,13 @@ img {
  object-fit: cover !important; 
 }
 .redText{
-  color: #D68F3C;
+  color: #173fffba;
   font-size: 16px;
   font-weight: 600;
   line-height: 20px;
 }
 .redBox{
-  background-color: #D68F3C;
+  background-color: #173fffba;
   width: 20px;
   height: 40px;
   border-radius: 4px;
@@ -126,4 +125,30 @@ hr{
   color:rgb(214, 214, 214) !important ;
   padding: 1px !important;
   border-radius: 50px !important;
+}
+
+/* Add to your CSS file */
+.reviews-container {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* Custom scrollbar styling (optional) */
+.reviews-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.reviews-container::-webkit-scrollbar-track {
+  background: #c7c7c7;
+  border-radius: 10px;
+}
+
+.reviews-container::-webkit-scrollbar-thumb {
+  background: #173fffba;
+  border-radius: 10px;
+}
+
+.reviews-container::-webkit-scrollbar-thumb:hover {
+  background: #173fffba;
 }

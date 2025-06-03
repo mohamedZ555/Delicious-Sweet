@@ -20,7 +20,7 @@
 
 .serrch {
   font-size: 28px;
-  background-color: #D68F3C;
+  background-color: #173fffba;
   color: white;
   cursor: pointer;
 }
@@ -38,7 +38,7 @@
 }
 
 .postLinkss:hover {
-  background-color: #D68F3C;
+  background-color: #173fffba;
   color: white;
 }
 .sideBarArrow {
@@ -49,7 +49,7 @@
 }
 
 .dateColGreen {
-  color: #D68F3C;
+  color: #173fffba;
   font-size: 16px;
 }
 .strawbSideFont {
@@ -66,7 +66,7 @@
 }
 
 .popularTags:hover {
-  border-color: #D68F3C;
+  border-color: #173fffba;
 }
 
 hr {

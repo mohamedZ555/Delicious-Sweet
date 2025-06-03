@@ -257,7 +257,15 @@
     "country": "Country",
     "city": "City",
     "enter": "Enter",
-    "profileImageAlt": "Profile Image"
+    "profileImageAlt": "Profile Image",
+    "governorate": "governorate",
+    "street": "street",
+    "buildingNumber": "building Number",
+    "addressLine": "address Line",
+    "landMark": "land Mark",
+    "cancel": "Cancel",
+    "fullName": "full Name",
+    "Notprovided":"Not provided"
   },
   "register": {
     "title": "Create Account",
@@ -274,7 +282,35 @@
     "passwordMismatch": "Passwords do not match",
     "registrationFailed": "Registration failed. Please try again.",
     "registrationSuccess": "Registration successful! Redirecting...",
-    "errorMessage": "Something went wrong. Please try again."
+    "errorMessage": "Something went wrong. Please try again.",
+    "passwordNonAlphanumericError": "Password must contain at least one special character",
+    "passwordLowercaseError": "Password must contain at least one lowercase letter",
+    "passwordUppercaseError": "Password must contain at least one uppercase letter",
+    "emailExistsError": "This email is already registered",
+    "minLength6": "At least 6 characters",
+    "oneNonAlphanumeric": "At least one special character",
+    "oneLowercase": "At least one lowercase letter",
+    "oneUppercase": "At least one uppercase letter",
+    "registering": "Registering...",
+    "redirectingToLogin": "You will be redirected to login page shortly...",
+    "firstNameRequired": "First name is required",
+    "firstNameTooShort": "First name must be at least 2 characters",
+    "lastNameRequired": "Last name is required",
+    "lastNameTooShort": "Last name must be at least 2 characters",
+    "phoneRequired": "Phone number is required",
+    "invalidPhone": "Please enter a valid phone number",
+    "emailRequired": "Email is required",
+    "invalidEmail": "Please enter a valid email address",
+    "addressRequired": "Address is required",
+    "cityRequired": "City is required",
+    "passwordRequired": "Password is required",
+    "confirmPasswordRequired": "Please confirm your password",
+    "passwordTooShort": "Password must be at least 6 characters",
+    "passwordComplexity": "Password must contain uppercase, lowercase, number and special character",
+    "registerFailed": "Registration failed. Please try again.",
+    "networkError": "Network error. Please check your connection.",
+    "emailExists": "Email already exists. Please use a different email.",
+    "passwordRequirements": "Password must be at least 6 characters and include uppercase, lowercase, number and special character"
   },
   "login": {
     "title": "Login Now",
@@ -285,6 +321,7 @@
     "passwordPlaceholder": "Enter your password",
     "rememberMe": "Remember me",
     "login": "Login",
+    "loggingIn": "logging In",
     "createAccount": "Create a new account",
     "forgotPassword": "Forgot password?",
     "loginFailed": "Login failed",
@@ -307,6 +344,7 @@
     }
   },
   "ContactPage": {
+    "Loading": "Loading...",
     "HeroSection": {
       "header": "Contact Us",
       "description": "feel free to reach out. Let us make your experience on the Nile truly exceptional."

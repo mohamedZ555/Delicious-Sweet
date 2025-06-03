@@ -35,7 +35,7 @@
   
   /* Active pagination bullet */
   :global(.swiper-pagination-bullet-active) {
-    background-color: #D68F3C !important; /* Red active dot */
+    background-color: #173fffba !important; /* Red active dot */
     border: 2px solid white !important; /* White border */
   }
   

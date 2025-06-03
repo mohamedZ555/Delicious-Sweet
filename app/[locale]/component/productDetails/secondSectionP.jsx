@@ -1,74 +1,67 @@
-'use client';
-
-import { useState, useRef, useEffect, useMemo, useCallback } from 'react';
-import { useTranslations } from 'next-intl';
-import '../../../../styles/pagesStyle/product/secondSectionP.css';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
-import { FaStar } from 'react-icons/fa';
-import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
-import React from 'react';
+"use client";
+import { useState, useRef, useEffect, useMemo, useCallback } from "react";
+import { useTranslations } from "next-intl";
+import "../../../../styles/pagesStyle/product/secondSectionP.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import StarRating from "../shared/StarRating";
+import React from "react";
+import { FaStar } from "react-icons/fa";
 
 const SecondSectionP = React.memo(function SecondSectionP({ productData }) {
   const t = useTranslations("productDetails");
   const swiperRef = useRef(null);
-  const [counter, setCounter] = useState(1);
-  const [selectedImage, setSelectedImage] = useState('');
+  const [selectedImage, setSelectedImage] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const [reviews, setReviews] = useState([]);
 
   const product = useMemo(() => productData?.data || {}, [productData]);
 
   useEffect(() => {
     if (product?.mainImageUrl) {
-      setCounter(1);
-      setSelectedImage(product.mainImageUrl || '');
+      setSelectedImage(product.mainImageUrl);
       setIsLoading(false);
+    }
+    if (product?.reviews) {
+      setReviews(product.reviews);
     }
   }, [product]);
 
-  const handleIncrease = useCallback(() => {
-    setCounter(prev => prev + 1);
-  }, []);
-
-  const handleDecrease = useCallback(() => {
-    setCounter(prev => (prev > 1 ? prev - 1 : prev));
-  }, []);
-
-  const handleMouseEnter = useCallback(() => {
-    swiperRef.current?.swiper?.autoplay?.stop();
-  }, []);
-
-  const handleMouseLeave = useCallback(() => {
-    swiperRef.current?.swiper?.autoplay?.start();
-  }, []);
-
-  const handleImageClick = useCallback((imageUrl) => {
-    setSelectedImage(imageUrl);
-  }, []);
-
+  const handleMouseEnter = () => swiperRef.current?.swiper?.autoplay?.stop();
+  const handleMouseLeave = () => swiperRef.current?.swiper?.autoplay?.start();
+  const handleImageClick = (imageUrl) => setSelectedImage(imageUrl);
   const handleImageError = (e) => {
-    e.target.src = '/images/imagePlaceHolder.jpg';
+    e.target.src = "/images/imagePlaceHolder.jpg";
   };
 
   const ratingAverage = useMemo(() => {
-    const reviews = product.reviews || [];
-    return reviews.length > 0
+    return reviews.length
       ? reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length
       : 0;
-  }, [product.reviews]);
+  }, [reviews]);
+
+  const handleNewReview = (newReview) => {
+    setReviews(prev => [...prev, newReview]);
+  };
 
   const hasDiscount = product.discountPrice > 0;
 
   if (isLoading) {
-    return <h1 className='text-center fw-bold w-100 py-5 my-5'>{t("loading")}</h1>;
+    return (
+      <h1 className="text-center fw-bold w-100 py-5 my-5">{t("loading")}</h1>
+    );
   }
 
   if (!product?.nameEn) {
-    return <h1 className='text-center fw-bold w-100 py-5 my-5'>{t("productNotFound")}</h1>;
+    return (
+      <h1 className="text-center fw-bold w-100 py-5 my-5">
+        {t("productNotFound")}
+      </h1>
+    );
   }
 
   return (
@@ -86,32 +79,35 @@ const SecondSectionP = React.memo(function SecondSectionP({ productData }) {
               direction="vertical"
               slidesPerView={3}
               spaceBetween={30}
-              loop={true}
-              autoplay={{
-                delay: 3000,
-                disableOnInteraction: false,
-              }}
+              loop
+              autoplay={{ delay: 3000, disableOnInteraction: false }}
               speed={1000}
               modules={[Autoplay]}
               className="vertical-swiper"
             >
-              {[product.mainImageUrl, ...product.productImage].filter(Boolean).map((img, index) => (
-                <SwiperSlide key={index}>
-                  <div className="pointer" onClick={() => handleImageClick(img)}>
-                    <img
-                      className="imgSliderP"
-                      src={img}
-                      alt={product.nameEn}
-                      onError={handleImageError}
-                    />
-                  </div>
-                </SwiperSlide>
-              ))}
+              {[product.mainImageUrl, ...(product.productImage || [])]
+                .filter(Boolean)
+                .map((img, index) => (
+                  <SwiperSlide key={index}>
+                    <div
+                      className="pointer"
+                      onClick={() => handleImageClick(img)}
+                    >
+                      <img
+                        className="imgSliderP"
+                        src={img}
+                        alt={product.nameEn}
+                        onError={handleImageError}
+                      />
+                    </div>
+                  </SwiperSlide>
+                ))}
             </Swiper>
+
             <div className="col-9 d-flex align-items-sm-center justify-content-center">
               <img
                 className="main-product-image w-100"
-                src={selectedImage || product.mainImageUrl}
+                src={selectedImage}
                 alt={product.nameEn}
                 onError={handleImageError}
               />
@@ -120,16 +116,21 @@ const SecondSectionP = React.memo(function SecondSectionP({ productData }) {
         </div>
 
         <div className="col-sm-5 pt-3 pt-sm-0 d-flex justify-content-center flex-column">
-          <div className="product-title fw-semibold text-capitalize">{product.nameEn}</div>
+          <div className="product-title fw-semibold text-capitalize">
+            {product.nameEn}
+          </div>
 
           <div className="d-flex align-items-center gap-4 pt-2 pb-md-4 pb-3">
             <div className="star">
               {[...Array(5)].map((_, i) => (
-                <FaStar key={i} color={i < Math.round(ratingAverage) ? '#ffc107' : '#e4e5e9'} />
+                <FaStar
+                  key={i}
+                  color={i < Math.round(ratingAverage) ? "#ffc107" : "#e4e5e9"}
+                />
               ))}
             </div>
             <div className="CustomerReview">
-              ({product.reviews?.length || 0} {t("customerReviews")})
+              ({reviews.length} {t("customerReviews")})
             </div>
           </div>
 
@@ -152,23 +153,21 @@ const SecondSectionP = React.memo(function SecondSectionP({ productData }) {
             {product.aboutEn}
           </div>
 
-          <div className="d-flex gap-4 align-items-center pt-md-4 pt-3">
-            <div className="product-count px-1 py-2 fw-bold d-flex align-items-center gap-3">
-              <div className="pointer" onClick={handleDecrease} aria-label={t("decreaseQuantity")}>
-                <IoIosArrowBack />
-              </div>
-              {counter}
-              <div className="pointer" onClick={handleIncrease} aria-label={t("increaseQuantity")}>
-                <IoIosArrowForward />
-              </div>
-            </div>
-
+          <div>
             <button className="add-to-cart text-white fw-bold px-4 py-2 rounded-5">
               {t("addToCart")}
             </button>
           </div>
         </div>
       </section>
+      <div className="mt-4 mt-md-5">
+        <StarRating
+          initialRating={0}
+          productId={product.id}
+          reviews={reviews}
+          onNewReview={handleNewReview}
+        />
+      </div>
     </main>
   );
 });

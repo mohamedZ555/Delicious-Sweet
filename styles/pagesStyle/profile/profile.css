@@ -11,7 +11,7 @@
 
 .editProfile {
   font-size: 20px;
-  background-color: #d68f3c;
+  background-color: #173fffba;
   cursor: pointer;
 }
 
@@ -21,5 +21,5 @@
 }
 .profileData {
   background-color: #f9f9f9;
-  outline-color: #D68F3C;
+  outline-color: #173fffba;
 }

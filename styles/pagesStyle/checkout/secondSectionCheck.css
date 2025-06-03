@@ -16,7 +16,7 @@
   cursor: pointer;
 }
 .checkoutCheck[type="radio"]:checked {
-  border: 5px solid #D68F3C !important;
+  border: 5px solid #173fffba !important;
   box-shadow: none;
   background-color: transparent !important;
 }
@@ -24,7 +24,7 @@
   box-shadow: none;
 }
 .checkOut{
-  background-color: #D68F3C;
+  background-color: #173fffba;
   width: fit-content;
 }
 .paymentText {
@@ -68,7 +68,7 @@
   height: 328px;
 }
 .numbersColorgold{
-color: #D68F3C;;
+color: #173fffba;;
 }
 .checkOut{
     cursor: pointer;

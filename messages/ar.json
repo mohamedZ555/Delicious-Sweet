@@ -250,7 +250,15 @@
     "country": "الدولة",
     "city": "المدينة",
     "enter": "أدخل",
-    "profileImageAlt": "صورة الملف الشخصي"
+    "profileImageAlt": "صورة الملف الشخصي",
+    "governorate": "المحافظة",
+    "street": "الشارع",
+    "buildingNumber": "رقم المبنى",
+    "addressLine": "عنوان إضافي",
+    "landMark": "علامة مميزة",
+    "cancel": "إلغاء",
+    "fullName": "الاسم الكامل",
+    "Notprovided": "غير متوفر"
   },
   "register": {
     "title": "إنشاء حساب",
@@ -278,6 +286,7 @@
     "passwordPlaceholder": "أدخل كلمة المرور",
     "rememberMe": "تذكرني",
     "login": "تسجيل الدخول",
+    "loggingIn": "جاري الدخول",
     "createAccount": "إنشاء حساب جديد",
     "forgotPassword": "هل نسيت كلمة المرور؟",
     "loginFailed": "فشل تسجيل الدخول",
@@ -300,6 +309,7 @@
     }
   },
   "ContactPage": {
+    "Loading": "تحميل...",
     "HeroSection": {
       "header": "Contact Us",
       "description": "feel free to reach out. Let us make your experience on the Nile truly exceptional."

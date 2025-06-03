@@ -16,12 +16,12 @@
 
 .SMSSS a:hover {
   color: white !important;
-  background-color: #d68f3c !important;
+  background-color: #173fffba !important;
 }
 
 .ssf a {
   color: white !important;
-  background-color: #d68f3c !important;
+  background-color: #173fffba !important;
 }
 
 @media screen and (max-width: 991px) {

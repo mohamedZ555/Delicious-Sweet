@@ -4,7 +4,7 @@
 }
 
 .BlogGreen {
-  color: #D68F3C ;
+  color: #173fffba ;
   font-size: 20px;
 }
 
@@ -16,7 +16,7 @@
 
 .reeeedMore:hover{
   cursor: pointer;
-  color: #D68F3C ;
+  color: #173fffba ;
 }
 
 .ReadMore {
