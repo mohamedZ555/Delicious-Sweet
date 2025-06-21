@@ -1,5 +1,5 @@
 .couponButtun {
-  background-color: #173fffba;
+  background-color: #ffabb8;
   width: fit-content;
   font-size: 16px;
   cursor: pointer;
@@ -22,7 +22,7 @@
 }
 
 .CARTCalc {
-  background: linear-gradient(135deg, #173fffba 0%, #0d2bb8 100%);
+  background: linear-gradient(135deg, #ffabb8 0%, #0d2bb8 100%);
   font-size: 18px;
   border-radius: 8px 8px 0 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -97,7 +97,7 @@
 }
 
 .numbersColorGreen {
-  color: #173fffba;
+  color: #ffabb8;
   font-weight: 600;
 }
 
@@ -107,7 +107,7 @@
 }
 
 .checkOut {
-  background: linear-gradient(135deg, #173fffba 0%, #0d2bb8 100%);
+  background: linear-gradient(135deg, #ffabb8 0%, #0d2bb8 100%);
   font-size: 16px;
   width: fit-content;
   text-decoration: none !important;
@@ -119,7 +119,7 @@
 .checkOut:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(23, 63, 255, 0.4);
-  background: linear-gradient(135deg, #0d2bb8 0%, #173fffba 100%);
+  background: linear-gradient(135deg, #0d2bb8 0%, #ffabb8 100%);
 }
 
 @media screen and (max-width: 575px) {

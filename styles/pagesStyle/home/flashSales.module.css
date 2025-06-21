@@ -18,7 +18,7 @@
 
 .cardPrice {
   font-size: 16px;
-  color: #173fffba;
+  color: #ffabb8;
 }
 
 .cardImg {
@@ -29,7 +29,7 @@
   transition: 0.3s;
 }
 .likes:hover {
-  background-color: #173fffba !important;
+  background-color: #ffabb8 !important;
 }
 .likes:hover svg path {
   color: white !important;
@@ -41,8 +41,8 @@
   transition: 0.3s ;
 }
 .category:hover {
-  border-color: #173fffba;
-  background-color: #173fffba;
+  border-color: #ffabb8;
+  background-color: #ffabb8;
   .cardTitle {
     color: white;
   }
@@ -55,7 +55,7 @@
   font-size: 30px;
 }
 .discountPrice {
-  background-color: #173fffba;
+  background-color: #ffabb8;
   height: fit-content;
   color: white;
   font-size: 12px;
@@ -65,7 +65,7 @@
 .viewProducts {
   font-size: 16px;
   font-weight: 500;
-  background-color: #173fffba;
+  background-color: #ffabb8;
   color: white;
   text-decoration: none;
 }
@@ -120,7 +120,7 @@
 }
 
 .flashArrow:hover{
-  background-color: #173fffba;
+  background-color: #ffabb8;
 }
 .flashArrow:hover svg path {
   color: white !important;

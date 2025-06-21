@@ -35,7 +35,7 @@
 }
 
 .empty-cart-content h2 {
-  background: linear-gradient(135deg, #173fffba 0%, #0d2bb8 100%);
+  background: linear-gradient(135deg, #ffabb8 0%, #0d2bb8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -50,7 +50,7 @@
 }
 
 .empty-cart-actions .btn {
-  background: linear-gradient(135deg, #173fffba 0%, #0d2bb8 100%);
+  background: linear-gradient(135deg, #ffabb8 0%, #0d2bb8 100%);
   border: none;
   box-shadow: 0 4px 15px rgba(23, 63, 255, 0.3);
   transition: all 0.3s ease;
@@ -59,7 +59,7 @@
 }
 
 .empty-cart-actions .btn:hover {
-  background: linear-gradient(135deg, #0d2bb8 0%, #173fffba 100%);
+  background: linear-gradient(135deg, #0d2bb8 0%, #ffabb8 100%);
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(23, 63, 255, 0.4);
 }
@@ -145,7 +145,7 @@
 }
 
 .TabBGHeader {
-  background-color: #173fffba !important;
+  background-color: #ffabb8 !important;
   font-size: 17px !important;
 }
 
@@ -165,7 +165,7 @@
 }
 
 .tableSpaces thead th {
-  border-bottom-color: #173fffba !important; /* Optional: Keeps the header bottom border */
+  border-bottom-color: #ffabb8 !important; /* Optional: Keeps the header bottom border */
 }
 
 td {
@@ -177,7 +177,7 @@ td {
 
 .tableBoxs {
   height: 160px !important;
-  border: 2px solid #173fffba;
+  border: 2px solid #ffabb8;
   border-collapse: collapse;
   display: flex;
   align-items: center;

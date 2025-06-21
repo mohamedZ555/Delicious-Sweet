@@ -1,4 +1,3 @@
-
 .over {
   height: 420px;
 }
@@ -29,7 +28,7 @@
 }
 
 .product-price {
-  color: #173fffba;
+  color: #ffabb8;
   font-size: 31px;
 }
 
@@ -39,7 +38,7 @@
 }
 .add-to-cart {
   font-size: 13px;
-  background-color: #173fffba;
+  background-color: #ffabb8;
   width: fit-content;
   cursor: pointer;
   border: none;

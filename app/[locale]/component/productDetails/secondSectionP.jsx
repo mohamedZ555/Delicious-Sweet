@@ -11,7 +11,7 @@ import "swiper/css/scrollbar";
 import StarRating from "../shared/StarRating";
 import React from "react";
 import { FaStar } from "react-icons/fa";
-import { useAddToCart } from "../../../context/authContext";
+import { useAddToCart } from "../../../../context/authContext";
 
 const SecondSectionP = React.memo(function SecondSectionP({ productData }) {
   const t = useTranslations("productDetails");

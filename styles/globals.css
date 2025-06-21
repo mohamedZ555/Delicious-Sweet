@@ -1,8 +1,8 @@
  /* درجة غمقة */
- /* color: #173fffba; */
+ /* color: #ffabb8; */
 
  /* درجة فاتحة
- color:#173fffba
+ color:#ffabb8
  */
 @import url(pagesStyle/about.css);
 html,
@@ -31,11 +31,11 @@ a {
 }
 
 .text{
-  color:#173fffba;
+  color:#ffabb8;
 }
 
 .textDark{
-  color: #173fffba;
+  color: #ffabb8;
 
 }
 /* Animations to Lines */
@@ -83,7 +83,7 @@ a {
   content: "";
   position: absolute;
   background: white;
-  color:#173fffba !important;
+  color:#ffabb8 !important;
   height: 100%;
   width: 0;
   top: 0;
@@ -103,13 +103,13 @@ img {
  object-fit: cover !important; 
 }
 .redText{
-  color: #173fffba;
+  color: #ffabb8;
   font-size: 16px;
   font-weight: 600;
   line-height: 20px;
 }
 .redBox{
-  background-color: #173fffba;
+  background-color: #ffabb8;
   width: 20px;
   height: 40px;
   border-radius: 4px;
@@ -145,10 +145,14 @@ hr{
 }
 
 .reviews-container::-webkit-scrollbar-thumb {
-  background: #173fffba;
+  background: #ffabb8;
   border-radius: 10px;
 }
 
 .reviews-container::-webkit-scrollbar-thumb:hover {
-  background: #173fffba;
+  background: #ffabb8;
+}
+
+:root{
+color:#ffabb8
 }
