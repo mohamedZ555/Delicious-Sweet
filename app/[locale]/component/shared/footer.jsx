@@ -16,30 +16,29 @@ export default function Footer() {
  
 
   return (
-    <footer className="text-light py-4 mt-auto">
+    <footer className="text-light pt-4 mt-auto">
       <div className="container text-center">
-        <div className="row">
-          <div className="col-12 my-3">
+        <div className="row justify-content-center">
+          <div className="col-12 mb-2">
             <Image
               src="/images/logo.jpg"
               alt="logo"
               width={100}
               height={100}
-              style={{ borderRadius: "50%" }}
+              className="footer-logo"
             />
           </div>
-          <div className="col-12 mt-3 mb-3">
+          <div className="col-12 mb-2">
             <h2 className="text-white">Delicious Sweets</h2>
           </div>
-          <div className="col-12 mb-4">
-            <p className="text-white">
+          <div className="col-12 mb-3">
+            <p className="text-white-50 mb-0" style={{maxWidth: '600px', margin: '0 auto'}}>
               {t("info")}
             </p>
           </div>
         </div>
-
         <div className="row">
-          <div className=" d-flex align-items-center justify-content-center gap-5 mb-5">
+          <div className="d-flex align-items-center justify-content-center gap-3 mb-4 flex-wrap">
             <a
               className="footerLinks"
               href="#"
@@ -89,6 +88,10 @@ export default function Footer() {
               <FaMapMarkerAlt />
             </a>
           </div>
+        </div>
+        <hr className="footer-divider" />
+        <div className="footer-copyright">
+          &copy; {new Date().getFullYear()} Delicious Sweets. {t("copyright")}
         </div>
       </div>
     </footer>

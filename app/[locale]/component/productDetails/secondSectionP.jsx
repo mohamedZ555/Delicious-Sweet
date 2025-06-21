@@ -11,6 +11,7 @@ import "swiper/css/scrollbar";
 import StarRating from "../shared/StarRating";
 import React from "react";
 import { FaStar } from "react-icons/fa";
+import { useAddToCart } from "../../../context/authContext";
 
 const SecondSectionP = React.memo(function SecondSectionP({ productData }) {
   const t = useTranslations("productDetails");
@@ -18,6 +19,8 @@ const SecondSectionP = React.memo(function SecondSectionP({ productData }) {
   const [selectedImage, setSelectedImage] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [reviews, setReviews] = useState([]);
+  const { addToCart, isAddingToCart, addToCartError, clearAddToCartError } = useAddToCart();
+  const [addingToCart, setAddingToCart] = useState(false);
 
   const product = useMemo(() => productData?.data || {}, [productData]);
 
@@ -36,6 +39,17 @@ const SecondSectionP = React.memo(function SecondSectionP({ productData }) {
   const handleImageClick = (imageUrl) => setSelectedImage(imageUrl);
   const handleImageError = (e) => {
     e.target.src = "/images/imagePlaceHolder.jpg";
+  };
+
+  const handleAddToCart = async () => {
+    if (!product.id) return;
+    
+    setAddingToCart(true);
+    clearAddToCartError();
+    
+    const result = await addToCart(product.id, 1);
+    
+    setAddingToCart(false);
   };
 
   const ratingAverage = useMemo(() => {
@@ -154,8 +168,23 @@ const SecondSectionP = React.memo(function SecondSectionP({ productData }) {
           </div>
 
           <div>
-            <button className="add-to-cart text-white fw-bold px-4 py-2 rounded-5">
-              {t("addToCart")}
+            <button 
+              className="add-to-cart text-white fw-bold px-4 py-2 rounded-5"
+              onClick={handleAddToCart}
+              disabled={addingToCart}
+              style={{
+                cursor: addingToCart ? 'not-allowed' : 'pointer',
+                opacity: addingToCart ? 0.7 : 1
+              }}
+            >
+              {addingToCart ? (
+                <span>
+                  <i className="fas fa-spinner fa-spin me-2"></i>
+                  Adding...
+                </span>
+              ) : (
+                t("addToCart")
+              )}
             </button>
           </div>
         </div>

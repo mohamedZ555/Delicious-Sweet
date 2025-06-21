@@ -1,16 +1,29 @@
 footer {
-  background-color: black;
+  background: linear-gradient(135deg, #232526 0%, #414345 100%);
+  color: #fff;
+  padding-top: 40px;
+  padding-bottom: 0;
+  border-top: 3px solid #fff2;
+  position: relative;
 }
 footer .container {
   background-color: transparent;
+  padding-bottom: 0;
 }
 footer h2 {
   font-family: "Imperial Script", cursive;
   font-weight: 400;
   font-style: normal;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
 }
 footer Link {
   all: unset;
+}
+.footer-logo {
+  border-radius: 50%;
+  box-shadow: 0 4px 16px #0003;
+  margin-bottom: 1rem;
 }
 .footerLinks {
   border-radius: 50%;
@@ -19,13 +32,30 @@ footer Link {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
+  font-size: 1.3rem;
   font-weight: bold !important;
   transition: 0.3s;
+  margin: 0 0.25rem;
+  box-shadow: 0 2px 8px #0002;
 }
-
 .footerLinks:hover {
-  background-color: white;
-  color: black;
+  background-color: #fff;
+  color: #232526;
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 4px 16px #0004;
+}
+.footer-divider {
+  border: none;
+  border-top: 1.5px solid #fff3;
+  margin: 2rem auto 1rem auto;
+  width: 80%;
+}
+.footer-copyright {
+  color: #fff9;
+  font-size: 0.95rem;
+  text-align: center;
+  padding-bottom: 1rem;
+  letter-spacing: 0.5px;
 }

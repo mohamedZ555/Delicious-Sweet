@@ -1,7 +1,7 @@
 {
   "errorPage": {
     "headTextError": "Opps......This page is not found.",
-    "subTextError": "Botanically, the strawberry fruit is considered an “accessory fruit” and is not a true berry. The flesh consists of the greatly nlarged flower receptacle.",
+    "subTextError": "Botanically, the strawberry fruit is considered an \"accessory fruit\" and is not a true berry. The flesh consists of the greatly enlarged flower receptacle.",
     "thirdTextError": "Back To Home",
     "error404": "404_Error",
     "Home_Pages_Error": "Home - Pages"
@@ -199,7 +199,7 @@
     "accessories": "Accessories",
     "termOfUse": "Term of Use",
     "info": "Creative Mall 2, Line 10, Third District, Above Amir Beirut, Cairo, Egypt.",
-    "copyright": "Copyright 2020 TazZa. All Rights Reserved"
+    "copyright": "Copyright 2020. All Rights Reserved"
   },
   "logButton": {
     "profileAlt": "Profile",
@@ -380,9 +380,10 @@
   "lastPartCart": {
     "Apply Coupon": "APPLY COUPON",
     "cartTotal": "Cart Total",
-    "checkOut": "CHECKOUT",
+    "checkout": "CHECKOUT",
     "subtotal": "Subtotal",
     "discount": "Discount",
+    "shipping": "Shipping",
     "total": "Total"
   }
 }

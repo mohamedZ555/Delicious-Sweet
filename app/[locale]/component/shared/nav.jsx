@@ -10,18 +10,16 @@ import styles from "@/styles/pagesStyle/nav.module.css";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useTranslations } from "next-intl";
 
-
-
 function NaviBar() {
-    const t =  useTranslations("navPart");
-  
+  const t = useTranslations("navPart");
+
   const pathname = usePathname(); // Get the current path
 
   return (
     <Navbar
       collapseOnSelect
       expand="lg"
-      className={`${styles.contNav} col-12 pt-4 pb-3   fixed-top  shadow-sm`}
+      className={`${styles.contNav} col-12 `}
     >
       <div className="bgs container-lg d-flex align-items-center ">
         <div className="contLogo d-flex d-lg-block justify-content-between align-items-center col-12 col-lg-2">
@@ -42,19 +40,13 @@ function NaviBar() {
               {t("home")}
             </Link>
             <Link href="/contact-us" className={styles.navLinks}>
-              
-             {t("contact")}
-
+              {t("contact")}
             </Link>
             <Link href="/about-us" className={styles.navLinks}>
-              
               {t("about")}
-
             </Link>
             <Link href="/product" className={styles.navLinks}>
-              
-             {t("product")}
-
+              {t("product")}
             </Link>
           </Nav>
           <div className="contcallus ms-auto d-lg-flex align-items-center justify-content gap-3 text-center my-3">
@@ -68,10 +60,10 @@ function NaviBar() {
                 <FaMagnifyingGlass />
               </span>
             </div> */}
-            <hr/>
-            <div className="pointer d-flex fs-5 ">
-              <FaRegHeart  className="w-100 m-auto"/>
-            </div>
+            <hr />
+            <Link href="/wishlist" className="pointer text-black d-flex fs-5 ">
+              <FaRegHeart />
+            </Link>
             <div className="d-flex flex-column flex-lg-row justify-content-center align-items-center py-lg-0 py-1 gap-2 pb-1 pb-lg-0">
               <Link href="/cart" className="underLine text-black fs-5">
                 <div className="shoppingCart position-relative fw-bold text-center d-none align-items-center justify-content-center d-lg-flex">
@@ -81,12 +73,10 @@ function NaviBar() {
                     </span>
                   </div>
                 </div>
-         
               </Link>
             </div>
-            <LanguageSwitcher  />
-               <LogButton />
-
+            <LanguageSwitcher />
+            <LogButton />
           </div>
         </Navbar.Collapse>
       </div>

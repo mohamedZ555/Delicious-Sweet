@@ -1,17 +1,33 @@
 "use client";
 
+import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { CiHeart } from "react-icons/ci";
 import { SlEye } from "react-icons/sl";
 import Stars from "../shared/stars";
+import { useAddToCart } from "../../../../context/authContext";
 
 import styles from "../../../../styles/pagesStyle/home/flashSales.module.css";
+
 function ProductProduct({ products = [] }) {
   const t = useTranslations("Product");
+  const { addToCart, isAddingToCart, addToCartError, clearAddToCartError } = useAddToCart();
+  const [addingProductId, setAddingProductId] = useState(null);
+
+  const handleAddToCart = async (productId) => {
+    setAddingProductId(productId);
+    clearAddToCartError();
+    
+    const result = await addToCart(productId, 1);
+    
+    setAddingProductId(null);
+  };
 
   return (
     <main>
+      {/* Error Alert */}
+
       <div className="row">
         {products.length > 0 ? (
           products.map((product, index) => (
@@ -29,9 +45,20 @@ function ProductProduct({ products = [] }) {
                 />
                 <div
                   className={`${styles.addToCart} pointer align-items-center justify-content-center w-100 py-2 position-absolute bottom-0`}
+                  onClick={() => handleAddToCart(product.id)}
+                  style={{
+                    cursor: addingProductId === product.id ? 'not-allowed' : 'pointer',
+                    opacity: addingProductId === product.id ? 0.7 : 1
+                  }}
                 >
-                  {t("AddCart")}
-                  
+                  {addingProductId === product.id ? (
+                    <span>
+                      <i className="fas fa-spinner fa-spin me-2"></i>
+                      Adding...
+                    </span>
+                  ) : (
+                    t("AddCart")
+                  )}
                 </div>
               </div>
               <div className="d-flex justify-content-between position-absolute top-0 start-0 p-2 w-100">

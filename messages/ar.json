@@ -193,7 +193,7 @@
     "contact": "اتصل بنا",
     "accessories": "الإكسسوارات",
     "termOfUse": "شروط الاستخدام",
-    "copyright": "حقوق النشر 2020 TazZa. جميع الحقوق محفوظة"
+    "copyright": "حقوق النشر 2020. جميع الحقوق محفوظة"
   },
   "logButton": {
     "profileAlt": "الملف الشخصي",
@@ -346,7 +346,7 @@
   "lastPartCart": {
     "Apply Coupon": "تفعيل الكوبوبن ",
     "cartTotal": "إجمالي السلة",
-    "checkOut": "إتمام الشراء",
+    "checkout": "إتمام الشراء",
     "subtotal": "المجموع الفرعي",
     "discount": "الخصم",
     "total": "الإجمالي النهائي"

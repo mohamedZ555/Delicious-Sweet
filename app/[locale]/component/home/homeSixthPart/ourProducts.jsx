@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
@@ -11,9 +11,12 @@ import { CiHeart } from "react-icons/ci";
 import { SlEye } from "react-icons/sl";
 import { Link } from "@/i18n/routing";
 import Stars from "../../shared/stars";
+import { useAddToCart } from "../../../../../context/authContext";
 
 export default function OurProducts({ allProducts = [] }) {
   const swiperRef = useRef(null);
+  const { addToCart, isAddingToCart, addToCartError, clearAddToCartError } = useAddToCart();
+  const [addingProductId, setAddingProductId] = useState(null);
 
   const handlePrev = () => {
     if (swiperRef.current) swiperRef.current.slidePrev();
@@ -21,6 +24,15 @@ export default function OurProducts({ allProducts = [] }) {
 
   const handleNext = () => {
     if (swiperRef.current) swiperRef.current.slideNext();
+  };
+
+  const handleAddToCart = async (productId) => {
+    setAddingProductId(productId);
+    clearAddToCartError();
+    
+    const result = await addToCart(productId, 1);
+    
+    setAddingProductId(null);
   };
 
   const chunkArray = (arr, size) => {
@@ -62,6 +74,7 @@ export default function OurProducts({ allProducts = [] }) {
           </div>
         </div>
 
+
         <Swiper
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           modules={[Navigation]}
@@ -93,8 +106,20 @@ export default function OurProducts({ allProducts = [] }) {
                           />
                           <div
                             className={`${styles.addToCart} pointer align-items-center justify-content-center w-100 py-2 position-absolute bottom-0`}
+                            onClick={() => handleAddToCart(product.id)}
+                            style={{
+                              cursor: addingProductId === product.id ? 'not-allowed' : 'pointer',
+                              opacity: addingProductId === product.id ? 0.7 : 1
+                            }}
                           >
-                            Add To Cart
+                            {addingProductId === product.id ? (
+                              <span>
+                                <i className="fas fa-spinner fa-spin me-2"></i>
+                                Adding...
+                              </span>
+                            ) : (
+                              "Add To Cart"
+                            )}
                           </div>
                         </div>
 

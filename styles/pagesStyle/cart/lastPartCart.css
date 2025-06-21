@@ -1,4 +1,3 @@
-
 .couponButtun {
   background-color: #173fffba;
   width: fit-content;
@@ -23,18 +22,49 @@
 }
 
 .CARTCalc {
-  background-color: black;
+  background: linear-gradient(135deg, #173fffba 0%, #0d2bb8 100%);
   font-size: 18px;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .subTot {
   color: black;
   font-size: 17px;
+  transition: all 0.3s ease;
 }
 
-.disCount {
+.subTot:hover {
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  padding: 8px;
+  margin: -8px;
+}
+
+.discount {
   color: black;
   font-size: 17px;
+  transition: all 0.3s ease;
+}
+
+.discount:hover {
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  padding: 8px;
+  margin: -8px;
+}
+
+.shipping {
+  color: black;
+  font-size: 17px;
+  transition: all 0.3s ease;
+}
+
+.shipping:hover {
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  padding: 8px;
+  margin: -8px;
 }
 
 .totalCost {
@@ -42,29 +72,54 @@
   font-size: 20px;
   border: 2px solid #e2f6de;
   border-top: none;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .calcTotalCont {
-  width: 273px;
+  width: 320px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.calcTotalCont:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
 .cartTotBorder {
   border: 2px solid #e2f6de;
   border-top: none;
+  background-color: white;
 }
 
 .numbersColorGreen {
   color: #173fffba;
+  font-weight: 600;
 }
 
 .numbersColorGray {
   color: #767676;
+  font-weight: 500;
 }
 
 .checkOut {
-  background-color: #173fffba;
+  background: linear-gradient(135deg, #173fffba 0%, #0d2bb8 100%);
   font-size: 16px;
   width: fit-content;
   text-decoration: none !important;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(23, 63, 255, 0.3);
+}
+
+.checkOut:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(23, 63, 255, 0.4);
+  background: linear-gradient(135deg, #0d2bb8 0%, #173fffba 100%);
 }
 
 @media screen and (max-width: 575px) {
@@ -85,10 +140,17 @@
   .totalCost {
     font-size: 17px;
   }
-  .disCount {
+  .discount {
     font-size: 15px;
   }
   .subTot {
     font-size: 15px;
+  }
+  .shipping {
+    font-size: 15px;
+  }
+  .calcTotalCont {
+    width: 100%;
+    max-width: 320px;
   }
 }
