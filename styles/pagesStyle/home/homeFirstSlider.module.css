@@ -24,7 +24,7 @@
   
   /* Swiper pagination */
 /* Default pagination bullet */
-:global(.swiper-pagination-bullet) {
+.swiper-pagination-bullet {
     width: 13px;
     height: 13px;
     background-color: gray !important; /* Default dot color */
@@ -34,7 +34,7 @@
   }
   
   /* Active pagination bullet */
-  :global(.swiper-pagination-bullet-active) {
+  .swiper-pagination-bullet-active {
     background-color: #ffabb8 !important; /* Red active dot */
     border: 2px solid white !important; /* White border */
   }

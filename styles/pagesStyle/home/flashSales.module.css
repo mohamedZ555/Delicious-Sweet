@@ -24,16 +24,157 @@
 .cardImg {
   height: 250px !important;
   width: 100% !important;
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
-.likes{
-  transition: 0.3s;
+
+.productCard:hover .cardImg {
+  transform: scale(1.05);
 }
+
+.likes {
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
 .likes:hover {
-  background-color: #ffabb8 !important;
+  background: rgba(255, 171, 184, 0.9);
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(255, 171, 184, 0.4);
 }
-.likes:hover svg path {
-  color: white !important;
+
+.likes:active {
+  transform: scale(0.95);
 }
+/* Enhanced Design Styles */
+.enhancedDiscountBadge {
+  background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  height: fit-content !important;
+}
+
+.enhancedDiscountBadge:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(255, 107, 107, 0.4);
+}
+
+.discount-icon {
+  font-size: 14px;
+}
+
+.discount-text {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.enhancedActionButton {
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.enhancedActionButton:hover {
+  background: rgba(255, 171, 184, 0.9);
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(255, 171, 184, 0.4);
+}
+
+.enhancedActionButton:active {
+  transform: scale(0.95);
+}
+
+.enhancedAddToCart {
+  background: linear-gradient(135deg, #000000, #333333);
+  color: white;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.productCard:hover .enhancedAddToCart {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.enhancedAddToCart:hover {
+  background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+  transform: translateY(0);
+}
+
+.productInfoOverlay {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4), transparent);
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.productCard:hover .productInfoOverlay {
+  transform: translateY(0);
+}
+
+.enhancedCardTitle {
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.enhancedCardPrice {
+  font-size: 14px;
+}
+
+.current-price {
+  color: #ffabb8;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.original-price {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: line-through;
+  font-size: 12px;
+}
+
+.rating-container {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 4px 8px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.empty-state {
+  padding: 40px 20px;
+}
+
+.empty-state i {
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
 .category {
   width: 170px;
   height: 145px;
@@ -83,6 +224,13 @@
 .cartImageCont {
   height: 250px;
   overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.productCard:hover .cartImageCont {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
 }
 
 .addToCart {
@@ -133,6 +281,14 @@
   .relatedArrow {
     font-size: 25px;
   }
+  .enhancedActionButton {
+    width: 35px;
+    height: 35px;
+  }
+  .enhancedDiscountBadge {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
 }
 @media screen and (max-width: 464px) {
   .flashText {
@@ -140,6 +296,14 @@
   }
   .relatedArrow {
     font-size: 22px;
+  }
+  .enhancedActionButton {
+    width: 32px;
+    height: 32px;
+  }
+  .enhancedDiscountBadge {
+    padding: 5px 8px;
+    font-size: 10px;
   }
 }
 @media screen and (max-width: 575px) {
@@ -159,6 +323,12 @@
   .cardPrice {
     font-size: 18px;
   }
+  .enhancedCardTitle {
+    font-size: 14px;
+  }
+  .current-price {
+    font-size: 14px;
+  }
 }
 
 @media screen and (max-width: 400px) {
@@ -177,5 +347,13 @@
   }
   .addToCardBtn {
     font-size: 12px;
+  }
+  .enhancedActionButton {
+    width: 28px;
+    height: 28px;
+  }
+  .enhancedDiscountBadge {
+    padding: 4px 6px;
+    font-size: 9px;
   }
 }

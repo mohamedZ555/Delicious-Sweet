@@ -7,16 +7,21 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import styles from "../../../../../styles/pagesStyle/home/homeOurProducts.module.css";
-import { CiHeart } from "react-icons/ci";
 import { SlEye } from "react-icons/sl";
 import { Link } from "@/i18n/routing";
 import Stars from "../../shared/stars";
+import HeartIcon from "../../shared/HeartIcon";
 import { useAddToCart } from "../../../../../context/authContext";
+import { useAuth } from "../../../../../context/authContext";
+import { useTranslations } from "next-intl";
 
 export default function OurProducts({ allProducts = [] }) {
   const swiperRef = useRef(null);
-  const { addToCart, isAddingToCart, addToCartError, clearAddToCartError } = useAddToCart();
+  const { addToCart, isAddingToCart, addToCartError, clearAddToCartError } =
+    useAddToCart();
+  const { toggleWishlist, isInWishlist } = useAuth();
   const [addingProductId, setAddingProductId] = useState(null);
+  const t = useTranslations("homePage.ourProducts");
 
   const handlePrev = () => {
     if (swiperRef.current) swiperRef.current.slidePrev();
@@ -29,10 +34,18 @@ export default function OurProducts({ allProducts = [] }) {
   const handleAddToCart = async (productId) => {
     setAddingProductId(productId);
     clearAddToCartError();
-    
+
     const result = await addToCart(productId, 1);
-    
+
     setAddingProductId(null);
+  };
+
+  const handleWishlistToggle = async (productId, isLiked) => {
+    try {
+      await toggleWishlist(productId);
+    } catch (error) {
+      console.error("Error toggling wishlist:", error);
+    }
   };
 
   const chunkArray = (arr, size) => {
@@ -49,13 +62,13 @@ export default function OurProducts({ allProducts = [] }) {
       <section>
         <div className="d-flex align-items-center gap-3 pb-3">
           <div className="redBox"></div>
-          <div className="redText">Our Products</div>
+          <div className="redText">{t("title")}</div>
         </div>
 
         <div className="d-flex align-items-center justify-content-between pb-lg-5 pb-4">
           <div className="d-flex gap-5">
             <div className={`${styles.flashText} fw-semibold pe-5 pt-2`}>
-              Explore Our Products
+              {t("subtitle")}
             </div>
           </div>
           <div className="d-flex align-items-center gap-2">
@@ -73,7 +86,6 @@ export default function OurProducts({ allProducts = [] }) {
             </div>
           </div>
         </div>
-
 
         <Swiper
           onSwiper={(swiper) => (swiperRef.current = swiper)}
@@ -108,17 +120,20 @@ export default function OurProducts({ allProducts = [] }) {
                             className={`${styles.addToCart} pointer align-items-center justify-content-center w-100 py-2 position-absolute bottom-0`}
                             onClick={() => handleAddToCart(product.id)}
                             style={{
-                              cursor: addingProductId === product.id ? 'not-allowed' : 'pointer',
-                              opacity: addingProductId === product.id ? 0.7 : 1
+                              cursor:
+                                addingProductId === product.id
+                                  ? "not-allowed"
+                                  : "pointer",
+                              opacity: addingProductId === product.id ? 0.7 : 1,
                             }}
                           >
                             {addingProductId === product.id ? (
                               <span>
                                 <i className="fas fa-spinner fa-spin me-2"></i>
-                                Adding...
+                                {t("addingToCart")}
                               </span>
                             ) : (
-                              "Add To Cart"
+                              t("addToCart")
                             )}
                           </div>
                         </div>
@@ -128,17 +143,19 @@ export default function OurProducts({ allProducts = [] }) {
                             <div
                               className={`${styles.newProduct} px-3 py-1 rounded`}
                             >
-                              NEW
+                              {t("new")}
                             </div>
                           )}
                           <div className="d-flex align-items-center gap-2 flex-column ms-auto">
-                            <div
-                              className={`${styles.likes} p-1 fs-5 d-flex text-black bg-white rounded-circle pointer`}
-                            >
-                              <CiHeart />
-                            </div>
-                            <Link href={`/product/${product.id}`}
-                              className={`${styles.likes} p-1 fs-5 d-flex text-black bg-white rounded-circle pointer`}
+                            <HeartIcon
+                              productId={product.id}
+                              className={styles.likes}
+                              onToggle={handleWishlistToggle}
+                              isLiked={isInWishlist(product.id)}
+                            />
+                            <Link
+                              href={`/product/${product.id}`}
+                              className={`${styles.likes} d-flex align-items-center justify-content-center text-white`}
                             >
                               <SlEye />
                             </Link>
@@ -158,9 +175,6 @@ export default function OurProducts({ allProducts = [] }) {
                             {product.discountPrice > 0 ? (
                               <>
                                 <div className={styles.cardPrice}>
-                                  ${product.price}
-                                </div>
-                                <div className="ms-2 text-decoration-line-through text-body-secondary">
                                   $
                                   {product.discount_type
                                     ? (
@@ -171,6 +185,9 @@ export default function OurProducts({ allProducts = [] }) {
                                     : (
                                         product.price - product?.discountPrice
                                       ).toFixed(2)}
+                                </div>
+                                <div className="ms-2 text-decoration-line-through text-body-secondary">
+                                  ${product.price}
                                 </div>
                               </>
                             ) : (

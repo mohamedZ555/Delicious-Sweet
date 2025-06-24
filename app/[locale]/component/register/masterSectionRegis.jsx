@@ -237,7 +237,7 @@ export default function Registration({ locale }) {
                   {error && (
                     <div
                       className={`${
-                        error === "SuccesFully Added"
+                        error === t("successfullyAdded")
                           ? "text-success"
                           : "text-danger"
                       } mb-0`}
@@ -251,7 +251,7 @@ export default function Registration({ locale }) {
               {apiError && (
                 <div
                   className={`${
-                    apiError === "SuccesFully Added"
+                    apiError === t("successfullyAdded")
                       ? "text-success"
                       : "text-danger"
                   }  mb-0`}

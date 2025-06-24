@@ -20,7 +20,12 @@
     "third_about": "إصلاحات المباني",
     "fourth_about": "لوريم إيبسوم دولور سيت أميت، كونسيتيتور أديبيسينج إيليت.",
     "fifth_about": "تصميم مخصص",
-    "six_about": "لوريم إيبسوم دولور سيت أميت، كونسيتيتور أديبيسينج إيليت."
+    "six_about": "لوريم إيبسوم دولور سيت أميت، كونسيتيتور أديبيسينج إيليت.",
+    "welcomeTitle": "مرحباً بكم في متجرنا",
+    "welcomeDescription": "يتم صنع الحلوى عن طريق إذابة السكر في الماء أو الحليب لتكوين شراب، والذي يتم غليه حتى يصل إلى التركيز المطلوب أو يبدأ في التكرمل. تأتي الحلوى في مجموعة واسعة من القوام، من الناعم والمطاطي إلى الصلب والهش. يعتمد قوام الحلوى على المكونات.",
+    "sweetBoxTitle": "صندوق الحلويات لها",
+    "sweetBoxDescription": "بعض الحلويات تُصنع بالقهوة، مثل التيراميسو، أو يمكن صنع نسخة من الحلوى بنكهة القهوة. يمكن أيضاً استخدام الكحول كمكون لصنع الحلويات.",
+    "storeLocationTitle": "موقع متجرنا"
   },
   "checkOut": {
     "title_check": "الدفع",
@@ -113,7 +118,11 @@
     "subtotal": "المجموع الفرعي",
     "discount": "الخصم",
     "total": "الإجمالي",
-    "checkout": "الدفع"
+    "checkout": "الدفع",
+    "emptyCartTitle": "سلة التسوق فارغة!",
+    "emptyCartDescription": "يبدو أنك لم تضيف أي منتجات إلى سلة التسوق بعد. ابدأ التسوق لاكتشاف منتجاتنا المذهلة!",
+    "startShopping": "ابدأ التسوق",
+    "remove": "إزالة"
   },
 
   "homePage": {
@@ -160,6 +169,25 @@
       "vectorImageAlt": "خلفية متجهية",
       "healthyFoodAlt": "طعام صحي",
       "womanAlt": "امرأة"
+    },
+    "flashSales": {
+      "title": "المبيعات الخاطفة",
+      "subtitle": "المبيعات الخاطفة",
+      "addToCart": "أضف إلى السلة",
+      "addingToCart": "جاري الإضافة..."
+    },
+    "bestSelling": {
+      "title": "الأكثر مبيعًا",
+      "subtitle": "المنتجات الأكثر مبيعًا",
+      "addToCart": "أضف إلى السلة",
+      "addingToCart": "جاري الإضافة..."
+    },
+    "ourProducts": {
+      "title": "منتجاتنا",
+      "subtitle": "استكشف منتجاتنا",
+      "addToCart": "أضف إلى السلة",
+      "addingToCart": "جاري الإضافة...",
+      "new": "جديد"
     }
   },
   "product": {
@@ -193,7 +221,8 @@
     "contact": "اتصل بنا",
     "accessories": "الإكسسوارات",
     "termOfUse": "شروط الاستخدام",
-    "copyright": "حقوق النشر 2020. جميع الحقوق محفوظة"
+    "copyright": "حقوق النشر 2020. جميع الحقوق محفوظة",
+    "brandName": "الحلويات اللذيذة"
   },
   "logButton": {
     "profileAlt": "الملف الشخصي",
@@ -209,7 +238,8 @@
     "blog": "المدونة",
     "contact": "اتصل بنا",
     "callUs": "اتصل بنا!",
-    "cart": "السلة"
+    "cart": "السلة",
+    "brandName": "الحلويات اللذيذة"
   },
   "productDetails": {
     "productDetails": "تفاصيل المنتج",
@@ -221,11 +251,21 @@
     "loading": "جارٍ تحميل تفاصيل المنتج...",
     "customerReviews": "مراجعات العملاء",
     "decreaseQuantity": "تقليل الكمية",
-    "increaseQuantity": "زيادة الكمية"
+    "increaseQuantity": "زيادة الكمية",
+    "productNotFound": "المنتج غير موجود",
+    "category": "الفئة",
+    "material": "المكونات",
+    "productCode": "كود المنتج",
+    "stock": "المخزون",
+    "preOrder": "طلب مسبق",
+    "outOfStock": "غير متوفر",
+    "adding": "جاري الإضافة...",
+    "refreshingReviews": "جاري تحديث المراجعات..."
   },
   "search": {
     "placeholder": "ابحث بالاسم أو الفئة",
-    "searchButton": "بحث"
+    "searchButton": "بحث",
+    "searchPlaceholder": "ماذا تبحث عنه؟"
   },
   "contactForm": {
     "backgroundAlt": "صورة الخلفية",
@@ -277,22 +317,59 @@
     "passwordMismatch": "كلمتا المرور غير متطابقتين",
     "registrationFailed": "فشل التسجيل. الرجاء المحاولة مرة أخرى.",
     "registrationSuccess": "تم التسجيل بنجاح! سيتم إعادة التوجيه...",
-    "errorMessage": "حدث خطأ ما. الرجاء المحاولة مرة أخرى."
+    "errorMessage": "حدث خطأ ما. الرجاء المحاولة مرة أخرى.",
+    "passwordNonAlphanumericError": "كلمة المرور يجب أن تحتوي على حرف خاص واحد على الأقل",
+    "passwordLowercaseError": "كلمة المرور يجب أن تحتوي على حرف صغير واحد على الأقل",
+    "passwordUppercaseError": "كلمة المرور يجب أن تحتوي على حرف كبير واحد على الأقل",
+    "emailExistsError": "هذا البريد الإلكتروني مسجل بالفعل",
+    "minLength6": "6 أحرف على الأقل",
+    "oneNonAlphanumeric": "حرف خاص واحد على الأقل",
+    "oneLowercase": "حرف صغير واحد على الأقل",
+    "oneUppercase": "حرف كبير واحد على الأقل",
+    "registering": "جاري التسجيل...",
+    "redirectingToLogin": "سيتم إعادة توجيهك إلى صفحة تسجيل الدخول قريبًا...",
+    "firstNameRequired": "الاسم الأول مطلوب",
+    "firstNameTooShort": "الاسم الأول يجب أن يكون حرفين على الأقل",
+    "lastNameRequired": "اسم العائلة مطلوب",
+    "lastNameTooShort": "اسم العائلة يجب أن يكون حرفين على الأقل",
+    "phoneRequired": "رقم الهاتف مطلوب",
+    "invalidPhone": "يرجى إدخال رقم هاتف صحيح",
+    "emailRequired": "البريد الإلكتروني مطلوب",
+    "invalidEmail": "يرجى إدخال بريد إلكتروني صحيح",
+    "addressRequired": "العنوان مطلوب",
+    "cityRequired": "المدينة مطلوبة",
+    "passwordRequired": "كلمة المرور مطلوبة",
+    "confirmPasswordRequired": "يرجى تأكيد كلمة المرور",
+    "passwordTooShort": "كلمة المرور يجب أن تكون 6 أحرف على الأقل",
+    "passwordComplexity": "كلمة المرور يجب أن تحتوي على حرف كبير وحرف صغير ورقم وحرف خاص",
+    "registerFailed": "فشل التسجيل. الرجاء المحاولة مرة أخرى.",
+    "networkError": "خطأ في الشبكة. يرجى التحقق من اتصالك.",
+    "emailExists": "البريد الإلكتروني موجود بالفعل. يرجى استخدام بريد إلكتروني مختلف.",
+    "passwordRequirements": "كلمة المرور يجب أن تكون 6 أحرف على الأقل وتتضمن حرف كبير وحرف صغير ورقم وحرف خاص"
   },
   "login": {
     "title": "تسجيل الدخول الآن",
     "email": "البريد الإلكتروني",
     "emailPlaceholder": "أدخل بريدك الإلكتروني",
+    "emailRequired": "البريد الإلكتروني مطلوب",
+    "invalidEmail": "يرجى إدخال بريد إلكتروني صحيح",
     "phonePlaceholder": "أدخل رقم هاتفك",
     "password": "كلمة المرور",
     "passwordPlaceholder": "أدخل كلمة المرور",
+    "passwordRequired": "كلمة المرور مطلوبة",
+    "passwordMinLength": "كلمة المرور يجب أن تكون 6 أحرف على الأقل",
     "rememberMe": "تذكرني",
     "login": "تسجيل الدخول",
-    "loggingIn": "جاري الدخول",
+    "loggingIn": "جاري تسجيل الدخول",
     "createAccount": "إنشاء حساب جديد",
-    "forgotPassword": "هل نسيت كلمة المرور؟",
+    "forgotPassword": "نسيت كلمة المرور؟",
     "loginFailed": "فشل تسجيل الدخول",
-    "errorMessage": "حدث خطأ. يرجى المحاولة مرة أخرى."
+    "errorMessage": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+    "networkError": "خطأ في الشبكة. يرجى التحقق من اتصالك.",
+    "accountLocked": "الحساب مؤقتاً مقفل",
+    "tryAgainIn": "حاول مرة أخرى في",
+    "tooManyAttempts": "محاولات تسجيل دخول كثيرة جداً. يرجى المحاولة لاحقاً.",
+    "attemptsRemaining": "المحاولات المتبقية: {attempts}"
   },
   "contact": {
     "title": "اتصل بنا",
@@ -313,17 +390,17 @@
   "ContactPage": {
     "Loading": "تحميل...",
     "HeroSection": {
-      "header": "تواصل معنا ",
-      "description": "feel free to reach out. Let us make your experience on the Nile truly exceptional."
+      "header": "تواصل معنا",
+      "description": "لا تتردد في التواصل معنا. دعنا نجعل تجربتك على النيل استثنائية حقًا."
     },
     "form": {
-      "name": "Name",
-      "nameError": "Please enter a valid name (at least 2 letters).",
-      "emailError": "Please enter a valid email address.",
-      "messageError": "Message must be at least 10 characters long.",
+      "name": "الاسم",
       "email": "البريد الإلكتروني",
       "message": "الرسالة",
       "submit": "إرسال الرسالة",
+      "nameError": "يرجى إدخال اسم صحيح (حرفين على الأقل).",
+      "emailError": "يرجى إدخال بريد إلكتروني صحيح.",
+      "messageError": "يجب أن تحتوي الرسالة على 10 أحرف على الأقل.",
       "submitting": "جارٍ الإرسال...",
       "success": "تم إرسال رسالتك بنجاح.",
       "error": "حدث خطأ أثناء إرسال الرسالة. يرجى المحاولة مرة أخرى.",
@@ -350,5 +427,103 @@
     "subtotal": "المجموع الفرعي",
     "discount": "الخصم",
     "total": "الإجمالي النهائي"
+  },
+
+  "Product": {
+    "productPageTitle": "صفحة المنتجات",
+    "homePages": "الرئيسية - الصفحات",
+    "headerImageAlt": "صورة رأس المنتج",
+    "soldOut": "نفذت الكمية",
+    "addToCart": "أضف إلى السلة",
+    "noProducts": "لم يتم العثور على منتجات",
+    "categoryTitle": "التصنيفات",
+    "allCategories": "جميع التصنيفات",
+    "noCategories": "لا توجد تصنيفات متاحة",
+    "cat": "فئة",
+    "allCats": "جميع الفئات",
+    "search": "بحث",
+    "AddCart": "أضف إلى السلة",
+    "addingToCart": "جاري الإضافة إلى السلة..."
+  },
+
+  "wishlist": {
+    "title": "قائمة المفضلة",
+    "emptyTitle": "قائمة المفضلة فارغة",
+    "emptyDescription": "ابدأ بإضافة منتجات إلى قائمة المفضلة لرؤيتها هنا!",
+    "browseProducts": "تصفح المنتجات",
+    "loginRequired": "يرجى تسجيل الدخول لعرض قائمة المفضلة",
+    "loginRequiredDescription": "تحتاج إلى تسجيل الدخول للوصول إلى قائمة المفضلة.",
+    "login": "تسجيل الدخول",
+    "loading": "جاري تحميل قائمة المفضلة...",
+    "clearAll": "مسح الكل",
+    "clearAllConfirm": "هل أنت متأكد من أنك تريد مسح قائمة المفضلة بالكامل؟",
+    "item": "عنصر",
+    "items": "عناصر",
+    "inWishlist": "في قائمة المفضلة",
+    "addToCart": "أضف إلى السلة",
+    "addingToCart": "جاري الإضافة...",
+    "viewDetails": "عرض تفاصيل المنتج",
+    "brand": "العلامة التجارية",
+    "removeFromWishlist": "إزالة من قائمة المفضلة",
+    "productAddedToCart": "تم إضافة المنتج إلى السلة بنجاح!",
+    "productRemovedFromWishlist": "تم إزالة المنتج من قائمة المفضلة",
+    "wishlistCleared": "تم مسح قائمة المفضلة بنجاح",
+    "errorLoadingWishlist": "خطأ في تحميل قائمة المفضلة",
+    "errorAddingToCart": "خطأ في إضافة المنتج إلى السلة",
+    "errorRemovingFromWishlist": "خطأ في إزالة المنتج من قائمة المفضلة",
+    "errorClearingWishlist": "خطأ في مسح قائمة المفضلة"
+  },
+  "cartAccess": {
+    "title": "الوصول إلى سلة التسوق",
+    "description": "يرجى تسجيل الدخول لعرض وإدارة سلة التسوق الخاصة بك. سيتم حفظ العناصر الخاصة بك بمجرد تسجيل الدخول.",
+    "loginButton": "تسجيل الدخول للمتابعة",
+    "noAccount": "ليس لديك حساب؟",
+    "signUpHere": "سجل هنا"
+  },
+  "heartIcon": {
+    "addToWishlist": "أضف إلى المفضلة",
+    "removeFromWishlist": "إزالة من المفضلة",
+    "addedToWishlist": "تمت الإضافة إلى المفضلة",
+    "removedFromWishlist": "تمت الإزالة من المفضلة"
+  },
+  "starRating": {
+    "addReview": "أضف تقييمك",
+    "commentPlaceholder": "شارك أفكارك حول هذا المنتج...",
+    "noReviews": "لا توجد تقييمات بعد. كن أول من يقيم!",
+    "loginToReview": "يرجى تسجيل الدخول لإرسال تقييم",
+    "noCommentProvided": "لا يوجد تعليق",
+    "failedToSaveRating": "فشل في حفظ التقييم",
+    "submitting": "جاري الإرسال...",
+    "submit": "إرسال",
+    "cancel": "إلغاء",
+    "reviews": "مراجعات العملاء"
+  },
+  "tableHeaders": {
+    "product": "المنتج",
+    "price": "السعر",
+    "quantity": "الكمية",
+    "subtotal": "المجموع الفرعي",
+    "removeItem": "إزالة العنصر"
+  },
+  "pageTitles": {
+    "home": "الحلويات اللذيذة",
+    "login": "صفحة تسجيل الدخول",
+    "registration": "صفحة التسجيل",
+    "profile": "صفحة الملف الشخصي",
+    "product": "صفحة المنتجات",
+    "cart": "صفحة السلة",
+    "about": "صفحة حول",
+    "contact": "صفحة الاتصال",
+    "wishlist": "صفحة المفضلة",
+    "checkout": "صفحة الدفع"
+  },
+  "common": {
+    "decreaseQuantity": "تقليل الكمية",
+    "increaseQuantity": "زيادة الكمية",
+    "removeItem": "إزالة العنصر",
+    "shopBanner": "لافتة المتجر",
+    "sweetBox": "صندوق الحلويات",
+    "storeLocation": "موقع المتجر",
+    "successfullyAdded": "تمت الإضافة بنجاح"
   }
 }

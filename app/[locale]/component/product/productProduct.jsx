@@ -3,25 +3,36 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
-import { CiHeart } from "react-icons/ci";
 import { SlEye } from "react-icons/sl";
 import Stars from "../shared/stars";
+import HeartIcon from "../shared/HeartIcon";
 import { useAddToCart } from "../../../../context/authContext";
+import { useAuth } from "../../../../context/authContext";
 
 import styles from "../../../../styles/pagesStyle/home/flashSales.module.css";
 
 function ProductProduct({ products = [] }) {
   const t = useTranslations("Product");
-  const { addToCart, isAddingToCart, addToCartError, clearAddToCartError } = useAddToCart();
+  const { addToCart, isAddingToCart, addToCartError, clearAddToCartError } =
+    useAddToCart();
+  const { toggleWishlist, isInWishlist } = useAuth();
   const [addingProductId, setAddingProductId] = useState(null);
 
   const handleAddToCart = async (productId) => {
     setAddingProductId(productId);
     clearAddToCartError();
-    
+
     const result = await addToCart(productId, 1);
-    
+
     setAddingProductId(null);
+  };
+
+  const handleWishlistToggle = async (productId, isLiked) => {
+    try {
+      await toggleWishlist(productId);
+    } catch (error) {
+      console.error("Error toggling wishlist:", error);
+    }
   };
 
   return (
@@ -47,8 +58,11 @@ function ProductProduct({ products = [] }) {
                   className={`${styles.addToCart} pointer align-items-center justify-content-center w-100 py-2 position-absolute bottom-0`}
                   onClick={() => handleAddToCart(product.id)}
                   style={{
-                    cursor: addingProductId === product.id ? 'not-allowed' : 'pointer',
-                    opacity: addingProductId === product.id ? 0.7 : 1
+                    cursor:
+                      addingProductId === product.id
+                        ? "not-allowed"
+                        : "pointer",
+                    opacity: addingProductId === product.id ? 0.7 : 1,
                   }}
                 >
                   {addingProductId === product.id ? (
@@ -61,23 +75,31 @@ function ProductProduct({ products = [] }) {
                   )}
                 </div>
               </div>
-              <div className="d-flex justify-content-between position-absolute top-0 start-0 p-2 w-100">
+              <div className="d-flex justify-content-between position-absolute top-0 start-0 p-3 w-100">
                 {product.discountPrice > 0 && (
-                  <div className={`${styles.discountPrice} px-3 py-1 rounded`}>
-                    -{product.discountPrice}$
+                  <div
+                    className={`${styles.enhancedDiscountBadge} d-flex align-items-center justify-content-center`}
+                  >
+                    <span className="discount-text">
+                      {product.discountPrice_type === "percent"
+                        ? `${product.discountPrice}% OFF`
+                        : `-$${product.discountPrice}`}
+                    </span>
                   </div>
                 )}
-
-                <div className="d-flex align-items-center gap-2 flex-column ms-auto me-3">
-                  <div
-                    className={`${styles.likes} p-1 fs-5 d-flex bg-white rounded-circle pointer`}
+                <div></div>
+                <div className="d-flex align-items-center gap-2 flex-column">
+                  <HeartIcon
+                    productId={product.id}
+                    className={`${styles.enhancedActionButton} text-white`}
+                    onToggle={handleWishlistToggle}
+                    isLiked={isInWishlist(product.id)}
+                  />
+                  <Link
+                    href={`/product/${product.id}`}
+                    className={`${styles.enhancedActionButton} d-flex align-items-center justify-content-center`}
                   >
-                    <CiHeart />
-                  </div>
-                  <Link href={`/product/${product.id}`}
-                    className={`${styles.likes} p-1 fs-5 d-flex bg-white text-black rounded-circle pointer`}
-                  >
-                    <SlEye />
+                    <SlEye className="text-white" />
                   </Link>
                 </div>
               </div>
@@ -90,8 +112,7 @@ function ProductProduct({ products = [] }) {
                 >
                   {product.discountPrice > 0 ? (
                     <>
-                      <div className={styles.cardPrice}>${product.price}</div>
-                      <div className="ms-2 text-decoration-line-through text-body-secondary">
+                      <div className={styles.cardPrice}>
                         $
                         {product.discountPrice_type === "percent"
                           ? (
@@ -99,6 +120,9 @@ function ProductProduct({ products = [] }) {
                               (product.discountPrice / 100) * product.price
                             ).toFixed(2)
                           : (product.price - product.discountPrice).toFixed(2)}
+                      </div>
+                      <div className="ms-2 text-decoration-line-through text-body-secondary">
+                        ${product.price}
                       </div>
                     </>
                   ) : (

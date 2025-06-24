@@ -1,16 +1,25 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import { Link } from "@/i18n/routing";
+import { SlEye } from "react-icons/sl";
+import HeartIcon from "../shared/HeartIcon";
+import { useAddToCart } from "../../../../context/authContext";
+import { useAuth } from "../../../../context/authContext";
 import "../../../../styles/pagesStyle/product/relatedProduct.css";
+
 export default function RelatedProductClient({ relatedProducts }) {
   const t = useTranslations("productDetails");
   const swiperRef = useRef(null);
+  const { addToCart, isAddingToCart, addToCartError, clearAddToCartError } = useAddToCart();
+  const { toggleWishlist, isInWishlist } = useAuth();
+  const [addingProductId, setAddingProductId] = useState(null);
 
   const handlePrev = () => {
     if (swiperRef.current) swiperRef.current.slidePrev();
@@ -18,6 +27,23 @@ export default function RelatedProductClient({ relatedProducts }) {
 
   const handleNext = () => {
     if (swiperRef.current) swiperRef.current.slideNext();
+  };
+
+  const handleAddToCart = async (productId) => {
+    setAddingProductId(productId);
+    clearAddToCartError();
+    
+    const result = await addToCart(productId, 1);
+    
+    setAddingProductId(null);
+  };
+
+  const handleWishlistToggle = async (productId, isLiked) => {
+    try {
+      await toggleWishlist(productId);
+    } catch (error) {
+      console.error("Error toggling wishlist:", error);
+    }
   };
 
   return (
@@ -60,12 +86,34 @@ export default function RelatedProductClient({ relatedProducts }) {
           {relatedProducts.map((product, index) => (
             <SwiperSlide key={index}>
               <div className="p-3 productCarrd position-relative mb-3">
-                <img src={product.thumbnail_full_url.path} className="card-img mb-2" alt={product.name} />
-                {product.soldOut && (
-                  <div className="soldOut position-absolute px-2 rounded-5 text-white">
-                    {t("soldOut")}
+                <div className="position-relative">
+                  <img src={product.thumbnail_full_url.path} className="card-img mb-2" alt={product.name} />
+                  
+                  {/* Action Buttons */}
+                  <div className="position-absolute top-0 end-0 m-2 d-flex flex-column gap-2">
+                    <div className="bg-dark bg-opacity-75 rounded-circle p-2 d-flex align-items-center justify-content-center">
+                      <HeartIcon
+                        productId={product.id}
+                        className="text-white"
+                        onToggle={handleWishlistToggle}
+                        isLiked={isInWishlist(product.id)}
+                      />
+                    </div>
+                    <Link 
+                      href={`/product/${product.id}`}
+                      className="bg-dark bg-opacity-75 rounded-circle p-2 d-flex align-items-center justify-content-center"
+                    >
+                      <SlEye className="text-white" />
+                    </Link>
                   </div>
-                )}
+
+                  {product.soldOut && (
+                    <div className="soldOut position-absolute px-2 rounded-5 text-white">
+                      {t("soldOut")}
+                    </div>
+                  )}
+                </div>
+                
                 <div className="cardTitle fw-semibold position-relative z-3">
                   {product.name}
                 </div>
@@ -76,7 +124,7 @@ export default function RelatedProductClient({ relatedProducts }) {
                         <div>
                           ${product.unit_price}
                           {product.unit ? product.unit : ""}
-                        </div>{" "}
+                        </div>
                         <div className="ms-1">
                           $ 
                           {product.discount_type === "percent"
@@ -90,8 +138,22 @@ export default function RelatedProductClient({ relatedProducts }) {
                       `${product.unit_price}${product.unit ? product.unit : ""}`
                     )}
                   </div>
-                  <div className="addToCardBtn rounded-5 fw-bold text-white px-3 py-2 z-3">
-                    {t("addToCart")}
+                  <div 
+                    className="addToCardBtn rounded-5 fw-bold text-white px-3 py-2 z-3 pointer"
+                    onClick={() => handleAddToCart(product.id)}
+                    style={{
+                      cursor: addingProductId === product.id ? 'not-allowed' : 'pointer',
+                      opacity: addingProductId === product.id ? 0.7 : 1
+                    }}
+                  >
+                    {addingProductId === product.id ? (
+                      <span>
+                        <i className="fas fa-spinner fa-spin me-2"></i>
+                        Adding...
+                      </span>
+                    ) : (
+                      t("addToCart")
+                    )}
                   </div>
                 </div>
               </div>

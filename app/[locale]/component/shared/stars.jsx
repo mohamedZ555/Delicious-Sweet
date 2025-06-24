@@ -17,7 +17,6 @@ const StarRating = ({ rating }) => {
           </span>
         );
       })}
-      <div className="ms-1 text-body-secondary">(59)</div>
     </div>
   );
 };

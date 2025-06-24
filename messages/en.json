@@ -20,7 +20,12 @@
     "third_about": "Building Repairs",
     "fourth_about": "Lorem ipsum dolor sit consectetur adipiscing elit. Nullam lectus erat",
     "fifth_about": "Custom Design",
-    "six_about": "Lorem ipsum dolor sit consectetur adipiscing elit. Nullam lectus erat"
+    "six_about": "Lorem ipsum dolor sit consectetur adipiscing elit. Nullam lectus erat",
+    "welcomeTitle": "Welcome To Our Shop",
+    "welcomeDescription": "Candy is made by dissolving sugar in water or milk to form a syrup, which is boiled until it reaches the desired concentration or starts to caramelize. Candy comes in a wide variety of textures, from soft and chewy to hard and brittle. The texture of candy depends on the ingredients.",
+    "sweetBoxTitle": "Sweet Box For Her",
+    "sweetBoxDescription": "Some desserts are made with coffee, such as tiramisu, or a coffee-flavoured version of a dessert can be made. Alcohol can also be used as an ingredient, to make desserts.",
+    "storeLocationTitle": "Our Store Location"
   },
   "checkOut": {
     "title_check": "Checkout",
@@ -115,7 +120,11 @@
     "subtotal": "Subtotal",
     "discount": "Discount",
     "total": "Total",
-    "checkout": "CHECKOUT"
+    "checkout": "CHECKOUT",
+    "emptyCartTitle": "Your cart is empty!",
+    "emptyCartDescription": "Looks like you haven't added any products to your cart yet. Start shopping to discover our amazing products!",
+    "startShopping": "Start Shopping",
+    "remove": "Remove"
   },
 
   "homePage": {
@@ -162,6 +171,25 @@
       "vectorImageAlt": "Vector Background",
       "healthyFoodAlt": "Healthy Food",
       "womanAlt": "Woman"
+    },
+    "flashSales": {
+      "title": "Flash Sales",
+      "subtitle": "Flash Sales",
+      "addToCart": "Add To Cart",
+      "addingToCart": "Adding..."
+    },
+    "bestSelling": {
+      "title": "Best Selling",
+      "subtitle": "Best Selling Products",
+      "addToCart": "Add To Cart",
+      "addingToCart": "Adding..."
+    },
+    "ourProducts": {
+      "title": "Our Products",
+      "subtitle": "Explore Our Products",
+      "addToCart": "Add To Cart",
+      "addingToCart": "Adding...",
+      "new": "NEW"
     }
   },
   "Product": {
@@ -177,7 +205,8 @@
     "cat": "category",
     "allCats": "All Category",
     "search": "Search",
-    "AddCart": "Add To Cart"
+    "AddCart": "Add to Cart",
+    "addingToCart": "Adding to Cart..."
   },
 
   "footer": {
@@ -199,7 +228,8 @@
     "accessories": "Accessories",
     "termOfUse": "Term of Use",
     "info": "Creative Mall 2, Line 10, Third District, Above Amir Beirut, Cairo, Egypt.",
-    "copyright": "Copyright 2020. All Rights Reserved"
+    "copyright": "Copyright 2020. All Rights Reserved",
+    "brandName": "Delicious Sweets"
   },
   "logButton": {
     "profileAlt": "Profile",
@@ -215,7 +245,8 @@
     "blog": "Blog",
     "contact": "Contact",
     "callUs": "Call Us!",
-    "cart": "Cart"
+    "cart": "Cart",
+    "brandName": "Delicious-Sweet"
   },
   "productDetails": {
     "productDetails": "Product Details",
@@ -228,11 +259,20 @@
     "customerReviews": "Customer Reviews",
     "decreaseQuantity": "Decrease quantity",
     "increaseQuantity": "Increase quantity",
-    "productNotFound": "Product not found"
+    "productNotFound": "Product not found",
+    "category": "Category",
+    "material": "Material",
+    "productCode": "Product Code",
+    "stock": "Stock",
+    "preOrder": "Pre-order",
+    "outOfStock": "Out of Stock",
+    "adding": "Adding...",
+    "refreshingReviews": "Refreshing reviews..."
   },
   "search": {
     "placeholder": "Search by name or category",
-    "searchButton": "Search"
+    "searchButton": "Search",
+    "searchPlaceholder": "What are you looking for?"
   },
   "contactForm": {
     "backgroundAlt": "Background Image",
@@ -308,7 +348,7 @@
     "passwordRequired": "Password is required",
     "confirmPasswordRequired": "Please confirm your password",
     "passwordTooShort": "Password must be at least 6 characters",
-    "passwordComplexity": "Password must contain uppercase, lowercase, number and special character",
+    "passwordComplexity": "Password must contain uppercase, lowercase, number and special character",       
     "registerFailed": "Registration failed. Please try again.",
     "networkError": "Network error. Please check your connection.",
     "emailExists": "Email already exists. Please use a different email.",
@@ -318,16 +358,25 @@
     "title": "Login Now",
     "email": "Email",
     "emailPlaceholder": "Enter your email",
+    "emailRequired": "Email is required",
+    "invalidEmail": "Please enter a valid email address",
     "phonePlaceholder": "Enter your phone number",
     "password": "Password",
     "passwordPlaceholder": "Enter your password",
+    "passwordRequired": "Password is required",
+    "passwordMinLength": "Password must be at least 6 characters",
     "rememberMe": "Remember me",
     "login": "Login",
     "loggingIn": "logging In",
     "createAccount": "Create a new account",
     "forgotPassword": "Forgot password?",
     "loginFailed": "Login failed",
-    "errorMessage": "Something went wrong. Please try again."
+    "errorMessage": "Something went wrong. Please try again.",
+    "networkError": "Network error. Please check your connection.",
+    "accountLocked": "Account temporarily locked",
+    "tryAgainIn": "Try again in",
+    "tooManyAttempts": "Too many login attempts. Please try again later.",
+    "attemptsRemaining": "Attempts remaining: {attempts}"
   },
   "contact": {
     "title": "Contact Us",
@@ -349,7 +398,7 @@
     "Loading": "Loading...",
     "HeroSection": {
       "header": "Contact Us",
-      "description": "feel free to reach out. Let us make your experience on the Nile truly exceptional."
+      "description": "feel free to reach out. Let us make your experience on the Nile truly exceptional."   
     },
     "form": {
       "name": "Name",
@@ -385,5 +434,85 @@
     "discount": "Discount",
     "shipping": "Shipping",
     "total": "Total"
+  },
+  "wishlist": {
+    "title": "My Wishlist",
+    "emptyTitle": "Your wishlist is empty",
+    "emptyDescription": "Start adding products to your wishlist to see them here!",
+    "browseProducts": "Browse Products",
+    "loginRequired": "Please login to view your wishlist",
+    "loginRequiredDescription": "You need to be logged in to access your wishlist.",
+    "login": "Login",
+    "loading": "Loading your wishlist...",
+    "clearAll": "Clear All",
+    "clearAllConfirm": "Are you sure you want to clear your entire wishlist?",
+    "item": "item",
+    "items": "items",
+    "inWishlist": "in your wishlist",
+    "addToCart": "Add To Cart",
+    "addingToCart": "Adding...",
+    "viewDetails": "View product details",
+    "brand": "Brand",
+    "removeFromWishlist": "Remove from wishlist",
+    "productAddedToCart": "Product added to cart successfully!",
+    "productRemovedFromWishlist": "Product removed from wishlist",
+    "wishlistCleared": "Wishlist cleared successfully",
+    "errorLoadingWishlist": "Error loading wishlist",
+    "errorAddingToCart": "Error adding product to cart",
+    "errorRemovingFromWishlist": "Error removing product from wishlist",
+    "errorClearingWishlist": "Error clearing wishlist"
+  },
+  "cartAccess": {
+    "title": "Access Your Cart",
+    "description": "Please log in to view and manage your shopping cart. Your items will be saved once you're signed in.",
+    "loginButton": "Login to Continue",
+    "noAccount": "Don't have an account?",
+    "signUpHere": "Sign up here"
+  },
+  "heartIcon": {
+    "addToWishlist": "Add to Wishlist",
+    "removeFromWishlist": "Remove from Wishlist",
+    "addedToWishlist": "Added to Wishlist",
+    "removedFromWishlist": "Removed from Wishlist"
+  },
+  "starRating": {
+    "addReview": "Add Your Review",
+    "commentPlaceholder": "Share your thoughts about this product...",
+    "noReviews": "No reviews yet. Be the first to review!",
+    "loginToReview": "Please login to submit a review",
+    "noCommentProvided": "No comment provided",
+    "failedToSaveRating": "Failed to save rating",
+    "submitting": "Submitting...",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "reviews": "Customer Reviews"
+  },
+  "tableHeaders": {
+    "product": "Product",
+    "price": "Price",
+    "quantity": "Quantity",
+    "subtotal": "Subtotal",
+    "removeItem": "Remove Item"
+  },
+  "pageTitles": {
+    "home": "Delicious Sweet",
+    "login": "Login Page",
+    "registration": "Registration Page",
+    "profile": "Profile Page",
+    "product": "Product Page",
+    "cart": "Cart Page",
+    "about": "About Page",
+    "contact": "Contact Page",
+    "wishlist": "Wishlist Page",
+    "checkout": "Checkout Page"
+  },
+  "common": {
+    "decreaseQuantity": "Decrease quantity",
+    "increaseQuantity": "Increase quantity",
+    "removeItem": "Remove item",
+    "shopBanner": "Shop Banner",
+    "sweetBox": "Sweet Box",
+    "storeLocation": "Store Location",
+    "successfullyAdded": "Successfully Added"
   }
 }

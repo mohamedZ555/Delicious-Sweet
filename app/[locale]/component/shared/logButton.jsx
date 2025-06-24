@@ -86,7 +86,7 @@ export default function LogButton() {
           <ul className="dropdown-menu px-2">
             {isAuthenticated && (
               <li>
-                <Link className="dropdown-item profileBTN" href="/profile">
+                <Link className="dropdown-item profileBTN text-center py-2 px-3 fs-6 border-black fw-bold" href="/profile">
                   {t("profile")}
                 </Link>
               </li>
@@ -105,8 +105,8 @@ export default function LogButton() {
         <>
         <div>
             {isAuthenticated && (
-            <div className="mb-3">
-              <Link className="profileBTN" href="/profile">
+            <div className="mb-3 ">
+              <Link className="profileBTN " href="/profile">
                 {t("profile")}
               </Link>
             </div>

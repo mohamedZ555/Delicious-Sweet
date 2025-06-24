@@ -29,7 +29,7 @@ export default function Footer() {
             />
           </div>
           <div className="col-12 mb-2">
-            <h2 className="text-white">Delicious Sweets</h2>
+            <h2 className="text-white">{t("brandName")}</h2>
           </div>
           <div className="col-12 mb-3">
             <p className="text-white-50 mb-0" style={{maxWidth: '600px', margin: '0 auto'}}>
@@ -91,7 +91,7 @@ export default function Footer() {
         </div>
         <hr className="footer-divider" />
         <div className="footer-copyright">
-          &copy; {new Date().getFullYear()} Delicious Sweets. {t("copyright")}
+          &copy; {new Date().getFullYear()} {t("brandName")}. {t("copyright")}
         </div>
       </div>
     </footer>

@@ -24,20 +24,6 @@ function LastPartCart({ cart }) {
                   ${cart || 0}
                 </span>
               </div>
-              <div className="discount pb-3 d-flex align-items-center justify-content-between">
-                <span className="d-flex align-items-center">
-                  <i className="fas fa-tag me-2 text-success"></i>
-                  {t("discount")}
-                </span>
-                <span className="numbersColorGreen fw-semibold">$0.00</span>
-              </div>
-              <div className="shipping pb-3 d-flex align-items-center justify-content-between">
-                <span className="d-flex align-items-center">
-                  <i className="fas fa-shipping-fast me-2 text-info"></i>
-                  Shipping
-                </span>
-                <span className="numbersColorGray fw-semibold">$0.00</span>
-              </div>
             </div>
             <div className="totalCost d-flex align-items-center justify-content-between py-3 px-4">
               <span className="d-flex align-items-center fw-bold">

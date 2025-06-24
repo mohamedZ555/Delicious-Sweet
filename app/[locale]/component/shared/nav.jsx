@@ -1,19 +1,16 @@
 "use client";
 import { Link } from "@/i18n/routing";
-import { usePathname } from "next/navigation";
 import { Navbar, Nav } from "react-bootstrap";
 import { BsCart3 } from "react-icons/bs";
-import { FaMagnifyingGlass } from "react-icons/fa6";
-import { FaRegHeart } from "react-icons/fa";
 import LogButton from "./logButton";
 import styles from "@/styles/pagesStyle/nav.module.css";
 import LanguageSwitcher from "./LanguageSwitcher";
+import WishlistBadge from "./WishlistBadge";
 import { useTranslations } from "next-intl";
 
 function NaviBar() {
   const t = useTranslations("navPart");
-
-  const pathname = usePathname(); // Get the current path
+  const navbarT = useTranslations("navbar");
 
   return (
     <Navbar
@@ -27,7 +24,7 @@ function NaviBar() {
             href="/"
             className={`navbar-brand fw-bold ${styles.iconLogo} text-black`}
           >
-            Delicious-Sweet
+            {navbarT("brandName")}
           </Link>
           <Navbar.Toggle
             aria-controls="responsive-navbar-nav"
@@ -53,7 +50,7 @@ function NaviBar() {
             {/* <div className=" position-relative">
               <input
                 className={`${styles.iner} px-3 py-2 rounded`}
-                placeholder="What are you looking for?"
+                placeholder={searchT("searchPlaceholder")}
                 type="text"
               />
               <span className="position-absolute end-0 pt-1 pe-2">
@@ -61,9 +58,7 @@ function NaviBar() {
               </span>
             </div> */}
             <hr />
-            <Link href="/wishlist" className="pointer text-black d-flex fs-5 ">
-              <FaRegHeart />
-            </Link>
+            <WishlistBadge />
             <div className="d-flex flex-column flex-lg-row justify-content-center align-items-center py-lg-0 py-1 gap-2 pb-1 pb-lg-0">
               <Link href="/cart" className="underLine text-black fs-5">
                 <div className="shoppingCart position-relative fw-bold text-center d-none align-items-center justify-content-center d-lg-flex">

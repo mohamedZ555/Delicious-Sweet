@@ -15,13 +15,13 @@ async function fetchProductDetails(id) {
       throw new Error(`Failed to fetch product: ${res.status}`);
     }
 
-    const json = await res.json();
+    const data = await res.json();
     return {
-      data: json.data,
+      data: data.data,
       isError: false
     };
-  } catch (error) {
-    // console.error("Error fetching product details:", error);
+  } catch (error) { 
+    console.error("Error fetching product details:", error);
     return {
       data: null,
       isError: true,
@@ -32,7 +32,7 @@ async function fetchProductDetails(id) {
 
 export default async function ProductDetails({ params }) {
   const { id } = await params;
-
+  const { local } = await params;
   if (!id) {
     return (
       <div className="container py-5 text-center">
@@ -45,7 +45,7 @@ export default async function ProductDetails({ params }) {
 
   return (
     <div className="product-details-page">
-      <SecondSectionP productData={productResponse} />
+      <SecondSectionP productData={productResponse} local={local} />
     </div>
   );
 }

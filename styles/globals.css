@@ -43,7 +43,26 @@ a {
   position: relative;
   display: inline-block;
 }
+.hearBTN {
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
 
+.hearBTN:hover {
+  background: rgba(255, 171, 184, 0.9);
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(255, 171, 184, 0.4);
+}
+
+.hearBTN:active {
+  transform: scale(0.95);
+}
 .animated-underline-load::after {
   content: '';
   position: absolute;
@@ -69,9 +88,9 @@ a {
   position: relative;
   display: inline-block;
   padding: 10px 25px;
-  background: #d68e3cb7;
-  border: 1px solid #000 !important;
-  color:white;
+  background: #ffabb8;
+  border: 1px solid #ffabb8 !important;
+  color: white;
   font-weight: bold;
   overflow: hidden;
   transition: color 0.6s linear;
@@ -83,7 +102,6 @@ a {
   content: "";
   position: absolute;
   background: white;
-  color:#ffabb8 !important;
   height: 100%;
   width: 0;
   top: 0;
@@ -93,7 +111,7 @@ a {
 }
 
 .btn-animated:hover {
-  color: white;
+  color: #ffabb8;
 }
 
 .btn-animated:hover::before {

@@ -7,16 +7,20 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import styles from "../../../../../styles/pagesStyle/home/flashSales.module.css";
-import { CiHeart } from "react-icons/ci";
 import { SlEye } from "react-icons/sl";
 import { Link } from "@/i18n/routing";
 import Stars from "../../shared/stars";
+import HeartIcon from "../../shared/HeartIcon";
 import { useAddToCart } from "../../../../../context/authContext";
+import { useAuth } from "../../../../../context/authContext";
+import { useTranslations } from "next-intl";
 
 export default function FlashSales({ flashSales = [] }) {
   const swiperRef = useRef(null);
   const { addToCart, isAddingToCart, addToCartError, clearAddToCartError } = useAddToCart();
+  const { toggleWishlist, isInWishlist } = useAuth();
   const [addingProductId, setAddingProductId] = useState(null);
+  const t = useTranslations("homePage.flashSales");
 
   const handlePrev = () => {
     if (swiperRef.current) swiperRef.current.slidePrev();
@@ -35,6 +39,14 @@ export default function FlashSales({ flashSales = [] }) {
     setAddingProductId(null);
   };
 
+  const handleWishlistToggle = async (productId, isLiked) => {
+    try {
+      await toggleWishlist(productId);
+    } catch (error) {
+      console.error("Error toggling wishlist:", error);
+    }
+  };
+
   const chunkArray = (arr, size) => {
     const result = [];
     for (let i = 0; i < arr.length; i += size) {
@@ -49,13 +61,13 @@ export default function FlashSales({ flashSales = [] }) {
       <section>
         <div className="d-flex align-items-center gap-3 pb-3">
           <div className="redBox"></div>
-          <div className="redText">Flash Sales</div>
+          <div className="redText">{t("title")}</div>
         </div>
 
         <div className="d-flex align-items-center justify-content-between pb-lg-5 pb-4">
           <div className="d-flex gap-5">
             <div className={`${styles.flashText} fw-semibold pe-5 pt-2`}>
-              Flash Sales
+              {t("subtitle")}
             </div>
           </div>
           <div className="d-flex align-items-center gap-2">
@@ -115,10 +127,10 @@ export default function FlashSales({ flashSales = [] }) {
                             {addingProductId === product.id ? (
                               <span>
                                 <i className="fas fa-spinner fa-spin me-2"></i>
-                                Adding...
+                                {t("addingToCart")}
                               </span>
                             ) : (
-                              "Add To Cart"
+                              t("addToCart")
                             )}
                           </div>
                         </div>
@@ -132,13 +144,14 @@ export default function FlashSales({ flashSales = [] }) {
                             </div>
                           )}
                           <div className="d-flex align-items-center gap-2 flex-column ms-auto">
-                            <div
-                              className={`${styles.likes} p-1 fs-5 d-flex text-black bg-white rounded-circle pointer`}
-                            >
-                              <CiHeart />
-                            </div>
+                            <HeartIcon
+                              productId={product.id}
+                              className={styles.likes}
+                              onToggle={handleWishlistToggle}
+                              isLiked={isInWishlist(product.id)}
+                            />
                             <Link href={`/product/${product.id}`}
-                              className={`${styles.likes} p-1 fs-5 d-flex text-black bg-white rounded-circle pointer`}
+                              className={`${styles.likes} d-flex align-items-center justify-content-center text-white`}
                             >
                               <SlEye />
                             </Link>

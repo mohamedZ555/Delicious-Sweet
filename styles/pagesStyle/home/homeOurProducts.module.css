@@ -25,14 +25,25 @@
     height: 250px !important;
     width: 100% !important;
   }
-  .likes{
-    transition: 0.3s;
+  .likes {
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   }
+  
   .likes:hover {
-    background-color: #ffabb8 !important;
+    background: rgba(255, 171, 184, 0.9);
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(255, 171, 184, 0.4);
   }
-  .likes:hover svg path {
-    color: white !important;
+  
+  .likes:active {
+    transform: scale(0.95);
   }
   .category {
     width: 170px;

@@ -1,6 +1,6 @@
 "use client";
 import { useState, useRef, useEffect, useMemo, useCallback } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import "../../../../styles/pagesStyle/product/secondSectionP.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
@@ -19,10 +19,16 @@ const SecondSectionP = React.memo(function SecondSectionP({ productData }) {
   const [selectedImage, setSelectedImage] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [reviews, setReviews] = useState([]);
+  const [isRefetching, setIsRefetching] = useState(false);
   const { addToCart, isAddingToCart, addToCartError, clearAddToCartError } = useAddToCart();
   const [addingToCart, setAddingToCart] = useState(false);
-
+  const locale = useLocale();
+  const isArabic = locale === "ar";
   const product = useMemo(() => productData?.data || {}, [productData]);
+  const name = isArabic ? product.nameAr : product.nameEn;
+  const about = isArabic ? product.aboutAr : product.aboutEn;
+  const material = isArabic ? product.materialAr : product.materialEn;
+  const category = isArabic ? product.categoryNameAr : product.categoryNameEn;
 
   useEffect(() => {
     if (product?.mainImageUrl) {
@@ -58,8 +64,34 @@ const SecondSectionP = React.memo(function SecondSectionP({ productData }) {
       : 0;
   }, [reviews]);
 
-  const handleNewReview = (newReview) => {
+  const refetchProductData = async () => {
+    if (!product.id) return;
+    
+    setIsRefetching(true);
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/Products/${product.id}`, {
+        cache: "no-store",
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        if (data?.data?.reviews) {
+          setReviews(data.data.reviews);
+        }
+      }
+    } catch (error) {
+      console.error("Error refetching product data:", error);
+    } finally {
+      setIsRefetching(false);
+    }
+  };
+
+  const handleNewReview = async (newReview) => {
+    // Option 1: Add to local state immediately for instant feedback
     setReviews(prev => [...prev, newReview]);
+    
+    // Option 2: Refetch from server to get the complete updated data
+    await refetchProductData();
   };
 
   const hasDiscount = product.discountPrice > 0;
@@ -110,7 +142,7 @@ const SecondSectionP = React.memo(function SecondSectionP({ productData }) {
                       <img
                         className="imgSliderP"
                         src={img}
-                        alt={product.nameEn}
+                        alt={name}
                         onError={handleImageError}
                       />
                     </div>
@@ -122,7 +154,7 @@ const SecondSectionP = React.memo(function SecondSectionP({ productData }) {
               <img
                 className="main-product-image w-100"
                 src={selectedImage}
-                alt={product.nameEn}
+                alt={name}
                 onError={handleImageError}
               />
             </div>
@@ -131,24 +163,15 @@ const SecondSectionP = React.memo(function SecondSectionP({ productData }) {
 
         <div className="col-sm-5 pt-3 pt-sm-0 d-flex justify-content-center flex-column">
           <div className="product-title fw-semibold text-capitalize">
-            {product.nameEn}
+            {name}
           </div>
-
-          <div className="d-flex align-items-center gap-4 pt-2 pb-md-4 pb-3">
-            <div className="star">
-              {[...Array(5)].map((_, i) => (
-                <FaStar
-                  key={i}
-                  color={i < Math.round(ratingAverage) ? "#ffc107" : "#e4e5e9"}
-                />
-              ))}
-            </div>
-            <div className="CustomerReview">
-              ({reviews.length} {t("customerReviews")})
-            </div>
+          <div className="product-category mb-2">
+            <b>{t("category")}:</b> {category}
           </div>
-
-          <div className="product-price fw-semibold d-flex align-items-center gap-4">
+          <div className="product-material mb-2">
+            <b>{t("material")}:</b> {material}
+          </div>
+          <div className="product-price fw-semibold d-flex align-items-center gap-4 mb-2">
             {hasDiscount ? (
               <>
                 <div className="text-decoration-line-through text-muted">
@@ -162,25 +185,32 @@ const SecondSectionP = React.memo(function SecondSectionP({ productData }) {
               `$${product.price.toFixed(2)}`
             )}
           </div>
-
-          <div className="product-description pt-md-4 pb-md-4 pt-3">
-            {product.aboutEn}
+          <div className="product-description pt-md-2 pb-md-2 pt-2">
+            {about}
           </div>
-
+          <div className="product-stock mb-2">
+            <b>{t("stock")}:</b> {product.quantityInStock}
+          </div>
+          {product.isPreOrder && (
+            <div className="badge bg-warning text-dark mb-2">{t("preOrder")}</div>
+          )}
+          {product.quantityInStock === 0 && (
+            <div className="text-danger mb-2">{t("outOfStock")}</div>
+          )}
           <div>
-            <button 
+            <button
               className="add-to-cart text-white fw-bold px-4 py-2 rounded-5"
               onClick={handleAddToCart}
-              disabled={addingToCart}
+              disabled={addingToCart || product.quantityInStock === 0}
               style={{
-                cursor: addingToCart ? 'not-allowed' : 'pointer',
-                opacity: addingToCart ? 0.7 : 1
+                cursor: addingToCart || product.quantityInStock === 0 ? 'not-allowed' : 'pointer',
+                opacity: addingToCart || product.quantityInStock === 0 ? 0.7 : 1
               }}
             >
               {addingToCart ? (
                 <span>
                   <i className="fas fa-spinner fa-spin me-2"></i>
-                  Adding...
+                  {t("adding")}
                 </span>
               ) : (
                 t("addToCart")
@@ -196,6 +226,11 @@ const SecondSectionP = React.memo(function SecondSectionP({ productData }) {
           reviews={reviews}
           onNewReview={handleNewReview}
         />
+        {isRefetching && (
+          <div className="text-center mt-3">
+            <small className="text-muted">{t("refreshingReviews") || "Refreshing reviews..."}</small>
+          </div>
+        )}
       </div>
     </main>
   );

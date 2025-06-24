@@ -1,0 +1,50 @@
+.reject-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  padding: 2rem;
+}
+
+.reject-icon-wrapper {
+  background: #ff4d4f;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.reject-title {
+  margin-bottom: 12px;
+  color: #ff4d4f;
+}
+
+.reject-desc {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.reject-home-btn {
+  background: #ff4d4f;
+  color: #fff;
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 18px;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  transition: background 0.2s;
+  display: inline-block;
+}
+
+.reject-home-btn:hover,
+.reject-home-btn:focus {
+  background: #d9363e;
+}
