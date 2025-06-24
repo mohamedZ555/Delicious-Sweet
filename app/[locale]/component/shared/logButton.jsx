@@ -6,7 +6,7 @@ import { Link, usePathname } from "@/i18n/routing";
 import { routing } from "@/i18n/routing";
 import { CgProfile } from "react-icons/cg";
 // import LanguageSwitcher from "./LanguageSwitcher";
-import "../../../../styles/pagesStyle/switcher.css"
+import "../../../../styles/pagesStyle/switcher.css";
 export default function LogButton() {
   const router = useRouter();
   const pathname = usePathname();
@@ -47,9 +47,9 @@ export default function LogButton() {
   }, []);
 
   const handleClick = () => {
-    const currentLocale = routing.locales.find((l) =>
-      pathname.startsWith(`/${l}`)
-    ) || routing.defaultLocale;
+    const currentLocale =
+      routing.locales.find((l) => pathname.startsWith(`/${l}`)) ||
+      routing.defaultLocale;
 
     if (isAuthenticated) {
       localStorage.removeItem("token");
@@ -86,12 +86,15 @@ export default function LogButton() {
           <ul className="dropdown-menu px-2">
             {isAuthenticated && (
               <li>
-                <Link className="dropdown-item profileBTN text-center py-2 px-3 fs-6 border-black fw-bold" href="/profile">
+                <Link
+                  className="dropdown-item profileBTN text-center py-2 px-3 fs-6 border-black fw-bold"
+                  href="/profile"
+                >
                   {t("profile")}
                 </Link>
               </li>
             )}
-        
+
             <li
               className="z-3 px-3 py-2 logOutBTN rounded-3 mt-1"
               onClick={handleClick}
@@ -103,20 +106,22 @@ export default function LogButton() {
       ) : (
         // Mobile view
         <>
-        <div>
-            {isAuthenticated && (
-            <div className="mb-3 ">
-              <Link className="profileBTN " href="/profile">
-                {t("profile")}
-              </Link>
+          <div className="d-flex flex-column flex-lg-row align-items-center justify-content-center">
+            <div>
+              {isAuthenticated && (
+                <div className="mb-3 ">
+                  <Link className="Profe px-5 py-2 rounded-5" href="/profile">
+                    {t("profile")}
+                  </Link>
+                </div>
+              )}
             </div>
-          )}
-        </div>
-        <div>
-          <button className="loginBTN px-5" onClick={handleClick}>
-            {isAuthenticated ? t("logout") : t("login")}
-          </button>
-        </div>
+            <div>
+              <button className="loginBTN px-5 rounded-5 py-1" onClick={handleClick}>
+                {isAuthenticated ? t("logout") : t("login")}
+              </button>
+            </div>
+          </div>
         </>
       )}
     </div>

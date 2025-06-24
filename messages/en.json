@@ -151,7 +151,9 @@
     },
     "lastSection": {
       "title": "Latest News",
-      "description": "The passage experienced a surge in popularity during the 1960s when again during the 90s as desktop publishers."
+      "description": "The passage experienced a surge in popularity during the 1960s when again during the 90s as desktop publishers.",
+      "featured": "Featured",
+      "newArrival": "New Arrival"
     },
     "happyCustomers": {
       "title": "Our Happy Customers",
@@ -189,7 +191,8 @@
       "subtitle": "Explore Our Products",
       "addToCart": "Add To Cart",
       "addingToCart": "Adding...",
-      "new": "NEW"
+      "new": "NEW",
+      "viewAllProducts": "View All Products"
     }
   },
   "Product": {

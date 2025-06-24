@@ -11,7 +11,7 @@ import { useAuth } from "../../../../context/authContext";
 
 import styles from "../../../../styles/pagesStyle/home/flashSales.module.css";
 
-function ProductProduct({ products = [] }) {
+function ProductProduct({ products = [] , local}) {
   const t = useTranslations("Product");
   const { addToCart, isAddingToCart, addToCartError, clearAddToCartError } =
     useAddToCart();
@@ -104,7 +104,7 @@ function ProductProduct({ products = [] }) {
                 </div>
               </div>
               <div className={`${styles.cardTitle} position-relative pt-2 z-3`}>
-                {product.nameEn}
+                {local === "en" ? product.nameEn : product.nameAr}
               </div>
               <div className="d-flex justify-content-between align-items-center pt-1">
                 <div
@@ -121,7 +121,7 @@ function ProductProduct({ products = [] }) {
                             ).toFixed(2)
                           : (product.price - product.discountPrice).toFixed(2)}
                       </div>
-                      <div className="ms-2 text-decoration-line-through text-body-secondary">
+                      <div className="mx-2 text-decoration-line-through text-body-secondary">
                         ${product.price}
                       </div>
                     </>

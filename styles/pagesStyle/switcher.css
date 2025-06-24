@@ -82,3 +82,18 @@
     transform: translateY(0);
   }
 }
+.Profe{
+  border: 1px solid black;
+  transition: 0.3s;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none !important;
+  text-align: center;
+  background-color: #ffabb8;
+  color: white !important;
+}
+.Profe:hover{
+  background-color: #ffabb8;
+  color: white !important;
+  border: 1px solid grey;
+}

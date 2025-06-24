@@ -149,7 +149,9 @@
     },
     "lastSection": {
       "title": "آخر الأخبار",
-      "description": "اكتسبت الفقرة شهرة كبيرة خلال الستينيات ومرة أخرى خلال التسعينيات مع الناشرين المكتبيين."
+      "description": "اكتسبت الفقرة شهرة كبيرة خلال الستينيات ومرة أخرى خلال التسعينيات مع الناشرين المكتبيين.",
+      "featured": "مميز",
+      "newArrival": "وصل حديثاً"
     },
     "happyCustomers": {
       "title": "عملاؤنا السعداء",
@@ -187,7 +189,8 @@
       "subtitle": "استكشف منتجاتنا",
       "addToCart": "أضف إلى السلة",
       "addingToCart": "جاري الإضافة...",
-      "new": "جديد"
+      "new": "جديد",
+      "viewAllProducts": "عرض جميع المنتجات"
     }
   },
   "product": {
@@ -222,7 +225,7 @@
     "accessories": "الإكسسوارات",
     "termOfUse": "شروط الاستخدام",
     "copyright": "حقوق النشر 2020. جميع الحقوق محفوظة",
-    "brandName": "الحلويات اللذيذة"
+    "brandName": "Delicious Sweets"
   },
   "logButton": {
     "profileAlt": "الملف الشخصي",
@@ -239,7 +242,7 @@
     "contact": "اتصل بنا",
     "callUs": "اتصل بنا!",
     "cart": "السلة",
-    "brandName": "الحلويات اللذيذة"
+    "brandName": "Delicious Sweets"
   },
   "productDetails": {
     "productDetails": "تفاصيل المنتج",

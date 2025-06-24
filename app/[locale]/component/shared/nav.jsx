@@ -46,32 +46,21 @@ function NaviBar() {
               {t("product")}
             </Link>
           </Nav>
-          <div className="contcallus ms-auto d-lg-flex align-items-center justify-content gap-3 text-center my-3">
-            {/* <div className=" position-relative">
-              <input
-                className={`${styles.iner} px-3 py-2 rounded`}
-                placeholder={searchT("searchPlaceholder")}
-                type="text"
-              />
-              <span className="position-absolute end-0 pt-1 pe-2">
-                <FaMagnifyingGlass />
-              </span>
-            </div> */}
-            <hr />
-            <WishlistBadge />
-            <div className="d-flex flex-column flex-lg-row justify-content-center align-items-center py-lg-0 py-1 gap-2 pb-1 pb-lg-0">
-              <Link href="/cart" className="underLine text-black fs-5">
-                <div className="shoppingCart position-relative fw-bold text-center d-none align-items-center justify-content-center d-lg-flex">
-                  <div>
-                    <span className="d-flex">
-                      <BsCart3 />
-                    </span>
-                  </div>
-                </div>
+          <div className="ms-auto d-flex flex-column flex-lg-row align-items-center justify-content-end text-center my-3 w-auto">
+            <div className="d-flex align-items-center justify-content-center">
+              <WishlistBadge />
+            </div>
+            <div className="d-flex align-items-center justify-content-center mx-lg-3 my-2 my-lg-0">
+              <Link href="/cart" className="text-black fs-5 position-relative d-flex align-items-center">
+                <BsCart3 />
               </Link>
             </div>
-            <LanguageSwitcher />
-            <LogButton />
+            <div className="d-flex align-items-center justify-content-center mx-lg-2 my-2 my-lg-0">
+              <LanguageSwitcher />
+            </div>
+            <div className="d-flex align-items-center justify-content-center mx-lg-2 my-2 my-lg-0">
+              <LogButton />
+            </div>
           </div>
         </Navbar.Collapse>
       </div>

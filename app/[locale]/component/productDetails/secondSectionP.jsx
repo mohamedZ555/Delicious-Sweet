@@ -174,11 +174,14 @@ const SecondSectionP = React.memo(function SecondSectionP({ productData }) {
           <div className="product-price fw-semibold d-flex align-items-center gap-4 mb-2">
             {hasDiscount ? (
               <>
+                <div className="text-success">
+                  ${(product.price - product.discountPrice).toFixed(2)}
+                </div>
                 <div className="text-decoration-line-through text-muted">
                   ${product.price.toFixed(2)}
                 </div>
                 <div className="text-danger">
-                  ${product.discountPrice.toFixed(2)}
+                 - ${product.discountPrice.toFixed(2)}
                 </div>
               </>
             ) : (

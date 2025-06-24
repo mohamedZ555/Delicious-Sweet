@@ -13,7 +13,7 @@ const ContactUsContainer = () => {
       <div className="container py-sm-5 pt-md-3">
         <div className="row py-lg-5 my-lg-3">
           <div className="col-12 col-md-5 d-flex flex-column gap-4 gap-lg-3 gap-xl-4">
-            <div className="mainText text-capitalize pe-1">
+            <div className="mainText text-capitalize">
               {t("title")}
             </div>
             <div className="subText text-capitalize mt-3">
@@ -21,22 +21,22 @@ const ContactUsContainer = () => {
             </div>
             <div>
               <div className="subText text-capitalize mt-3 d-flex align-items-center">
-                <span className="me-3 fs-5 fw-bold">
+                <span className=" fs-5 fw-bold">
                   <FiPhone />
                 </span>
-                <span>{t("phone.value")}</span>
+                <span className="mx-3">{t("phone.value")}</span>
               </div>
               <div className="subText text-capitalize mt-3 d-flex align-items-center">
-                <span className="me-3 fs-5 fw-bold">
+                <span className=" fs-5 fw-bold">
                   <SlLocationPin />
                 </span>
-                <span>{t("address.value")}</span>
+                <span className="mx-3">{t("address.value")}</span>
               </div>
               <div className="subText text-capitalize mt-3 d-flex align-items-center">
-                <span className="me-3 fs-5 fw-bold">
+                <span className=" fs-5 fw-bold">
                   @
                 </span>
-                <span>{t("email.value")}</span>
+                <span className="mx-3">{t("email.value")}</span>
               </div>
             </div>
           </div>

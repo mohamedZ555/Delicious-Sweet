@@ -1,17 +1,19 @@
 import styles from "../../../../../styles/pagesStyle/home/flashSales.module.css";
+import { useTranslations } from "next-intl";
 
 export default function HomeLastPart({arivalData}) {
+  const t = useTranslations("homePage.lastSection");
   return (
     <main className="pb-lg-5 my-lg-5 pb-4 my-4">
       <section>
         <div className="d-flex align-items-center gap-3 pb-3">
           <div className="redBox"></div>
-          <div className="redText">Featured</div>
+          <div className="redText">{t("featured")}</div>
         </div>
         <div className="pb-lg-5 pb-4">
           <div className="d-flex gap-5">
             <div className={`${styles.flashText} fw-semibold`}>
-              New Arrival
+              {t("newArrival")}
             </div>
           </div>
         </div>

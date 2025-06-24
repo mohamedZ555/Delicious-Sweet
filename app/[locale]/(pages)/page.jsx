@@ -1,9 +1,10 @@
 import HomeCollector from "../component/home/homeCollector";
 
-export default function Home() {
+export default async function Home({params}) {
+  const { local } = await params;
   return (
     <div>
-      <HomeCollector />
+      <HomeCollector local={local} />
     </div>
   );
 }

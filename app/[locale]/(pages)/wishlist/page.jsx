@@ -7,9 +7,10 @@ export const metadata = {
   description: 'View and manage your favorite products in your wishlist',
 }
 
-async function Wishlist() {
+async function Wishlist({ params }) {
+  const { local } = await params;
   return (
-    <Wish />
+    <Wish local={local} />
   )
 }
 

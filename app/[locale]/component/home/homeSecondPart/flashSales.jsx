@@ -15,7 +15,7 @@ import { useAddToCart } from "../../../../../context/authContext";
 import { useAuth } from "../../../../../context/authContext";
 import { useTranslations } from "next-intl";
 
-export default function FlashSales({ flashSales = [] }) {
+export default function FlashSales({ flashSales = [] , local}) {
   const swiperRef = useRef(null);
   const { addToCart, isAddingToCart, addToCartError, clearAddToCartError } =
     useAddToCart();
@@ -67,11 +67,11 @@ export default function FlashSales({ flashSales = [] }) {
 
         <div className="d-flex align-items-center justify-content-between pb-lg-5 pb-4">
           <div className="d-flex gap-5">
-            <div className={`${styles.flashText} fw-semibold pe-5 pt-2`}>
+            <div className={`${styles.flashText} fw-semibold pt-2`}>
               {t("subtitle")}
             </div>
           </div>
-          <div className="d-flex align-items-center gap-2">
+          <div dir="ltr" className="d-flex align-items-center gap-2">
             <div
               className={`${styles.flashArrow} p-lg-3 rounded-circle p-1 d-flex justify-content-center align-items-center`}
               onClick={handlePrev}
@@ -138,7 +138,7 @@ export default function FlashSales({ flashSales = [] }) {
                           </div>
                         </div>
 
-                        <div className="d-flex justify-content-between position-absolute top-0 start-0 p-2 w-100">
+                        <div dir="ltr" className="d-flex justify-content-between position-absolute top-0 start-0 p-2 w-100">
                           {product.discountPrice > 0 && (
                             <div
                               className={`${styles.discountPrice} px-3 py-1 rounded`}
@@ -146,7 +146,8 @@ export default function FlashSales({ flashSales = [] }) {
                               -{product.discountPrice}$
                             </div>
                           )}
-                          <div className="d-flex align-items-center gap-2 flex-column ms-auto">
+                          <div></div>
+                          <div className="d-flex align-items-center gap-2 flex-column ">
                             <HeartIcon
                               productId={product.id}
                               className={styles.likes}
@@ -165,7 +166,7 @@ export default function FlashSales({ flashSales = [] }) {
                         <div
                           className={`${styles.cardTitle} position-relative pt-2 z-3`}
                         >
-                          {product?.nameEn || ""}
+                          {local === "en" ? product?.nameEn : product?.nameAr}
                         </div>
 
                         <div className="d-flex justify-content-between align-items-center pt-1">
@@ -186,7 +187,7 @@ export default function FlashSales({ flashSales = [] }) {
                                         product.price - product?.discountPrice
                                       ).toFixed(2)}
                                 </div>
-                                <div className="ms-2 text-decoration-line-through text-body-secondary">
+                                <div className="mx-2 text-decoration-line-through text-body-secondary">
                                   ${product.price}
                                 </div>
                               </>

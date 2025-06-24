@@ -45,7 +45,7 @@ async function getAllProducts() {
   return result?.data || [];
 }
 
-export default async function HomeCollector() {
+export default async function HomeCollector({ local }) {
   const arivalData = await getArival();
   const homeSectionOneData = await getHomeSectionOne();
   const flashData = await getFlashData();
@@ -55,12 +55,12 @@ export default async function HomeCollector() {
       <div className="d-flex flex-column-reverse flex-md-row align-items-center">
         <HomeSlider homeSectionOneData={homeSectionOneData} />
       </div>
-      <FlashSales flashData={flashData} />
+      <FlashSales flashData={flashData} local={local} />
       <hr />
-      <BestSelling allProducts={allProducts} />
+      <BestSelling allProducts={allProducts} local={local} />
       <hr />
       <div>
-        <HomeSixthPart allProducts={allProducts} />
+        <HomeSixthPart allProducts={allProducts} local={local} />
       </div>
       <hr />
       <div className="pb-md-5 pb-0 pb-sm-3">
