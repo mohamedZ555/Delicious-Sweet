@@ -433,7 +433,10 @@
     "subtotal": "Subtotal",
     "discount": "Discount",
     "shipping": "Shipping",
-    "total": "Total"
+    "total": "Total",
+    "noAddress": "No address found",
+    "orderFailed": "Order creation failed",
+    "loading": "Loading..."
   },
   "wishlist": {
     "title": "My Wishlist",

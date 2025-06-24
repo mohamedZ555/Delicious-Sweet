@@ -1,6 +1,6 @@
 import "../../../../styles/pagesStyle/cart/lastPartCart.css";
-import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
+import CheckoutButton from "./CheckoutButton";
 
 function LastPartCart({ cart }) {
   const t = useTranslations("lastPartCart");
@@ -36,13 +36,7 @@ function LastPartCart({ cart }) {
             </div>
           </div>
           <div className="pt-4 d-flex justify-content-md-end align-items-center justify-content-center">
-            <Link
-              href="/cart/check-out"
-              className="underDecor checkOut py-3 px-5 text-white fw-bold d-flex align-items-center"
-            >
-              <i className="fas fa-credit-card me-2"></i>
-              {t("checkout")}
-            </Link>
+            <CheckoutButton />
           </div>
         </div>
       </section>
