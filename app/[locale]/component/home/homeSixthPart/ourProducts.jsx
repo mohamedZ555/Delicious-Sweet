@@ -139,11 +139,11 @@ export default function OurProducts({ allProducts = [] }) {
                         </div>
 
                         <div className="d-flex justify-content-between position-absolute top-0 start-0 p-2 w-100">
-                          {product.new > 0 && (
+                        {product.discountPrice > 0 && (
                             <div
-                              className={`${styles.newProduct} px-3 py-1 rounded`}
+                              className={`${styles.discountPrice} px-3 py-1 rounded`}
                             >
-                              {t("new")}
+                              -{product.discountPrice}$
                             </div>
                           )}
                           <div className="d-flex align-items-center gap-2 flex-column ms-auto">

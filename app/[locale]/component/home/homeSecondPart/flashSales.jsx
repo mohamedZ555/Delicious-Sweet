@@ -17,7 +17,8 @@ import { useTranslations } from "next-intl";
 
 export default function FlashSales({ flashSales = [] }) {
   const swiperRef = useRef(null);
-  const { addToCart, isAddingToCart, addToCartError, clearAddToCartError } = useAddToCart();
+  const { addToCart, isAddingToCart, addToCartError, clearAddToCartError } =
+    useAddToCart();
   const { toggleWishlist, isInWishlist } = useAuth();
   const [addingProductId, setAddingProductId] = useState(null);
   const t = useTranslations("homePage.flashSales");
@@ -33,9 +34,9 @@ export default function FlashSales({ flashSales = [] }) {
   const handleAddToCart = async (productId) => {
     setAddingProductId(productId);
     clearAddToCartError();
-    
+
     const result = await addToCart(productId, 1);
-    
+
     setAddingProductId(null);
   };
 
@@ -86,7 +87,6 @@ export default function FlashSales({ flashSales = [] }) {
           </div>
         </div>
 
-
         <Swiper
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           modules={[Navigation]}
@@ -120,8 +120,11 @@ export default function FlashSales({ flashSales = [] }) {
                             className={`${styles.addToCart} pointer align-items-center justify-content-center w-100 py-2 position-absolute bottom-0`}
                             onClick={() => handleAddToCart(product.id)}
                             style={{
-                              cursor: addingProductId === product.id ? 'not-allowed' : 'pointer',
-                              opacity: addingProductId === product.id ? 0.7 : 1
+                              cursor:
+                                addingProductId === product.id
+                                  ? "not-allowed"
+                                  : "pointer",
+                              opacity: addingProductId === product.id ? 0.7 : 1,
                             }}
                           >
                             {addingProductId === product.id ? (
@@ -150,7 +153,8 @@ export default function FlashSales({ flashSales = [] }) {
                               onToggle={handleWishlistToggle}
                               isLiked={isInWishlist(product.id)}
                             />
-                            <Link href={`/product/${product.id}`}
+                            <Link
+                              href={`/product/${product.id}`}
                               className={`${styles.likes} d-flex align-items-center justify-content-center text-white`}
                             >
                               <SlEye />
@@ -171,9 +175,6 @@ export default function FlashSales({ flashSales = [] }) {
                             {product.discountPrice > 0 ? (
                               <>
                                 <div className={styles.cardPrice}>
-                                  ${product.price}
-                                </div>
-                                <div className="ms-2 text-decoration-line-through text-body-secondary">
                                   $
                                   {product.discountPrice_type === "percent"
                                     ? (
@@ -184,6 +185,9 @@ export default function FlashSales({ flashSales = [] }) {
                                     : (
                                         product.price - product?.discountPrice
                                       ).toFixed(2)}
+                                </div>
+                                <div className="ms-2 text-decoration-line-through text-body-secondary">
+                                  ${product.price}
                                 </div>
                               </>
                             ) : (

@@ -15,7 +15,7 @@ import { useTranslations } from "next-intl";
 import { useAuth } from "../../../../../context/authContext";
 import HeartIcon from "../../shared/HeartIcon";
 
-export default function BestSelling({ bestSelling = [] }) {
+export default function BestSelling({ allProducts = [] }) {
   const swiperRef = useRef(null);
   const { addToCart, isAddingToCart, addToCartError, clearAddToCartError } =
     useAddToCart();
@@ -55,8 +55,8 @@ export default function BestSelling({ bestSelling = [] }) {
     }
     return result;
   };
-
-  const groupedProducts = chunkArray(bestSelling, 8);
+  const bestSelling = allProducts.slice().reverse();
+  const groupedProducts = chunkArray(bestSelling, 4);
   return (
     <main className="py-lg-5 my-lg-5 py-4 my-4">
       <section>

@@ -1,7 +1,6 @@
 import HomeSlider from "./homeFirstPart/homeSlider";
 import FlashSales from "./homeSecondPart/flashSales";
 import BestSelling from "./homeFourthPart/bestSelling";
-// import HomeFifthPart from "./homeFifthPart/fifthPart";
 import HomeSixthPart from "./homeSixthPart/ourProducts";
 import HomeLastPart from "./homeLastPart/homeLastPart";
 async function getArival() {
@@ -58,11 +57,12 @@ export default async function HomeCollector() {
       </div>
       <FlashSales flashData={flashData} />
       <hr />
-      <BestSelling />
-      {/* <HomeFifthPart /> */}
+      <BestSelling allProducts={allProducts} />
+      <hr />
       <div>
         <HomeSixthPart allProducts={allProducts} />
       </div>
+      <hr />
       <div className="pb-md-5 pb-0 pb-sm-3">
         <HomeLastPart arivalData={arivalData} />
       </div>
