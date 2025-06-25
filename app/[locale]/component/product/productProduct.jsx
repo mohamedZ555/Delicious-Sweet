@@ -11,7 +11,7 @@ import { useAuth } from "../../../../context/authContext";
 
 import styles from "../../../../styles/pagesStyle/home/flashSales.module.css";
 
-function ProductProduct({ products = [] , local}) {
+function ProductProduct({ products = [] , locale}) {
   const t = useTranslations("Product");
   const { addToCart, isAddingToCart, addToCartError, clearAddToCartError } =
     useAddToCart();
@@ -57,18 +57,19 @@ function ProductProduct({ products = [] , local}) {
                 <div
                   className={`${styles.addToCart} pointer align-items-center justify-content-center w-100 py-2 position-absolute bottom-0`}
                   onClick={() => handleAddToCart(product.id)}
+                  disabled={addingProductId === product.id || product.quantityInStock === 0}
                   style={{
                     cursor:
-                      addingProductId === product.id
+                      addingProductId === product.id || product.quantityInStock === 0
                         ? "not-allowed"
                         : "pointer",
-                    opacity: addingProductId === product.id ? 0.7 : 1,
+                    opacity: addingProductId === product.id || product.quantityInStock === 0 ? 0.7 : 1,
                   }}
                 >
-                  {addingProductId === product.id ? (
+                  {addingProductId === product.id || product.quantityInStock === 0 ? (
                     <span>
                       <i className="fas fa-spinner fa-spin me-2"></i>
-                      Adding...
+                      {t("addingToCart")}
                     </span>
                   ) : (
                     t("AddCart")
@@ -104,7 +105,7 @@ function ProductProduct({ products = [] , local}) {
                 </div>
               </div>
               <div className={`${styles.cardTitle} position-relative pt-2 z-3`}>
-                {local === "en" ? product.nameEn : product.nameAr}
+                {locale === "en" ? product.nameEn : product.nameAr}
               </div>
               <div className="d-flex justify-content-between align-items-center pt-1">
                 <div

@@ -531,5 +531,8 @@
     "sweetBox": "صندوق الحلويات",
     "storeLocation": "موقع المتجر",
     "successfullyAdded": "تمت الإضافة بنجاح"
+  },
+  "loading": {
+    "loading": "جاري التحميل"
   }
 }

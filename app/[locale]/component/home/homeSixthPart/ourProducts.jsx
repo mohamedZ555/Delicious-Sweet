@@ -119,15 +119,16 @@ export default function OurProducts({ allProducts = [] , local}) {
                           <div
                             className={`${styles.addToCart} pointer align-items-center justify-content-center w-100 py-2 position-absolute bottom-0`}
                             onClick={() => handleAddToCart(product.id)}
+                            disabled={addingProductId === product.id || product.quantityInStock === 0}
                             style={{
                               cursor:
-                                addingProductId === product.id
+                                addingProductId === product.id || product.quantityInStock === 0
                                   ? "not-allowed"
                                   : "pointer",
-                              opacity: addingProductId === product.id ? 0.7 : 1,
+                              opacity: addingProductId === product.id || product.quantityInStock === 0 ? 0.7 : 1,
                             }}
                           >
-                            {addingProductId === product.id ? (
+                            {addingProductId === product.id || product.quantityInStock === 0 ? (
                               <span>
                                 <i className="fas fa-spinner fa-spin me-2"></i>
                                 {t("addingToCart")}

@@ -292,14 +292,18 @@ function WishList({ local }) {
                   )}
                   <button
                     className={`wishlistAddToCartBtn ${
-                      addingProductId === product.productId ? "loading" : ""
+                      addingProductId === product.productId || product.quantityInStock === 0 ? "loading" : ""
                     }`}
                     onClick={() => handleAddToCart(product.productId)}
+                    style={{
+                      cursor: addingProductId === product.productId || product.quantityInStock === 0 ? "not-allowed" : "pointer",
+                      opacity: addingProductId === product.productId || product.quantityInStock === 0 ? 0.7 : 1,
+                    }}
                     disabled={
-                      addingProductId === product.productId || isAddingToCart
+                      addingProductId === product.productId || isAddingToCart || product.quantityInStock === 0
                     }
                   >
-                    {addingProductId === product.productId ? (
+                    {addingProductId === product.productId || product.quantityInStock === 0 ? (
                       <>
                         <FaSpinner className="fa-spin me-2" />
                         {t("addingToCart")}

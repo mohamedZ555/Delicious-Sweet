@@ -520,5 +520,8 @@
     "sweetBox": "Sweet Box",
     "storeLocation": "Store Location",
     "successfullyAdded": "Successfully Added"
+  },
+  "loading": {
+    "loading": "Loading"
   }
 }

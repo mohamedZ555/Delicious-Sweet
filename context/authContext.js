@@ -198,13 +198,6 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  if (loading) {
-    return (
-      <h1 className="fw-bold d-flex align-items-center justify-content-center pt-5 mt-5">
-        <div className="pt-5">{t("Loading")}</div>
-      </h1>
-    );
-  }
 
   return (
     <AuthContext.Provider
