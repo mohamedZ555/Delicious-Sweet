@@ -15,7 +15,7 @@ import { useTranslations } from "next-intl";
 import { useAuth } from "../../../../../context/authContext";
 import HeartIcon from "../../shared/HeartIcon";
 
-export default function BestSelling({ allProducts = [] , local}) {
+export default function BestSelling({ allProducts = [] , locale}) {
   const swiperRef = useRef(null);
   const { addToCart, isAddingToCart, addToCartError, clearAddToCartError } =
     useAddToCart();
@@ -167,7 +167,7 @@ export default function BestSelling({ allProducts = [] , local}) {
                         <div
                           className={`${styles.cardTitle} position-relative pt-2 z-3`}
                         >
-                          {local === "en" ? product?.nameEn : product?.nameAr}
+                          {locale === "en" ? product?.nameEn : product?.nameAr}
                         </div>
 
                         <div className="d-flex justify-content-between align-items-center pt-1">
