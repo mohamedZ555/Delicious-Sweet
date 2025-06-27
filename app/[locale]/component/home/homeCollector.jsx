@@ -13,17 +13,6 @@ async function getArival() {
   return results?.data || [];
 }
 
-async function getFlashData() {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/Products/flashsale?flashsaleNumber=100`,
-    {
-      cache: "no-store",
-    }
-  );
-  if (!res.ok) throw new Error(`API Error`);
-  const result = await res.json();
-  return result?.data || [];
-}
 async function getHomeSectionOne() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/HomeSections`, {
     cache: "no-store",
@@ -32,34 +21,21 @@ async function getHomeSectionOne() {
   const result = await res.json();
   return result?.data || [];
 }
-async function getAllProducts() {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/Products/GetAllProductsForUser`,
-    {
-      cache: "no-store",
-    }
-  );
-  if (!res.ok) throw new Error(`API Error`);
-  const result = await res.json();
-  return result?.data || [];
-}
 
 export default async function HomeCollector({ locale }) {
   const arivalData = await getArival();
   const homeSectionOneData = await getHomeSectionOne();
-  const flashData = await getFlashData();
-  const allProducts = await getAllProducts();
   return (
     <div className="container">
       <div className="d-flex flex-column-reverse flex-md-row align-items-center">
         <HomeSlider homeSectionOneData={homeSectionOneData} />
       </div>
-      <FlashSales flashData={flashData} locale={locale} />
+      <FlashSales locale={locale} />
       <hr />
-      <BestSelling allProducts={allProducts} locale={locale} />
+      <BestSelling locale={locale} />
       <hr />
       <div>
-        <HomeSixthPart allProducts={allProducts} locale={locale} />
+        <HomeSixthPart locale={locale} />
       </div>
       <hr />
       <div className="pb-md-5 pb-0 pb-sm-3">

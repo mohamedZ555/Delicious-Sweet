@@ -13,6 +13,7 @@ export const AuthProvider = ({ children }) => {
   const [wishlist, setWishlist] = useState([]);
   const [wishlistLoading, setWishlistLoading] = useState(false);
   const [wishlistError, setWishlistError] = useState(null);
+  const [wishlistVersion, setWishlistVersion] = useState(0);
   const router = useRouter();
   const t = useTranslations("ContactPage");
 
@@ -22,23 +23,8 @@ export const AuthProvider = ({ children }) => {
       setIsLoggedIn(true);
     }
 
-    // Load wishlist from localStorage
-    const savedWishlist = localStorage.getItem("wishlist");
-    if (savedWishlist) {
-      try {
-        setWishlist(JSON.parse(savedWishlist));
-      } catch (error) {
-        setWishlist([]);
-      }
-    }
-
     setLoading(false);
   }, []);
-
-  // Save wishlist to localStorage whenever it changes
-  useEffect(() => {
-    localStorage.setItem("wishlist", JSON.stringify(wishlist));
-  }, [wishlist]);
 
   const login = (token, userData) => {
     localStorage.setItem("token", token);
@@ -57,7 +43,7 @@ export const AuthProvider = ({ children }) => {
     setWishlistError(null);
   };
 
-  const toggleWishlist = async (productId) => {
+  const toggleWishlist = async (productId, forceRemove = false) => {
     if (!isLoggedIn) {
       setWishlistError("Please login to manage your wishlist");
       return { success: false, error: "Please login to manage your wishlist" };
@@ -74,19 +60,19 @@ export const AuthProvider = ({ children }) => {
         throw new Error("No authentication token available");
       }
 
-      // Determine if product is already in wishlist to choose correct endpoint
       const isCurrentlyInWishlist = wishlist.includes(productId);
-      const endpoint = isCurrentlyInWishlist
+      const shouldRemove = forceRemove || isCurrentlyInWishlist;
+      const endpoint = shouldRemove
         ? `${process.env.NEXT_PUBLIC_API_URL}/WishList/RemoveFromWishList/${productId}`
         : `${process.env.NEXT_PUBLIC_API_URL}/WishList/AddToWishList?ProductId=${productId}`;
 
       const response = await fetch(endpoint, {
-        method: isCurrentlyInWishlist ? "DELETE" : "POST",
+        method: shouldRemove ? "DELETE" : "POST",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: isCurrentlyInWishlist ? undefined : JSON.stringify({}),
+        body: shouldRemove ? undefined : JSON.stringify({}),
       });
 
       if (!response.ok) {
@@ -105,16 +91,19 @@ export const AuthProvider = ({ children }) => {
 
       // Toggle the wishlist state locally
       setWishlist((prev) => {
+        let updated;
         if (prev.includes(productId)) {
-          return prev.filter((id) => id !== productId);
+          updated = prev.filter((id) => id !== productId);
         } else {
-          return [...prev, productId];
+          updated = [...prev, productId];
         }
+        setWishlistVersion((v) => v + 1);
+        return updated;
       });
 
       return {
         success: true,
-        action: isCurrentlyInWishlist ? "removed" : "added",
+        action: shouldRemove ? "removed" : "added",
         productId,
       };
     } catch (error) {
@@ -176,7 +165,7 @@ export const AuthProvider = ({ children }) => {
 
       // Clear the wishlist state locally
       setWishlist([]);
-      localStorage.removeItem("wishlist");
+      setWishlistVersion((v) => v + 1);
 
       return { success: true, message: "Wishlist cleared successfully" };
     } catch (error) {
@@ -192,6 +181,40 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // Fetch wishlist from API and set state
+  const fetchWishlist = async () => {
+    if (!isLoggedIn) return;
+    setWishlistLoading(true);
+    setWishlistError(null);
+    try {
+      const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
+      if (!token) throw new Error("No authentication token available");
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/WishList/GetAllByUserId`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      if (!response.ok) {
+        if (response.status === 401) throw new Error("Unauthorized - Please login again");
+        const errorData = await response.json();
+        throw new Error(errorData.message || `API Error: ${response.status}`);
+      }
+      const data = await response.json();
+      // Assuming the API returns an array of wishlist items
+      setWishlist(Array.isArray(data) ? data.map(item => item.productId || item.id || item) : []);
+    } catch (error) {
+      const errorMessage = error.message;
+      setWishlistError(errorMessage);
+      if (errorMessage.includes("Unauthorized")) logout();
+    } finally {
+      setWishlistLoading(false);
+    }
+  };
 
   return (
     <AuthContext.Provider
@@ -213,6 +236,8 @@ export const AuthProvider = ({ children }) => {
         isInWishlist,
         getWishlistCount,
         clearWishlist,
+        fetchWishlist,
+        wishlistVersion,
       }}
     >
       {children}

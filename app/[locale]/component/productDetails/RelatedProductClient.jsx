@@ -38,7 +38,7 @@ export default function RelatedProductClient({ relatedProducts }) {
     setAddingProductId(null);
   };
 
-  const handleWishlistToggle = async (productId, isLiked) => {
+  const handleWishlistToggle = async (productId) => {
     try {
       await toggleWishlist(productId);
     } catch (error) {
@@ -94,8 +94,8 @@ export default function RelatedProductClient({ relatedProducts }) {
                       <HeartIcon
                         productId={product.id}
                         className="text-white"
-                        onToggle={handleWishlistToggle}
-                        isLiked={isInWishlist(product.id)}
+                        onToggle={() => handleWishlistToggle(product.id)}
+                        isLiked={product.isLiked}
                       />
                     </div>
                     <Link 

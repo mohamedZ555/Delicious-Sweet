@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
@@ -15,14 +15,14 @@ import { useTranslations } from "next-intl";
 import { useAuth } from "../../../../../context/authContext";
 import HeartIcon from "../../shared/HeartIcon";
 
-export default function BestSelling({ allProducts = [] , locale}) {
+export default function BestSelling({ locale }) {
   const swiperRef = useRef(null);
   const { addToCart, isAddingToCart, addToCartError, clearAddToCartError } =
     useAddToCart();
   const { toggleWishlist, isInWishlist } = useAuth();
   const [addingProductId, setAddingProductId] = useState(null);
   const t = useTranslations("homePage.bestSelling");
-
+  const [bestSellingData, setBestSellingData] = useState([]);
   const handlePrev = () => {
     if (swiperRef.current) swiperRef.current.slidePrev();
   };
@@ -40,11 +40,19 @@ export default function BestSelling({ allProducts = [] , locale}) {
     setAddingProductId(null);
   };
 
-  const handleWishlistToggle = async (productId, isLiked) => {
+  const handleWishlistToggle = async (productId) => {
     try {
-      await toggleWishlist(productId);
-    } catch (error) {
-    }
+      const result = await toggleWishlist(productId);
+      if (result && result.success) {
+        setBestSellingData((prev) =>
+          prev.map((product) =>
+            product.id === productId
+              ? { ...product, isLiked: !product.isLiked }
+              : product
+          )
+        );
+      }
+    } catch (error) {}
   };
 
   const chunkArray = (arr, size) => {
@@ -54,8 +62,33 @@ export default function BestSelling({ allProducts = [] , locale}) {
     }
     return result;
   };
-  const bestSelling = allProducts.slice().reverse();
-  const groupedProducts = chunkArray(bestSelling, 4);
+
+  const getBestSelling = async () => {
+    let headers = {};
+    if (typeof window !== "undefined") {
+      const token = localStorage.getItem("token");
+      if (token) {
+        headers["Authorization"] = `Bearer ${token}`;
+      }
+    }
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/Products/GetAllProductsForUser`,
+      {
+        cache: "no-store",
+        headers,
+      }
+    );
+    if (!res.ok) throw new Error(`API Error`);
+    const result = await res.json();
+    return result?.data || [];
+  }
+
+  useEffect(() => {
+    getBestSelling().then((data) => {
+      setBestSellingData(data);
+    });
+  }, []);
+  const groupedProducts = chunkArray(bestSellingData || [] , 4);
   return (
     <main className="py-lg-5 my-lg-5 py-4 my-4">
       <section>
@@ -72,13 +105,13 @@ export default function BestSelling({ allProducts = [] , locale}) {
           </div>
           <div dir="ltr" className="d-flex align-items-center gap-2">
             <div
-              className={`${styles.flashArrow} p-lg-3 rounded-circle p-1 d-flex justify-content-center align-items-center`}
+              className={`${styles.flashArrow} p-3 rounded-circle d-flex justify-content-center align-items-center`}
               onClick={handlePrev}
-            >
+            > 
               <FaArrowLeftLong />
             </div>
             <div
-              className={`${styles.flashArrow} p-lg-3 rounded-circle p-1 d-flex justify-content-center align-items-center`}
+              className={`${styles.flashArrow} p-3 rounded-circle d-flex justify-content-center align-items-center`}
               onClick={handleNext}
             >
               <FaArrowRightLong />
@@ -151,8 +184,8 @@ export default function BestSelling({ allProducts = [] , locale}) {
                             <HeartIcon
                               productId={product.id}
                               className={styles.likes}
-                              onToggle={handleWishlistToggle}
-                              isLiked={isInWishlist(product.id)}
+                              onToggle={() => handleWishlistToggle(product.id)}
+                              isLiked={product.isLiked}
                             />
                             <Link
                               href={`/product/${product.id}`}

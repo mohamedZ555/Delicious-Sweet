@@ -213,7 +213,8 @@
     "allCats": "All Category",
     "search": "Search",
     "AddCart": "Add to Cart",
-    "addingToCart": "Adding to Cart..."
+    "addingToCart": "Adding to Cart...",
+    "loading": "loading"
   },
 
   "footer": {

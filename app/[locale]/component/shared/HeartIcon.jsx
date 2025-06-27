@@ -3,32 +3,40 @@
 import React, { useState, useEffect } from "react";
 import { FaHeart } from "react-icons/fa";
 import { useTranslations } from "next-intl";
+import { useAuth } from "../../../../context/authContext";
 
 export default function HeartIcon({
   productId,
   className = "",
   onToggle,
-  isLiked: initialIsLiked = false,
+  isLiked,
   showTooltip = true,
 }) {
-  const [isHeartFilled, setIsHeartFilled] = useState(initialIsLiked);
+  const [isHeartFilled, setIsHeartFilled] = useState(isLiked);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const t = useTranslations("heartIcon");
+  const { isLoggedIn } = useAuth();
 
   // Update local state when prop changes
   useEffect(() => {
-    setIsHeartFilled(initialIsLiked);
-  }, [initialIsLiked]);
+    setIsHeartFilled(isLiked);
+  }, [isLiked]);
 
   const handleClick = async () => {
     if (isLoading || !onToggle) return; // Prevent multiple clicks while loading
+
+    if (!isLoggedIn) {
+      setIsHeartFilled(false);
+      // Optionally, show a message or redirect to login here
+      return;
+    }
 
     setIsLoading(true);
 
     try {
       // Use the provided onToggle function
-      await onToggle(productId, isHeartFilled);
+      await onToggle(productId);
 
       // Show success feedback
       setShowSuccessMessage(true);
@@ -42,11 +50,6 @@ export default function HeartIcon({
     }
   };
 
-  const getTooltipText = () => {
-    if (isHeartFilled) return t("removeFromWishlist");
-    return t("addToWishlist");
-  };
-
   return (
     <div className="position-relative">
       <div
@@ -56,7 +59,6 @@ export default function HeartIcon({
           cursor: isLoading ? "not-allowed" : "pointer",
           opacity: isLoading ? 0.7 : 1,
         }}
-        title={!showTooltip ? "" : getTooltipText()}
       >
         <FaHeart
           className={`${isHeartFilled ? "text-danger" : "text-white"} ${

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { SlEye } from "react-icons/sl";
@@ -11,12 +11,17 @@ import { useAuth } from "../../../../context/authContext";
 
 import styles from "../../../../styles/pagesStyle/home/flashSales.module.css";
 
-function ProductProduct({ products = [] , locale}) {
+function ProductProduct({ products = [], locale }) {
   const t = useTranslations("Product");
   const { addToCart, isAddingToCart, addToCartError, clearAddToCartError } =
     useAddToCart();
   const { toggleWishlist, isInWishlist } = useAuth();
   const [addingProductId, setAddingProductId] = useState(null);
+  const [localProducts, setLocalProducts] = useState(products);
+
+  useEffect(() => {
+    setLocalProducts(products);
+  }, [products]);
 
   const handleAddToCart = async (productId) => {
     setAddingProductId(productId);
@@ -27,9 +32,18 @@ function ProductProduct({ products = [] , locale}) {
     setAddingProductId(null);
   };
 
-  const handleWishlistToggle = async (productId, isLiked) => {
+  const handleWishlistToggle = async (productId) => {
     try {
-      await toggleWishlist(productId);
+      const result = await toggleWishlist(productId);
+      if (result && result.success) {
+        setLocalProducts((prev) =>
+          prev.map((product) =>
+            product.id === productId
+              ? { ...product, isLiked: !product.isLiked }
+              : product
+          )
+        );
+      }
     } catch (error) {
     }
   };
@@ -39,8 +53,8 @@ function ProductProduct({ products = [] , locale}) {
       {/* Error Alert */}
 
       <div className="row">
-        {products.length > 0 ? (
-          products.map((product, index) => (
+        {localProducts.length > 0 ? (
+          localProducts.map((product, index) => (
             <div
               className={`${styles.productCard} col-lg-4 col-md-6 col-12 position-relative rounded overflow-hidden mb-3`}
               key={index}
@@ -92,8 +106,8 @@ function ProductProduct({ products = [] , locale}) {
                   <HeartIcon
                     productId={product.id}
                     className={`${styles.enhancedActionButton} text-white`}
-                    onToggle={handleWishlistToggle}
-                    isLiked={isInWishlist(product.id)}
+                    onToggle={() => handleWishlistToggle(product.id)}
+                    isLiked={product.isLiked}
                   />
                   <Link
                     href={`/product/${product.id}`}

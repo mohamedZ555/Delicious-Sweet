@@ -100,7 +100,7 @@ function WishList({ locale }) {
     clearWishlistError();
 
     try {
-      const result = await toggleWishlist(productId);
+      const result = await toggleWishlist(productId, true);
       if (result && result.success) {
         setWishlistProducts((prev) =>
           prev.filter((product) => product.productId !== productId)

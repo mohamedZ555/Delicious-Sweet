@@ -207,7 +207,8 @@
     "categoryTitle": "التصنيفات",
     "allCategories": "جميع التصنيفات",
     "noCategories": "لا توجد تصنيفات متاحة",
-    "AddCart": "أضق للسلة"
+    "AddCart": "أضق للسلة",
+    "loading": "تحميل"
   },
   "footer": {
     "footerBackgroundAlt": "خلفية التذييل",
