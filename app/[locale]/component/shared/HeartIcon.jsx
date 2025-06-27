@@ -37,7 +37,6 @@ export default function HeartIcon({
       // Update local state
       setIsHeartFilled(!isHeartFilled);
     } catch (error) {
-      console.error("Error toggling wishlist:", error);
     } finally {
       setIsLoading(false);
     }

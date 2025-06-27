@@ -1,0 +1,147 @@
+.order-page-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 24px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+}
+
+.order-title {
+  color: #ffabb8;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.order-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.order-card {
+  border: 1.5px solid #ffabb8;
+  border-radius: 12px;
+  padding: 20px 18px;
+  background: #fff6f8;
+  transition: box-shadow 0.2s;
+  box-shadow: 0 1px 6px rgba(255, 171, 184, 0.08);
+}
+.order-card:hover {
+  box-shadow: 0 4px 24px rgba(255, 171, 184, 0.18);
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.order-number {
+  font-weight: 600;
+  color: #333;
+}
+.order-status {
+  padding: 2px 12px;
+  border-radius: 8px;
+  font-size: 0.95em;
+  font-weight: 500;
+  background: #ffe3ea;
+  color: #ff4f7a;
+  border: 1px solid #ffabb8;
+}
+.status-pending {
+  background: #fff0f3;
+  color: #ff4f7a;
+}
+.status-completed {
+  background: #eafff3;
+  color: #1bbf7a;
+  border-color: #1bbf7a;
+}
+.status-cancelled {
+  background: #fff0f0;
+  color: #ff4f4f;
+  border-color: #ff4f4f;
+}
+
+.order-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  font-size: 0.98em;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.order-items {
+  margin-bottom: 10px;
+}
+.order-items-title {
+  font-weight: 600;
+  color: #ffabb8;
+  margin-bottom: 6px;
+}
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px dashed #ffd6e0;
+  font-size: 1em;
+}
+.order-item:last-child {
+  border-bottom: none;
+}
+.item-name {
+  flex: 2;
+  color: #333;
+}
+.item-qty {
+  flex: 1;
+  text-align: center;
+  color: #ff4f7a;
+}
+.item-price {
+  flex: 1;
+  text-align: right;
+  color: #333;
+}
+.order-total {
+  text-align: right;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #ff4f7a;
+  margin-top: 8px;
+}
+
+.order-loading,
+.order-error,
+.order-empty {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #ff4f7a;
+  font-size: 1.1em;
+  margin: 40px 0;
+}
+
+@media (max-width: 600px) {
+  .order-page-container {
+    padding: 8px;
+  }
+  .order-card {
+    padding: 12px 6px;
+  }
+  .order-meta {
+    flex-direction: column;
+    gap: 6px;
+  }
+  .order-title {
+    font-size: 1.3rem;
+  }
+}

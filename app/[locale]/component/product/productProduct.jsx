@@ -31,7 +31,6 @@ function ProductProduct({ products = [] , locale}) {
     try {
       await toggleWishlist(productId);
     } catch (error) {
-      console.error("Error toggling wishlist:", error);
     }
   };
 

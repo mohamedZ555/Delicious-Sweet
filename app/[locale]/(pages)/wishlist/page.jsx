@@ -8,9 +8,9 @@ export const metadata = {
 }
 
 async function Wishlist({ params }) {
-  const { local } = await params;
+  const { locale } = await params;
   return (
-    <Wish local={local} />
+    <Wish locale={locale} />
   )
 }
 

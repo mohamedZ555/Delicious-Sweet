@@ -28,7 +28,6 @@ export const AuthProvider = ({ children }) => {
       try {
         setWishlist(JSON.parse(savedWishlist));
       } catch (error) {
-        console.error("Error parsing wishlist:", error);
         setWishlist([]);
       }
     }
@@ -51,8 +50,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem("token");
     setIsLoggedIn(false);
     setUser(null);
-    setWishlist([]); // Clear wishlist on logout
-    router.push("/login");
+    router.push("/");
   };
 
   const clearWishlistError = () => {
@@ -126,8 +124,6 @@ export const AuthProvider = ({ children }) => {
       if (errorMessage.includes("Unauthorized")) {
         logout();
       }
-
-      console.error("Error toggling wishlist:", error);
       return { success: false, error: errorMessage };
     } finally {
       setWishlistLoading(false);
@@ -190,8 +186,6 @@ export const AuthProvider = ({ children }) => {
       if (errorMessage.includes("Unauthorized")) {
         logout();
       }
-
-      console.error("Error clearing wishlist:", error);
       return { success: false, error: errorMessage };
     } finally {
       setWishlistLoading(false);

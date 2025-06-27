@@ -44,7 +44,6 @@ export default function BestSelling({ allProducts = [] , locale}) {
     try {
       await toggleWishlist(productId);
     } catch (error) {
-      console.error("Error toggling wishlist:", error);
     }
   };
 

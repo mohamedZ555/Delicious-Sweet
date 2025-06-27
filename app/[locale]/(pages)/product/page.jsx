@@ -29,7 +29,6 @@ async function getProducts(page = 1, CategoryId = null, searchTerm = null) {
       },
     };
   } catch (error) {
-    console.error("Error fetching products:", error);
     return {
       products: [],
       pagination: {
@@ -54,7 +53,6 @@ async function getCategories() {
     const results = await res.json();
     return results.data || [];
   } catch (error) {
-    console.error("Error fetching categories:", error);
     return [];
   }
 }

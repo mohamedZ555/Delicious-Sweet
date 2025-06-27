@@ -124,7 +124,11 @@
     "emptyCartTitle": "Your cart is empty!",
     "emptyCartDescription": "Looks like you haven't added any products to your cart yet. Start shopping to discover our amazing products!",
     "startShopping": "Start Shopping",
-    "remove": "Remove"
+    "remove": "Remove",
+    "loginButton": "Login to Continue",
+    "description": "Please log in to view and manage your shopping cart. Your items will be saved once you are signed in.",
+    "noAccount": "Don't have an account?",
+    "signUpHere": "Sign up here"
   },
 
   "homePage": {
@@ -238,7 +242,8 @@
     "profileAlt": "Profile",
     "profile": "Profile",
     "login": "Login",
-    "logout": "Logout"
+    "logout": "Logout",
+    "orders": "My Orders"
   },
   "navbar": {
     "home": "Home",
@@ -291,6 +296,7 @@
     "homePages": "Home - Pages"
   },
   "profile": {
+    "loading": "Loading",
     "edit": "Edit",
     "save": "Save",
     "saving": "Saving...",
@@ -449,7 +455,7 @@
     "loginRequired": "Please login to view your wishlist",
     "loginRequiredDescription": "You need to be logged in to access your wishlist.",
     "login": "Login",
-    "loading": "Loading your wishlist...",
+    "loading": "Loading",
     "clearAll": "Clear All",
     "clearAllConfirm": "Are you sure you want to clear your entire wishlist?",
     "item": "item",
@@ -466,7 +472,8 @@
     "errorLoadingWishlist": "Error loading wishlist",
     "errorAddingToCart": "Error adding product to cart",
     "errorRemovingFromWishlist": "Error removing product from wishlist",
-    "errorClearingWishlist": "Error clearing wishlist"
+    "errorClearingWishlist": "Error clearing wishlist",
+    "invalidRequest": "Invalid request"
   },
   "cartAccess": {
     "title": "Access Your Cart",
@@ -523,5 +530,26 @@
   },
   "loading": {
     "loading": "Loading"
+  },  "order": {
+    "title": "My Orders",
+    "loading": "Loading",
+    "error": "Failed to load orders.",
+    "empty": "No orders found.",
+    "orderNumber": "Order #",
+    "status": "Status",
+    "payment": "Payment",
+    "paymentStatus": "Payment Status",
+    "paymentMethod": "Payment Method",
+    "shipping": "Shipping",
+    "shippingStatus": "Shipping Status",
+    "placedOn": "Placed On",
+    "items": "Items:",
+    "quantity": "Quantity",
+    "price": "Price",
+    "total": "Total",
+    "egp": "EGP",
+    "loginFirst": "Please login first to view your orders",
+    "noOrders": "No orders found",
+    "orders": "My Orders"
   }
 }

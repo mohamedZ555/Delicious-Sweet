@@ -72,7 +72,6 @@ export default function StarRating({
       setNewComment('');
       setShowForm(false);
     } catch (error) {
-      console.error("Error submitting review:", error);
       alert(error.message);
     } finally {
       setIsSubmitting(false);

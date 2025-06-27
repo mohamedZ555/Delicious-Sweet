@@ -15,7 +15,7 @@ import { useAddToCart } from "../../../../../context/authContext";
 import { useAuth } from "../../../../../context/authContext";
 import { useTranslations } from "next-intl";
 
-export default function FlashSales({ flashSales = [] , locale}) {
+export default function FlashSales({ flashData = [] , locale}) {
   const swiperRef = useRef(null);
   const { addToCart, isAddingToCart, addToCartError, clearAddToCartError } =
     useAddToCart();
@@ -44,7 +44,6 @@ export default function FlashSales({ flashSales = [] , locale}) {
     try {
       await toggleWishlist(productId);
     } catch (error) {
-      console.error("Error toggling wishlist:", error);
     }
   };
 
@@ -56,9 +55,9 @@ export default function FlashSales({ flashSales = [] , locale}) {
     return result;
   };
 
-  const groupedProducts = chunkArray(flashSales, 8);
+  const groupedProducts = chunkArray(flashData, 4);
   return (
-    <main className="py-lg-5 my-lg-5 py-4 my-4">
+    <main className="py-lg-5 mb-lg-5 py-4 my-4">
       <section>
         <div className="d-flex align-items-center gap-3 pb-3">
           <div className="redBox"></div>

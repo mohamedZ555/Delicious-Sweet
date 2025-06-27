@@ -80,7 +80,6 @@ const SecondSectionP = React.memo(function SecondSectionP({ productData }) {
         }
       }
     } catch (error) {
-      console.error("Error refetching product data:", error);
     } finally {
       setIsRefetching(false);
     }
@@ -98,7 +97,26 @@ const SecondSectionP = React.memo(function SecondSectionP({ productData }) {
 
   if (isLoading) {
     return (
-      <h1 className="text-center fw-bold w-100 py-5 my-5">{t("loading")}</h1>
+      <div className="order-loading">
+        {" "}
+        <div className="loading-overlay fade-in">
+          <div className="d-flex align-items-center justify-content-center">
+            <div className="text-center ringPosition position-relative d-flex align-items-center gap-5 flex-column">
+              <div>
+                <div className="loading-ring "></div>
+                <img
+                  src="/images/logo.jpg"
+                  alt="Loading..."
+                  width={150}
+                  height={150}
+                  className="loading-img"
+                />
+              </div>
+              <div className="loadingText ps-3">{t("loading")}</div>
+            </div>
+          </div>
+        </div>
+      </div>
     );
   }
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 
 const ErrorModal = ({ message, onClose }) => (
@@ -62,6 +62,12 @@ const CheckoutButton = () => {
   const [error, setError] = useState("");
   const t = useTranslations("lastPartCart");
 
+  useEffect(() => {
+    if (paymentUrl) {
+      window.location.href = paymentUrl;
+    }
+  }, [paymentUrl]);
+
   const handleCheckout = async () => {
     setLoading(true);
     setPaymentUrl(null);
@@ -124,13 +130,16 @@ const CheckoutButton = () => {
           )}
         </>
       ) : (
-        <a
-          href={paymentUrl}
-          className="underDecor border-0 checkOut py-3 px-5 text-white fw-bold d-flex align-items-center"
-        >
-          <i className="fas fa-credit-card me-2"></i>
-          {t("checkout")}
-        </a>
+        <div>
+          <a
+            href={paymentUrl}
+            className="underDecor border-0 checkOut py-3 px-5 text-white fw-bold d-flex align-items-center"
+            style={{ display: "inline-block" }}
+          >
+            <i className="fas fa-credit-card me-2"></i>
+            {t("checkout")}
+          </a>
+        </div>
       )}
     </>
   );

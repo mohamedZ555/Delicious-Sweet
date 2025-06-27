@@ -30,10 +30,10 @@ const HomeSlider = ({homeSectionOneData}) => {
         {homeSectionOneData.map((slide) => (
           <SwiperSlide key={slide.id} className={styles.slide}>
             <img
-              className={`${styles.slideImg} w-100`}
+              className={`${styles.slideImg} rounded-3 w-100`}
               src={slide.imageUrl || "/images/slider.jpg"}
               alt="slide"
-              height={344}
+              height={400}
             />
           </SwiperSlide>
         ))}

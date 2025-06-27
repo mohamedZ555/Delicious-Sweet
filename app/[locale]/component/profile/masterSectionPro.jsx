@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import "../../../../styles/pagesStyle/profile/profile.css";
-
+import "../../../../styles/pagesStyle/loading.css";
 export default function Profile() {
   const t = useTranslations("profile");
   const [isEditing, setIsEditing] = useState(false);
@@ -180,26 +180,39 @@ export default function Profile() {
     }));
   };
 
+
+  if (isLoading && !isEditing) {
+    return (
+      <div className="order-loading">
+        <div className="loading-overlay fade-in">
+          <div className="d-flex align-items-center justify-content-center">
+            <div className="text-center ringPosition position-relative d-flex align-items-center gap-5 flex-column">
+              <div>
+                <div className="loading-ring "></div>
+                <img
+                  src="/images/logo.jpg"
+                  alt="Loading..."
+                  width={150}
+                  height={150}
+                  className="loading-img"
+                />
+              </div>
+              <div className="loadingText ps-3">{t("loading")}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
   if (!token) {
     return (
-      <div className="mt-5 pt-5">
-        <h1 className="text-center py-5 mt-5 text-capitalize">
+      <div className="my-5 py-5">
+        <h1 className="text-center py-5 my-5 text-capitalize">
           {t("loginFirst")}
         </h1>
       </div>
     );
   }
-
-  if (isLoading && !isEditing) {
-    return (
-      <div className="d-flex justify-content-center align-items-center vh-100">
-        <div className="spinner-border text-primary" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="py-5 my-5 container">
       <div className="pt-5 d-flex align-items-center justify-content-between">

@@ -21,7 +21,6 @@ async function fetchProductDetails(id) {
       isError: false
     };
   } catch (error) { 
-    console.error("Error fetching product details:", error);
     return {
       data: null,
       isError: true,

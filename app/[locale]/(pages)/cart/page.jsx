@@ -10,10 +10,11 @@ export async function generateMetadata({ params: { locale } }) {
   };
 }
 
-function Cart() {
+async function Cart({params}) {
+  const {locale} = await params;
   return (
     <>
-      <SecondSectionC />
+      <SecondSectionC locale={locale} />
     </>
   );
 }

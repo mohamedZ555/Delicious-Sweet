@@ -6,12 +6,10 @@ import { FaRegHeart } from "react-icons/fa";
 import { useAuth } from "../../../../context/authContext";
 
 export default function WishlistBadge() {
-  const { getWishlistCount, isLoggedIn } = useAuth();
+  const { getWishlistCount  } = useAuth();
   const wishlistCount = getWishlistCount();
 
-  if (!isLoggedIn) {
-    return null;
-  }
+
 
   return (
     <Link href="/wishlist" className="position-relative text-decoration-none">

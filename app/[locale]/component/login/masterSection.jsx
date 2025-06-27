@@ -60,27 +60,23 @@ export default function Login() {
 
       const data = await res.json();
 
-      if (!res.ok) {
+      if (!data.token) {
         setError(data.messageEn || t("loginFailed"));
         return;
       }
 
-      if (!data.token) {
-        setError(data.messageEn);
-        return;
-      }
 
       const loginSuccess = login(data.token);
       if (!loginSuccess) {
-        setError(authError || t("loginFailed"));
-        return;
-      }
-
-      const currentLocale =
+        const currentLocale =
         routing.locales.find((l) => pathname.startsWith(`/${l}`)) ||
         routing.defaultLocale;
 
       router.push(`/${currentLocale}/`);
+        return;
+      }
+
+
     } catch (err) {
       setError(err.messageEn || t("errorMessage"));
     } finally {

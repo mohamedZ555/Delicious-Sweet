@@ -7,7 +7,7 @@ import LastPartCart from "./lastPartCart";
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 
-function SecondSectionC() {
+function SecondSectionC({locale}) {
   const [cartData, setCartData] = useState([]);
   const [updatingItems, setUpdatingItems] = useState({});
   const { isLoggedIn, logout } = useAuth();
@@ -18,9 +18,206 @@ function SecondSectionC() {
 
   const TableHead = [tableT("product"), tableT("price"), tableT("quantity"), tableT("subtotal"), tableT("removeItem")];
 
-  // Show login prompt if user is not logged in
+  // Optimistically update local cart data while waiting for server response
+  const updateLocalCart = (productId, newQuantity) => {
+    setCartData(prev => {
+      const updatedCart = prev.map(item => 
+        item.productId === productId 
+          ? { ...item, quantity: newQuantity } 
+          : item
+      );
+      
+      // Recalculate total price
+      const newTotal = updatedCart.reduce(
+        (sum, item) => sum + (item.itemPrice * item.quantity),
+        0
+      );
+      setTotalPrice(newTotal);
+      
+      return updatedCart;
+    });
+  };
+
+  const updateCartItem = async (productId, newQuantity) => {
+    if (!isLoggedIn) {
+      return;
+    }
+
+    if (newQuantity < 1) {
+      return;
+    }
+
+    setUpdatingItems(prev => ({ ...prev, [productId]: true }));
+    
+    try {
+      const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
+      
+      if (!token) {
+        return;
+      }
+
+      // Optimistic UI update
+      updateLocalCart(productId, newQuantity);
+
+      const requestBody = {
+        productId: productId,
+        quantity: newQuantity
+      };
+
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/Cart/UpdateCart`,
+        { 
+          method: "POST",
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(requestBody)
+        }
+      );
+      
+      if (!res.ok) {
+        // Revert optimistic update if failed
+        await fetchCartData();
+        
+        if (res.status === 401) {
+          logout();
+          return;
+        }
+        return;
+      }
+
+      // Final sync with server
+      await fetchCartData();
+    } catch (err) {
+      if (err.message.includes("Unauthorized")) {
+        logout();
+      }
+    } finally {
+      setUpdatingItems(prev => ({ ...prev, [productId]: false }));
+    }
+  };
+
+  const handleIncrease = async (productId, currentQuantity) => {
+    if (!productId || currentQuantity < 1) {
+      return;
+    }
+
+    const newQuantity = currentQuantity + 1;
+    await updateCartItem(productId, newQuantity);
+  };
+
+  const handleDecrease = async (productId, currentQuantity) => {
+    if (!productId) {
+      return;
+    }
+    
+    if (currentQuantity <= 1) {
+      return;
+    }
+
+    const newQuantity = currentQuantity - 1;
+    await updateCartItem(productId, newQuantity);
+  };
+
+  const removeItem = async (id) => {
+    if (!isLoggedIn) {
+      return;
+    }
+
+    try {
+      const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
+
+      if (!token) {
+        return;
+      }
+
+      // Optimistic UI update
+      setCartData(prev => prev.filter(item => item.productId !== id));
+
+      let res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/Cart/RemoveFromCart/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (!res.ok) {
+        // Revert if failed
+        await fetchCartData();
+        
+        if (res.status === 401) {
+          logout();
+          return;
+        }
+        return;
+      }
+
+      // Final sync with server
+      await fetchCartData();
+    } catch (err) {
+      if (err.message.includes("Unauthorized")) {
+        logout();
+      }
+    }
+  };
+
+  const fetchCartData = async () => {
+    if (!isLoggedIn) {
+      return;
+    }
+
+    try {
+      const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
+
+      if (!token) {
+        return;
+      }
+
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/Cart/GetAllByUserId`,
+        {
+          cache: "no-store",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (!res.ok) {
+        if (res.status === 401) {
+          logout();
+          return;
+        }
+        return;
+      }
+
+      const results = await res.json();
+      const data = results?.data?.cartItemDtos || [];
+      setCartData(data);
+      setTotalPrice(results?.data?.totalPrice || 0);
+    } catch (err) {
+      if (err.message.includes("Unauthorized")) {
+        logout();
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      fetchCartData();
+    }
+  }, [isLoggedIn]);
+
+  // Conditional rendering logic
+  let content;
   if (!isLoggedIn) {
-    return (
+    content = (
       <div
         style={{
           minHeight: "70vh",
@@ -111,210 +308,8 @@ function SecondSectionC() {
         </div>
       </div>
     );
-  }
-
-  // Optimistically update local cart data while waiting for server response
-  const updateLocalCart = (productId, newQuantity) => {
-    setCartData(prev => {
-      const updatedCart = prev.map(item => 
-        item.productId === productId 
-          ? { ...item, quantity: newQuantity } 
-          : item
-      );
-      
-      // Recalculate total price
-      const newTotal = updatedCart.reduce(
-        (sum, item) => sum + (item.itemPrice * item.quantity),
-        0
-      );
-      setTotalPrice(newTotal);
-      
-      return updatedCart;
-    });
-  };
-
-  const updateCartItem = async (productId, newQuantity) => {
-    if (!isLoggedIn) {
-      return;
-    }
-
-    if (newQuantity < 1) {
-      return;
-    }
-
-    setUpdatingItems(prev => ({ ...prev, [productId]: true }));
-    
-    try {
-      const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
-      
-      if (!token) {
-        return;
-      }
-
-      // Optimistic UI update
-      updateLocalCart(productId, newQuantity);
-
-      const requestBody = {
-        productId: productId,
-        quantity: newQuantity
-      };
-
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/Cart/UpdateCart`,
-        { 
-          method: "POST",
-          headers: {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(requestBody)
-        }
-      );
-      
-      if (!res.ok) {
-        // Revert optimistic update if failed
-        await fetchCartData();
-        
-        if (res.status === 401) {
-          logout();
-          return;
-        }
-        return;
-      }
-
-      // Final sync with server
-      await fetchCartData();
-    } catch (err) {
-      console.error('Cart update error:', err);
-      if (err.message.includes("Unauthorized")) {
-        logout();
-      }
-    } finally {
-      setUpdatingItems(prev => ({ ...prev, [productId]: false }));
-    }
-  };
-
-  const handleIncrease = async (productId, currentQuantity) => {
-    if (!productId || currentQuantity < 1) {
-      return;
-    }
-
-    const newQuantity = currentQuantity + 1;
-    await updateCartItem(productId, newQuantity);
-  };
-
-  const handleDecrease = async (productId, currentQuantity) => {
-    if (!productId) {
-      return;
-    }
-    
-    if (currentQuantity <= 1) {
-      return;
-    }
-
-    const newQuantity = currentQuantity - 1;
-    await updateCartItem(productId, newQuantity);
-  };
-
-  const removeItem = async (id) => {
-    if (!isLoggedIn) {
-      return;
-    }
-
-    try {
-      const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
-
-      if (!token) {
-        return;
-      }
-
-      // Optimistic UI update
-      setCartData(prev => prev.filter(item => item.productId !== id));
-
-      let res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/Cart/RemoveFromCart/${id}`,
-        {
-          method: "DELETE",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      if (!res.ok) {
-        // Revert if failed
-        await fetchCartData();
-        
-        if (res.status === 401) {
-          logout();
-          return;
-        }
-        return;
-      }
-
-      // Final sync with server
-      await fetchCartData();
-    } catch (err) {
-      console.error('Remove item error:', err);
-      if (err.message.includes("Unauthorized")) {
-        logout();
-      }
-    }
-  };
-
-  const fetchCartData = async () => {
-    if (!isLoggedIn) {
-      return;
-    }
-
-    try {
-      const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
-
-      if (!token) {
-        return;
-      }
-
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/Cart/GetAllByUserId`,
-        {
-          cache: "no-store",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      if (!res.ok) {
-        if (res.status === 401) {
-          logout();
-          return;
-        }
-        return;
-      }
-
-      const results = await res.json();
-      const data = results?.data?.cartItemDtos || [];
-      setCartData(data);
-      setTotalPrice(results?.data?.totalPrice || 0);
-    } catch (err) {
-      console.error('Fetch cart data error:', err);
-      if (err.message.includes("Unauthorized")) {
-        logout();
-      }
-    }
-  };
-
-  useEffect(() => {
-    if (isLoggedIn) {
-      fetchCartData();
-    }
-  }, [isLoggedIn]);
-
-  // Show empty cart state
-  if (cartData.length === 0) {
-    return (
+  } else if (cartData.length === 0) {
+    content = (
       <main className="container mt-5 pt-5 pb-5 mb-3">
         <div className="row justify-content-center">
           <div className="col-12 col-md-8 col-lg-6">
@@ -342,102 +337,104 @@ function SecondSectionC() {
         </div>
       </main>
     );
-  }
-
-  return (
-    <>
-      <main className="container mt-5 pt-5 pb-5 mb-3">
-        <div className="table-responsive">
-          <Table className="table table-bordered align-middle text-center mb-0">
-            <thead className="table-primary">
-              <tr>
-                {TableHead.map((item, index) => (
-                  <th key={index} className="fw-bold">
-                    {item}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {cartData.map((item) => (
-                <tr key={item.productId}>
-                  <td>
-                    <div className="d-flex flex-column justify-content-center align-items-center">
-                      <img
-                        src={item.imageUrl}
-                        alt={item.productNameEn}
-                        className="cartIMGS img-fluid rounded mb-2"
-                        onError={(e) => {
-                          e.target.src = "/images/imagePlaceHolder.jpg";
-                        }}
-                      />
-                      <span className="fw-semibold small text-secondary">
-                        {item.productNameEn}
+  } else {
+    content = (
+      <>
+        <main className="container mt-5 pt-5 pb-5 mb-3">
+          <div className="table-responsive">
+            <Table className="table table-bordered align-middle text-center mb-0">
+              <thead className="table-primary">
+                <tr>
+                  {TableHead.map((item, index) => (
+                    <th key={index} className="fw-bold">
+                      {item}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {cartData.map((item) => (
+                  <tr key={item.productId}>
+                    <td>
+                      <div className="d-flex flex-column justify-content-center align-items-center">
+                        <img
+                          src={item.imageUrl}
+                          alt={item.productNameEn}
+                          className="cartIMGS img-fluid rounded mb-2"
+                          onError={(e) => {
+                            e.target.src = "/images/imagePlaceHolder.jpg";
+                          }}
+                        />
+                        <span className="fw-semibold small text-secondary">
+                          {locale === "en" ? item.productNameEn : item.productNameAr}
+                        </span>
+                      </div>
+                    </td>
+                    <td>
+                      <span className="fs-5">${item.itemPrice.toFixed(0)}</span>
+                    </td>
+                    <td>
+                      <div className="d-flex justify-content-center align-items-center gap-2">
+                        <button
+                          className="btn btn-outline-danger btn-sm px-2 py-1"
+                          onClick={() => handleDecrease(item.productId, item.quantity)}
+                          aria-label={commonT("decreaseQuantity")}
+                          type="button"
+                          disabled={item.quantity <= 1 || updatingItems[item.productId]}
+                        >
+                          {updatingItems[item.productId] ? (
+                            <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                          ) : (
+                            "-"
+                          )}
+                        </button>
+                        <span className="mx-2 fw-bold">
+                          {String(item.quantity).padStart(2, "0")}
+                        </span>
+                        <button
+                          className="btn btn-outline-primary btn-sm px-2 py-1"
+                          onClick={() => handleIncrease(item.productId, item.quantity)}
+                          aria-label={commonT("increaseQuantity")}
+                          type="button"
+                          disabled={updatingItems[item.productId]}
+                        >
+                          {updatingItems[item.productId] ? (
+                            <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                          ) : (
+                            "+"
+                          )}
+                        </button>
+                      </div>
+                    </td>
+                    <td>
+                      <span className="fs-5">
+                        ${(item.itemPrice * item.quantity).toFixed(0)}
                       </span>
-                    </div>
-                  </td>
-                  <td>
-                    <span className="fs-5">${item.itemPrice.toFixed(0)}</span>
-                  </td>
-                  <td>
-                    <div className="d-flex justify-content-center align-items-center gap-2">
+                    </td>
+                    <td>
                       <button
-                        className="btn btn-outline-danger btn-sm px-2 py-1"
-                        onClick={() => handleDecrease(item.productId, item.quantity)}
-                        aria-label={commonT("decreaseQuantity")}
-                        type="button"
-                        disabled={item.quantity <= 1 || updatingItems[item.productId]}
-                      >
-                        {updatingItems[item.productId] ? (
-                          <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                        ) : (
-                          "-"
-                        )}
-                      </button>
-                      <span className="mx-2 fw-bold">
-                        {String(item.quantity).padStart(2, "0")}
-                      </span>
-                      <button
-                        className="btn btn-outline-primary btn-sm px-2 py-1"
-                        onClick={() => handleIncrease(item.productId, item.quantity)}
-                        aria-label={commonT("increaseQuantity")}
+                        className="btn btn-danger btn-sm"
+                        onClick={() => removeItem(item.productId)}
+                        aria-label={commonT("removeItem")}
                         type="button"
                         disabled={updatingItems[item.productId]}
                       >
-                        {updatingItems[item.productId] ? (
-                          <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                        ) : (
-                          "+"
-                        )}
+                        <i className="fas fa-trash-alt me-1"></i>
+                        {t("remove")}
                       </button>
-                    </div>
-                  </td>
-                  <td>
-                    <span className="fs-5">
-                      ${(item.itemPrice * item.quantity).toFixed(0)}
-                    </span>
-                  </td>
-                  <td>
-                    <button
-                      className="btn btn-danger btn-sm"
-                      onClick={() => removeItem(item.productId)}
-                      aria-label={commonT("removeItem")}
-                      type="button"
-                      disabled={updatingItems[item.productId]}
-                    >
-                      <i className="fas fa-trash-alt me-1"></i>
-                      {t("remove")}
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </Table>
-        </div>
-      </main>
-      <LastPartCart cart={totalPrice} />
-    </>
-  );
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          </div>
+        </main>
+        <LastPartCart cart={totalPrice} />
+      </>
+    );
+  }
+
+  return content;
 }
 
 export default SecondSectionC;

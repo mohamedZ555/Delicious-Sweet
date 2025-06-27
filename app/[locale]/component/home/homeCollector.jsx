@@ -15,7 +15,7 @@ async function getArival() {
 
 async function getFlashData() {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/Products/flashsale`,
+    `${process.env.NEXT_PUBLIC_API_URL}/Products/flashsale?flashsaleNumber=100`,
     {
       cache: "no-store",
     }
@@ -30,7 +30,6 @@ async function getHomeSectionOne() {
   });
   if (!res.ok) throw new Error(`API Error`);
   const result = await res.json();
-
   return result?.data || [];
 }
 async function getAllProducts() {

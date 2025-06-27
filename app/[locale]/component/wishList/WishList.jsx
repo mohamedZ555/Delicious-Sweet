@@ -15,8 +15,9 @@ import {
 } from "react-icons/fa";
 import "../../../../styles/pagesStyle/wishlist.css";
 import ConfirmModal from "../shared/ConfirmModal";
+import "../../../../styles/pagesStyle/loading.css";
 
-function WishList({ local }) {
+function WishList({ locale }) {
   const t = useTranslations("wishlist");
   const { isLoggedIn, toggleWishlist, clearWishlistError, clearWishlist } =
     useAuth();
@@ -67,14 +68,12 @@ function WishList({ local }) {
           }
           const errorMessage = `Failed to fetch wishlist products (${response.status})`;
           setError(errorMessage);
-          console.error(errorMessage);
           setWishlistProducts([]);
         }
       } catch (error) {
         const errorMessage =
           error.message || "Network error while fetching wishlist products";
         setError(errorMessage);
-        console.error(errorMessage, error);
         setWishlistProducts([]);
       } finally {
         setLoading(false);
@@ -103,13 +102,11 @@ function WishList({ local }) {
     try {
       const result = await toggleWishlist(productId);
       if (result && result.success) {
-        // Remove the product from the local state
         setWishlistProducts((prev) =>
           prev.filter((product) => product.productId !== productId)
         );
       }
     } catch (error) {
-      console.error("Error removing from wishlist:", error);
     } finally {
       setRemovingProductId(null);
     }
@@ -132,14 +129,23 @@ function WishList({ local }) {
 
   if (loading) {
     return (
-      <div className="wishlistContainer">
-        <div className="wishlistLoadingState">
-          <div className="text-center">
-            <FaSpinner
-              className="spinner-border text-primary mb-3"
-              style={{ fontSize: "3rem" }}
-            />
-            <p className="text-muted">{t("loading")}</p>
+      <div className="order-loading">
+        {" "}
+        <div className="loading-overlay fade-in">
+          <div className="d-flex align-items-center justify-content-center">
+            <div className="text-center ringPosition position-relative d-flex align-items-center gap-5 flex-column">
+              <div>
+                <div className="loading-ring "></div>
+                <img
+                  src="/images/logo.jpg"
+                  alt="Loading..."
+                  width={150}
+                  height={150}
+                  className="loading-img"
+                />
+              </div>
+              <div className="loadingText ps-3">{t("loading")}</div>
+            </div>
           </div>
         </div>
       </div>
@@ -157,7 +163,7 @@ function WishList({ local }) {
               {t("loginRequiredDescription")}
             </p>
             <Link href="/login" className="btn BGPink">
-              <i className="fas fa-sign-in-alt me-2"></i>
+              <i className="fas fa-sign-in-alt "></i>
               {t("login")}
             </Link>
           </div>
@@ -281,29 +287,50 @@ function WishList({ local }) {
 
                 <div className="wishlistCardBody">
                   <h5 className="wishlistProductTitle">
-                    {local === "en" ? product.productNameEn : product.productNameAr === null ? product.productNameEn : product.productNameAr}
+                    {locale === "en"
+                      ? product.productNameEn
+                      : product.productNameAr === null
+                      ? product.productNameEn
+                      : product.productNameAr}
                   </h5>
 
                   <div className="wishlistPrice">${product.itemPrice}</div>
                   {product.brandNameEn && (
                     <div className="wishlistBrand">
-                      {t("brand")}: {local === "en" ? product.brandNameEn : product.brandNameAr}
+                      {t("brand")}:{" "}
+                      {locale === "en"
+                        ? product.brandNameEn
+                        : product.brandNameAr}
                     </div>
                   )}
                   <button
                     className={`wishlistAddToCartBtn ${
-                      addingProductId === product.productId || product.quantityInStock === 0 ? "loading" : ""
+                      addingProductId === product.productId ||
+                      product.quantityInStock === 0
+                        ? "loading"
+                        : ""
                     }`}
                     onClick={() => handleAddToCart(product.productId)}
                     style={{
-                      cursor: addingProductId === product.productId || product.quantityInStock === 0 ? "not-allowed" : "pointer",
-                      opacity: addingProductId === product.productId || product.quantityInStock === 0 ? 0.7 : 1,
+                      cursor:
+                        addingProductId === product.productId ||
+                        product.quantityInStock === 0
+                          ? "not-allowed"
+                          : "pointer",
+                      opacity:
+                        addingProductId === product.productId ||
+                        product.quantityInStock === 0
+                          ? 0.7
+                          : 1,
                     }}
                     disabled={
-                      addingProductId === product.productId || isAddingToCart || product.quantityInStock === 0
+                      addingProductId === product.productId ||
+                      isAddingToCart ||
+                      product.quantityInStock === 0
                     }
                   >
-                    {addingProductId === product.productId || product.quantityInStock === 0 ? (
+                    {addingProductId === product.productId ||
+                    product.quantityInStock === 0 ? (
                       <>
                         <FaSpinner className="fa-spin me-2" />
                         {t("addingToCart")}

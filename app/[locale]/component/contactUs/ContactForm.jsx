@@ -120,7 +120,6 @@ const ContactPopUpForm = () => {
       setFormData({ email: "", message: "" });
       setErrors({ email: "", message: "" });
     } catch (error) {
-      console.error("Submission error:", error);
       setStatus({
         type: "danger",
         message: error.message || t("form.error"),
